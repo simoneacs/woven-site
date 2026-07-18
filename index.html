@@ -180,7 +180,7 @@
   function splashBraid(){
     var svg=document.getElementById('splashthread'), group=document.getElementById('strandGroup'), wm=document.querySelector('.wm');
     if(!svg||!group||!wm){ splash.classList.add('met'); setTimeout(finishSplash,1400); return; }
-    group.style.visibility='hidden';
+    group.style.visibility='hidden'; group.style.opacity='0';
     var W=window.innerWidth,H=window.innerHeight,cx=W/2;
     var r=wm.getBoundingClientRect(), cy=r.top+r.height/2;
     svg.setAttribute('viewBox','0 0 '+W+' '+H);
@@ -275,8 +275,8 @@
     var start=null;
     function step(ts){
       if(start===null) start=ts;
-      group.style.visibility='visible';
       var el=ts-start, allDone=true;
+      if(el>70 && group.style.visibility!=='visible'){ group.style.visibility='visible'; group.style.transition='opacity .3s ease'; group.style.opacity='1'; }
       for(var m=0;m<tips.length;m++){
         var tp=tips[m];
         var lt=Math.min(1,Math.max(0,(el-tp.delay)/tp.dur));

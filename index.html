@@ -485,6 +485,7 @@
     floats.forEach(function(x){ if(x!==rec) x.f.style.opacity="0"; });
     setTimeout(function(){ window.scrollTo(0,0); document.body.style.overflow=""; splash.classList.add("gone"); }, 3000);
     setTimeout(function(){ rec.ci.style.opacity="0"; }, 3200);
+    setTimeout(function(){ splash.style.display="none"; }, 4400);   // fully remove the intro so it can never sit blank over the site
   }
 
   document.getElementById("spreplay").onclick=build;
@@ -495,7 +496,7 @@
   });
   window.addEventListener("load",function(){
     var seen=false; try{ seen=localStorage.getItem("wovenIntroSeen")==="1"; }catch(e){}
-    if(seen){ splash.classList.add("gone"); document.body.style.overflow=""; }   // return visitor: straight to the site
+    if(seen){ splash.classList.add("gone"); splash.style.display="none"; document.body.style.overflow=""; }   // return visitor: straight to the site
     else { try{ localStorage.setItem("wovenIntroSeen","1"); }catch(e){} build(); }
   });
 })();

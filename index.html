@@ -104,7 +104,7 @@
   .std-seal .stt span{ font-size:8px; letter-spacing:2px; margin-top:2px; }
 
   /* ===== intro splash overlay ===== */
-  #splash{ position:fixed; inset:0; z-index:500; opacity:1; transition:opacity 1.15s ease; }
+  #splash{ position:fixed; inset:0; z-index:500; opacity:1; transition:opacity .9s ease; }
   #splash.gone{ opacity:0; pointer-events:none; }
   .sp-field{ position:fixed; inset:0; overflow:hidden; background:radial-gradient(120% 100% at 50% 46%, #efe6d2 0%, #e4d8c2 55%, #d7c8ad 100%); }
   .sp-vign{ position:fixed; inset:0; pointer-events:none; z-index:60; background:radial-gradient(120% 100% at 50% 46%, transparent 50%, rgba(60,40,24,.30) 100%); }
@@ -477,15 +477,18 @@
     if(splash.classList.contains("leaving"))return;
     splash.classList.add("leaving"); rec.f.classList.add("chosen");
     rec.dr.style.animationPlayState="paused"; rec.f.style.zIndex=300;
-    rec.f.style.transition="transform 1.05s cubic-bezier(.34,1.05,.4,1)";
-    rec.ci.style.transition="transform 1.05s cubic-bezier(.34,1.05,.4,1), opacity .9s ease";
+    rec.f.style.transition="transform .9s cubic-bezier(.34,1.05,.4,1)";
+    rec.ci.style.transition="transform .9s cubic-bezier(.34,1.05,.4,1)";
     void rec.f.offsetWidth;
     rec.f.style.transform="translate(-50%,-50%)";
-    rec.ci.style.transform="rotate(0deg) scale(2.5)";
+    rec.ci.style.transform="rotate(0deg) scale(2.2)";
     floats.forEach(function(x){ if(x!==rec) x.f.style.opacity="0"; });
-    setTimeout(function(){ window.scrollTo(0,0); document.body.style.overflow=""; splash.classList.add("gone"); }, 3000);
-    setTimeout(function(){ rec.ci.style.opacity="0"; }, 3200);
-    setTimeout(function(){ splash.style.display="none"; }, 4400);   // fully remove the intro so it can never sit blank over the site
+    setTimeout(function(){                                          // keep zooming through the photo into the site, no static pause
+      rec.ci.style.transition="transform 1s cubic-bezier(.5,0,.5,1), opacity .85s ease .12s";
+      rec.ci.style.transform="rotate(0deg) scale(4.4)"; rec.ci.style.opacity="0";
+      window.scrollTo(0,0); document.body.style.overflow=""; splash.classList.add("gone");
+    }, 1400);
+    setTimeout(function(){ splash.style.display="none"; }, 2700);
   }
 
   document.getElementById("spreplay").onclick=build;

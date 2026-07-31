@@ -418,8 +418,8 @@
   function pW(){ return Math.max(74, Math.min(window.innerWidth*0.13, 186)); }
   function radii(){
     var pw=pW(), ph=pw+39, K=1.2;                       // K = max proportional reach + jitter
-    var RX=Math.min((window.innerWidth*0.5  - pw*0.5 - 18)/K, 360);
-    var RY=Math.min((window.innerHeight*0.5 - ph*0.5 - 18)/K, 168);
+    var RX=Math.min((window.innerWidth*0.5  - pw*0.5 - 18)/K, 340);
+    var RY=Math.min((window.innerHeight*0.5 - ph*0.5 - 18)/K, 250);
     return { RX:Math.max(40,RX), RY:Math.max(34,RY) };
   }
   function layout(){

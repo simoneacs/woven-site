@@ -42,7 +42,7 @@
     background:radial-gradient(130% 100% at 80% 10%, #efe6d2, var(--paper) 55%), var(--paper); }
   .topmini{ display:flex; align-items:center; gap:12px; width:100%; padding:22px clamp(22px,5vw,54px) 0; }
   .topmini .wm{ font-family:"Anton",sans-serif; letter-spacing:5px; font-size:22px; color:var(--ink); }
-  .topmini .wmlogo{ height:44px; width:44px; border-radius:9px; display:block; }
+  .topmini .wmlogo{ height:42px; width:auto; display:block; }
   .topmini .rule{ flex:1; height:2px; background:var(--ink); opacity:.85; }
   .topmini .est{ font-family:"Oswald",sans-serif; font-weight:600; letter-spacing:3px; font-size:11px; text-transform:uppercase; color:#6f5a3f; }
 
@@ -243,7 +243,7 @@
 
   /* ===== phone tuning ===== */
   @media(max-width:600px){
-    .topmini{ padding:18px 20px 0; } .topmini .wmlogo{ height:36px; width:36px; border-radius:8px; } .topmini .est{ display:none; }
+    .topmini{ padding:18px 20px 0; } .topmini .wmlogo{ height:34px; width:auto; } .topmini .est{ display:none; }
     .hero-body{ padding:6px 20px 40px; }
     .hero h1{ font-size:clamp(37px,11.5vw,58px); line-height:1.0; }
     .hero h1 .u{ font-size:1.18em; }
@@ -287,7 +287,7 @@
 <div class="grain"></div>
 
 <header class="hero">
-  <div class="topmini"><img class="wmlogo" src="woven-logo.png" alt="Woven" width="44" height="44"><span class="rule"></span><span class="est">The Village Network</span></div>
+  <div class="topmini"><img class="wmlogo" src="woven-lockup.png" alt="Woven" height="42"><span class="rule"></span><span class="est">The Village Network</span></div>
   <div class="hero-body">
     <div class="hero-inner">
     <div class="hero-copy">

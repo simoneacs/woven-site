@@ -83,7 +83,13 @@
 
   .standard{ position:relative; background:var(--paper); padding:clamp(56px,7vw,104px) clamp(22px,5vw,54px); border-top:1.5px solid var(--ink); }
   .std-grid{ display:grid; grid-template-columns:1fr .82fr; gap:clamp(30px,5vw,64px); align-items:start; max-width:1160px; margin:0 auto; }
-  @media(max-width:860px){ .std-grid{ grid-template-columns:1fr; } .frame{ max-width:300px; margin:28px auto 0; } }
+  .seal-between{ display:none; }
+  @media(max-width:860px){ .std-grid{ grid-template-columns:1fr; } .frame{ max-width:300px; margin:28px auto 0; }
+    .std-sealcol{ display:none; }
+    .standard{ padding-bottom:0; }
+    .seal-between{ display:block; text-align:center; background:var(--paper); padding:24px 22px 24px; }
+    .seal-between img{ width:clamp(108px,30vw,150px); height:auto; display:block; margin:0 auto; }
+  }
   .kicker.o{ color:var(--orange); }
   .std h2{ font-family:"Anton",sans-serif; text-transform:uppercase; line-height:1.02; color:var(--ink); font-size:clamp(34px,5vw,60px); margin:14px 0 0; }
   .std h2 .u{ font-family:"Permanent Marker",cursive; color:var(--orange); text-transform:uppercase; font-weight:400; font-size:1.32em; line-height:.9; display:inline-block; transform:rotate(-2deg); vertical-align:baseline; }
@@ -104,22 +110,30 @@
   .std-seal .stt span{ font-size:8px; letter-spacing:2px; margin-top:2px; }
 
   /* ===== intro splash overlay ===== */
-  #splash{ position:fixed; inset:0; z-index:500; opacity:1; transition:opacity .9s ease; }
+  #splash{ position:fixed; inset:0; z-index:500; opacity:1; transition:opacity .9s cubic-bezier(.4,0,.2,1); }
   #splash.gone{ opacity:0; pointer-events:none; }
   .sp-field{ position:fixed; inset:0; overflow:hidden; background:radial-gradient(120% 100% at 50% 46%, #efe6d2 0%, #e4d8c2 55%, #d7c8ad 100%); }
   .sp-vign{ position:fixed; inset:0; pointer-events:none; z-index:60; background:radial-gradient(120% 100% at 50% 46%, transparent 50%, rgba(60,40,24,.30) 100%); }
   .sp-grain{ position:fixed; inset:0; z-index:61; pointer-events:none; opacity:.07; mix-blend-mode:multiply; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
-  .sp-invite{ position:absolute; left:50%; top:13%; transform:translate(-50%,0); z-index:70; text-align:center; transition:opacity .6s ease; pointer-events:none; }
+  .sp-invite{ position:absolute; left:50%; top:12%; transform:translate(-50%,0); z-index:70; text-align:center; transition:opacity .6s ease; pointer-events:none; }
   .sp-invite .sub{ font-family:"Oswald",sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:4px; font-size:clamp(14px,1.6vw,18px); color:#5a4636; }
-  .sp-invite .cue{ font-family:"Oswald",sans-serif; font-weight:500; letter-spacing:3px; text-transform:uppercase; font-size:11px; color:#9c7b6a; margin-top:8px; }
+  .sp-cue{ position:absolute; left:50%; bottom:12%; transform:translate(-50%,0); z-index:70; text-align:center; transition:opacity .6s ease; pointer-events:none; font-family:"Oswald",sans-serif; font-weight:500; letter-spacing:3px; text-transform:uppercase; font-size:11px; color:#9c7b6a; }
   .sp-float{ position:absolute; left:50%; top:50%; cursor:pointer; opacity:0; transition:opacity 1.7s ease; will-change:opacity,transform; }
   .sp-drift{ will-change:transform; }
   .sp-cardin{ position:relative; background:#F4ECDD; border:1px solid #c9b48c; padding:9px 9px 30px; box-shadow:0 24px 50px rgba(50,30,15,.32); transition:transform .5s cubic-bezier(.2,.85,.25,1), filter .45s ease, opacity .45s ease; }
   .sp-cardin .im{ display:block; width:clamp(74px, 13vw, 186px); aspect-ratio:1/1; }
   .sp-cardin .cap{ font-family:"Caveat",cursive; font-weight:700; font-size:16px; color:#241a12; text-align:center; margin-top:7px; }
+  @media(max-width:900px){                       /* phones + tablets: compact polaroids; caption wraps and never widens the frame */
+    .sp-cardin{ --spw:clamp(58px,9.2vw,90px); width:calc(var(--spw) + 12px); padding:5px 6px 7px; box-shadow:0 14px 30px rgba(50,30,15,.30); }
+    .sp-cardin .im{ width:var(--spw) !important; }
+    .sp-cardin .cap{ font-size:clamp(10px,2.5vw,13px); line-height:1.12; margin-top:4px; }
+    .sp-invite{ top:8%; }
+    .sp-invite .sub{ font-size:13px; letter-spacing:2px; }
+    .sp-cue{ bottom:8%; font-size:10px; }
+  }
   .sp-float:hover{ z-index:300 !important; }
   #splash.leaving .sp-float:not(.chosen){ opacity:0 !important; transition:opacity .6s ease; }
-  #splash.leaving .sp-invite{ opacity:0; }
+  #splash.leaving .sp-invite, #splash.leaving .sp-cue{ opacity:0; }
   .sp-replay{ position:fixed; bottom:14px; right:14px; z-index:600; transition:opacity .3s ease; font-family:"Oswald",sans-serif; font-weight:600; letter-spacing:1px; text-transform:uppercase; font-size:11px; background:#F4ECDD; color:#241a12; border:1.5px solid #241a12; padding:7px 12px; border-radius:2px; cursor:pointer; }
   @keyframes sp-d1{50%{transform:translate(17px,-24px) rotate(2.2deg)}}
   @keyframes sp-d2{50%{transform:translate(-22px,-15px) rotate(-2.6deg)}}
@@ -268,7 +282,7 @@
       <div class="card" style="top:30%;left:74%;width:19%;--r:6deg;--d:7.4s;--y:7px"><div class="inner"><div class="im" style="aspect-ratio:5/4;background:url(miss-barbs-hero.jpeg) center/cover, linear-gradient(150deg,#9db080,#3E5A49)"></div><div class="cap">Miss Barb's</div></div></div>
       <div class="card" style="top:10%;left:46%;width:17%;--r:-4deg;--d:9.2s;--y:-6px"><div class="inner"><div class="im" style="aspect-ratio:1/1;background:url(rogers-garden-hero.jpg) center/cover, linear-gradient(150deg,#b07a48,#3a2418)"></div><div class="cap">The Rogers Garden</div></div></div>
       <div class="card" style="top:76%;left:28%;width:19%;--r:4deg;--d:8.0s;--y:7px"><div class="inner"><div class="im" style="aspect-ratio:5/4;background:url(celsious-hero.jpg) center/cover, linear-gradient(150deg,#7d8b64,#2b3a2f)"></div><div class="cap">Celsious</div></div></div>
-      <div class="starburst"><svg viewBox="0 0 220 220"><path d="M 110.0 6.0 L 122.2 24.9 L 139.3 10.2 L 145.7 31.8 L 166.2 22.5 L 166.3 45.0 L 188.6 41.9 L 182.3 63.5 L 204.6 66.8 L 192.5 85.8 L 212.9 95.2 L 196.0 110.0 L 212.9 124.8 L 192.5 134.2 L 204.6 153.2 L 182.3 156.5 L 188.6 178.1 L 166.3 175.0 L 166.2 197.5 L 145.7 188.2 L 139.3 209.8 L 122.2 195.1 L 110.0 214.0 L 97.8 195.1 L 80.7 209.8 L 74.3 188.2 L 53.8 197.5 L 53.7 175.0 L 31.4 178.1 L 37.7 156.5 L 15.4 153.2 L 27.5 134.2 L 7.1 124.8 L 24.0 110.0 L 7.1 95.2 L 27.5 85.8 L 15.4 66.8 L 37.7 63.5 L 31.4 41.9 L 53.7 45.0 L 53.8 22.5 L 74.3 31.8 L 80.7 10.2 L 97.8 24.9 Z" fill="#BC4B26"/></svg><div class="st"><b>WOVEN<br>CERTIFIED</b><span>EST. 2026</span></div></div>
+      <div class="starburst"><svg viewBox="0 0 220 220"><path d="M 110.0 6.0 L 122.2 24.9 L 139.3 10.2 L 145.7 31.8 L 166.2 22.5 L 166.3 45.0 L 188.6 41.9 L 182.3 63.5 L 204.6 66.8 L 192.5 85.8 L 212.9 95.2 L 196.0 110.0 L 212.9 124.8 L 192.5 134.2 L 204.6 153.2 L 182.3 156.5 L 188.6 178.1 L 166.3 175.0 L 166.2 197.5 L 145.7 188.2 L 139.3 209.8 L 122.2 195.1 L 110.0 214.0 L 97.8 195.1 L 80.7 209.8 L 74.3 188.2 L 53.8 197.5 L 53.7 175.0 L 31.4 178.1 L 37.7 156.5 L 15.4 153.2 L 27.5 134.2 L 7.1 124.8 L 24.0 110.0 L 7.1 95.2 L 27.5 85.8 L 15.4 66.8 L 37.7 63.5 L 31.4 41.9 L 53.7 45.0 L 53.8 22.5 L 74.3 31.8 L 80.7 10.2 L 97.8 24.9 Z" fill="#BC4B26"/></svg><div class="st"><b>WOVEN<br>CERTIFIED</b></div></div>
     </div>
     </div>
   </div>
@@ -306,12 +320,14 @@
         <li><span class="num">04</span><span><span class="pt">Customer Experience</span><span class="pd">We confirm the brand is ready for you to engage with their product and able to deliver.</span></span></li>
       </ul>
     </div>
-    <div>
+    <div class="std-sealcol">
       <div class="frame"><div class="photo" style="background:url(woven-seal.png) center/76% no-repeat, radial-gradient(ellipse 42% 34% at 50% 50%, #F5EFE8 0 98%, transparent 99%), linear-gradient(160deg, #E8C4A4, #C8956A)"></div><div class="cap2">Woven Certified</div>
       </div>
     </div>
   </div>
 </section>
+
+  <div class="seal-between" aria-hidden="true"><img src="woven-seal.png" alt="Woven Certified seal"></div>
 
   <section class="msec dark center" id="partners">
     <div class="wrap">
@@ -416,10 +432,15 @@
   PH.forEach(function(o){ var im=new Image(); im.src=o.img; });   // preload so the splash has photos ready
   var drifts=["sp-d1","sp-d2","sp-d3","sp-d4"], floats=[];
   function pW(){ return Math.max(74, Math.min(window.innerWidth*0.13, 186)); }
+  function isMob(){ return window.innerWidth<=900; }
   function radii(){
     var pw=pW(), ph=pw+39, K=1.2;                       // K = max proportional reach + jitter
-    var RX=Math.min((window.innerWidth*0.5  - pw*0.5 - 18)/K, 340);
-    var RY=Math.min((window.innerHeight*0.5 - ph*0.5 - 18)/K, 250);
+    if(isMob()){                                        // phones + tablets: compact clustered pile, scales with width
+      var iw=Math.max(58, Math.min(window.innerWidth*0.092, 90));
+      return { RX:(iw+12)*0.92, RY:(iw+40) };
+    }
+    var RX=Math.min((window.innerWidth*0.5  - pw*0.5 - 14)/K, 560);
+    var RY=Math.min((window.innerHeight*0.5 - ph*0.5 - 14)/K, 330);
     return { RX:Math.max(40,RX), RY:Math.max(34,RY) };
   }
   function layout(){
@@ -431,18 +452,20 @@
 
   function build(){
     splash.classList.remove("gone"); splash.classList.remove("leaving");
-    splash.style.opacity="1"; spfield.innerHTML=""; floats=[];
+    splash.style.display=""; splash.style.opacity="1"; spfield.innerHTML=""; floats=[];
     document.body.style.overflow="hidden";
     var inv=document.createElement("div"); inv.className="sp-invite";
-    inv.innerHTML='<div class="sub">Woven &middot; The Village Network</div><div class="cue">Pick a photo to step inside</div>';
+    inv.innerHTML='<div class="sub">Woven &middot; The Village Network</div>';
     spfield.appendChild(inv);
+    var cue=document.createElement("div"); cue.className="sp-cue"; cue.textContent="Pick a photo to enter"; spfield.appendChild(cue);
 
     var n=PH.length, r0=radii();
+    var SPPOS={"Filé Gumbo Bar":[-0.68,-0.45],"The LeVue Loft":[-0.15,-0.45],"Bed-Vyne Wine":[0.20,-0.45],"Coffee Uplifts People":[0.63,-0.45],"Harlem Cycle":[-0.46,0.00],"The Rogers Garden":[-0.08,0.45],"Miss Barb's":[0.49,0.00],"Celsious":[-0.58,0.45],"Rogers Burgers":[0.30,0.45],"Baked Cravings":[0.82,0.45]};
+    if(isMob()){                                        // staggered organic pile for phones + tablets
+      SPPOS={"Filé Gumbo Bar":[-0.52,-1.62],"Coffee Uplifts People":[0.5,-1.48],"Bed-Vyne Wine":[-0.6,-0.82],"The LeVue Loft":[0.52,-0.94],"Harlem Cycle":[-0.5,-0.04],"Miss Barb's":[0.6,0.08],"Celsious":[-0.58,0.8],"Rogers Burgers":[0.5,0.72],"The Rogers Garden":[-0.5,1.58],"Baked Cravings":[0.56,1.66]};
+    }
     PH.forEach(function(o,i){
-      var ga=i*2.39996, frac=Math.sqrt((i+0.5)/n);
-      var nx=frac*Math.cos(ga) + (Math.random()*2-1)*0.12;        // proportional, capped so it never leaves the page
-      var ny=frac*Math.sin(ga) + (Math.random()*2-1)*0.12;
-      if(o.c==="Baked Cravings"){ nx=0.82; ny=0.62; }             // pin toward bottom-right
+      var p=SPPOS[o.c]||[0,0], nx=p[0], ny=p[1];                    // fixed, non-overlapping scatter
       var s=(0.62+o.d*0.46).toFixed(3), rot=((Math.random()*2-1)*10).toFixed(1);
       var f=document.createElement("div"); f.className="sp-float";
       f.style.left="50%"; f.style.top="50%";
@@ -477,18 +500,19 @@
     if(splash.classList.contains("leaving"))return;
     splash.classList.add("leaving"); rec.f.classList.add("chosen");
     rec.dr.style.animationPlayState="paused"; rec.f.style.zIndex=300;
-    rec.f.style.transition="transform .9s cubic-bezier(.34,1.05,.4,1)";
-    rec.ci.style.transition="transform .9s cubic-bezier(.34,1.05,.4,1)";
+    rec.f.style.transition="transform .8s cubic-bezier(.34,1.05,.4,1)";
+    rec.ci.style.transition="transform .8s cubic-bezier(.34,1.05,.4,1)";
     void rec.f.offsetWidth;
     rec.f.style.transform="translate(-50%,-50%)";
-    rec.ci.style.transform="rotate(0deg) scale(2.2)";
+    rec.ci.style.transform="rotate(0deg) scale(2.0)";
     floats.forEach(function(x){ if(x!==rec) x.f.style.opacity="0"; });
-    setTimeout(function(){                                          // keep zooming through the photo into the site, no static pause
-      rec.ci.style.transition="transform 1s cubic-bezier(.5,0,.5,1), opacity .85s ease .12s";
-      rec.ci.style.transform="rotate(0deg) scale(4.4)"; rec.ci.style.opacity="0";
-      window.scrollTo(0,0); document.body.style.overflow=""; splash.classList.add("gone");
-    }, 1400);
-    setTimeout(function(){ splash.style.display="none"; }, 2700);
+    setTimeout(function(){                                          // one continuous gesture: the photo keeps growing gently while the whole intro dissolves into the site over the SAME 1.4s, so it reads as a true crossfade
+      rec.ci.style.transition="transform 1.5s cubic-bezier(.4,0,.2,1)";
+      rec.ci.style.transform="rotate(0deg) scale(3.4)";
+      window.scrollTo(0,0); document.body.style.overflow="";
+    }, 600);
+    setTimeout(function(){ splash.style.opacity="0"; splash.classList.add("gone"); }, 1550);   // zoom first, THEN fade the intro away
+    setTimeout(function(){ splash.style.display="none"; }, 2650);
   }
 
   document.getElementById("spreplay").onclick=build;

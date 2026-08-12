@@ -234,6 +234,9 @@
   .mnote{ font-size:13px; color:#d8c6b6; max-width:52ch; margin:26px auto 0; line-height:1.5; }
 
   /* footer */
+  .mfoot .fsignup{ max-width:460px; margin:0 auto clamp(30px,4vw,42px); padding-bottom:clamp(30px,4vw,42px); border-bottom:1px solid rgba(244,236,221,.16); }
+  .mfoot .signup{ margin-top:0; }
+  .mfoot .signup-note{ color:#e7d9c9; }
   .mfoot{ background:var(--mahog); color:var(--cream); padding:clamp(48px,6vw,84px) clamp(22px,5vw,54px); border-top:1.5px solid #1c110a; text-align:center; }
   .mfoot .fwm{ font-family:"Anton",sans-serif; letter-spacing:6px; font-size:30px; }
   .mfoot .ftag{ font-family:"Oswald",sans-serif; font-weight:600; letter-spacing:3px; text-transform:uppercase; font-size:12px; color:#e0904a; margin-top:8px; }
@@ -274,6 +277,12 @@
     .mfoot .flinks{ line-height:2; }
     .frame{ max-width:210px; }
   }
+  .signup{ display:flex; gap:12px; max-width:480px; margin:30px auto 0; }
+  .signup-in{ flex:1; padding:14px 16px; border:1.5px solid var(--line); border-radius:2px; background:var(--cream); font-family:"DM Sans",sans-serif; font-size:16px; color:var(--ink); }
+  .signup-in::placeholder{ color:#9c7b6a; }
+  .signup .mbtn{ border:none; cursor:pointer; }
+  .signup-note{ font-family:"DM Sans",sans-serif; font-size:13px; color:#9c7b6a; margin:14px 0 0; }
+  @media(max-width:520px){ .signup{ flex-direction:column; } }
 </style></head>
 <body>
 
@@ -434,6 +443,17 @@
   </section>
 
   <footer class="mfoot">
+    <div class="fsignup">
+      <form class="signup" id="wovenSignup" novalidate>
+        <input type="email" id="wovenEmail" class="signup-in" placeholder="you@email.com" aria-label="Email address" required>
+        <button type="submit" class="mbtn fill">Join the Village</button>
+      </form>
+      <p class="signup-note" id="wovenNote"></p>
+      <!-- Sender: off-screen form that receives the signup and delivers it to your Sender list -->
+      <div id="senderProxy" aria-hidden="true" style="position:absolute; left:-9999px; top:0; width:1px; height:1px; overflow:hidden;">
+        <div class="sender-form-field" data-sender-form-id="dwp16R"></div>
+      </div>
+    </div>
     <div class="fwm">WOVEN</div>
     <div class="ftag">Spend with intention &middot; Grow with purpose</div>
     <div class="flinks"><a href="#standard">The Standard</a> &middot; <a href="#guide">The Guide</a> &middot; <a href="#partners">Partners</a> &middot; <a href="#membership">Membership</a> &middot; <a href="#launch">Launch</a> &middot; <a href="mailto:hello@wovenvillage.com">Contact</a> &middot; <a href="https://www.instagram.com/woven.village/" target="_blank" rel="noopener noreferrer">Instagram</a> &middot; <a href="https://www.tiktok.com/@woven.village" target="_blank" rel="noopener noreferrer">TikTok</a> &middot; <a href="privacy-policy.html">Privacy</a> &middot; <a href="terms.html">Terms</a></div>
@@ -555,5 +575,54 @@
 })();
 </script>
 
+<!-- Sender -->
+<script>
+  (function (s, e, n, d, er) {
+    s['Sender'] = er;
+    s[er] = s[er] || function () { (s[er].q = s[er].q || []).push(arguments) }, s[er].l = 1 * new Date();
+    s[er].on = function(event, callback) { s[er].listeners = s[er].listeners || {}; (s[er].listeners[event] = s[er].listeners[event] || []).push(callback); };
+    var a = e.createElement(n), m = e.getElementsByTagName(n)[0];
+    a.async = 1; a.src = d; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://cdn.sender.net/accounts_resources/universal.js', 'sender');
+  sender('4ac7fc1ea38748')
+</script>
+<script>
+  (function(){
+    var f = document.getElementById('wovenSignup');
+    if(!f) return;
+    var note = document.getElementById('wovenNote');
+    var noteDefault = note ? note.textContent : '';
+    function feedSender(email, attempt){
+      var proxy = document.getElementById('senderProxy');
+      var sForm = proxy && proxy.querySelector('form');
+      var sIn = proxy && (proxy.querySelector('input[type=email]') || proxy.querySelector('input[name*=email]') || proxy.querySelector('input'));
+      var sBtn = proxy && (proxy.querySelector('button[type=submit]') || proxy.querySelector('[type=submit]') || proxy.querySelector('button'));
+      if(sForm && sIn){
+        try{
+          var setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
+          setter.call(sIn, email);
+        }catch(err){ sIn.value = email; }
+        sIn.dispatchEvent(new Event('input', {bubbles:true}));
+        sIn.dispatchEvent(new Event('change', {bubbles:true}));
+        if(sBtn){ sBtn.click(); }
+        else if(sForm.requestSubmit){ sForm.requestSubmit(); }
+        else { sForm.submit(); }
+        return true;
+      }
+      if(attempt < 25){ setTimeout(function(){ feedSender(email, attempt+1); }, 150); }
+      return false;
+    }
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      var emailEl = document.getElementById('wovenEmail');
+      var email = (emailEl.value || '').trim();
+      if(!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ if(note){ note.textContent = 'Please enter a valid email address.'; } emailEl.focus(); return; }
+      feedSender(email, 0);
+      f.style.display = 'none';
+      if(note){ note.textContent = "You're on the list. Watch your inbox for a confirmation."; }
+    });
+  })();
+</script>
+<!-- End Sender -->
 <!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "36c820f9b33e41b981ab00a55356a04c"}'></script><!-- End Cloudflare Web Analytics -->
 </body></html>

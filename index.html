@@ -444,15 +444,8 @@
 
   <footer class="mfoot">
     <div class="fsignup">
-      <form class="signup" id="wovenSignup" novalidate>
-        <input type="email" id="wovenEmail" class="signup-in" placeholder="you@email.com" aria-label="Email address" required>
-        <button type="submit" class="mbtn fill">Join the Village</button>
-      </form>
-      <p class="signup-note" id="wovenNote"></p>
-      <!-- Sender: off-screen form that receives the signup and delivers it to your Sender list -->
-      <div id="senderProxy" aria-hidden="true" style="position:fixed; right:0; bottom:0; width:320px; height:360px; clip-path:inset(50%); -webkit-clip-path:inset(50%); pointer-events:none; z-index:-1;">
-        <div class="sender-form-field" data-sender-form-id="dwp16R"></div>
-      </div>
+      <!-- Sender: real embedded form (renders visibly, submits directly to your Sender list) -->
+      <div class="sender-form-field" data-sender-form-id="dwp16R"></div>
     </div>
     <div class="fwm">WOVEN</div>
     <div class="ftag">Spend with intention &middot; Grow with purpose</div>
@@ -585,51 +578,6 @@
     a.async = 1; a.src = d; m.parentNode.insertBefore(a, m)
   })(window, document, 'script', 'https://cdn.sender.net/accounts_resources/universal.js', 'sender');
   sender('4ac7fc1ea38748')
-</script>
-<script>
-  (function(){
-    var f = document.getElementById('wovenSignup');
-    if(!f) return;
-    var note = document.getElementById('wovenNote');
-    var btn = f.querySelector('button[type=submit]');
-    function onSuccess(){
-      f.style.display = 'none';
-      if(note){ note.textContent = "You're on the list. Thank you for joining the village."; }
-    }
-    function onFail(){
-      if(btn){ btn.disabled = false; btn.textContent = 'Join the Village'; }
-      if(note){ note.textContent = 'That did not go through. Please try again, or email hello@wovenvillage.com.'; }
-    }
-    function feedSender(email, attempt){
-      var proxy = document.getElementById('senderProxy');
-      var sForm = proxy && proxy.querySelector('form');
-      var sIn = proxy && (proxy.querySelector('input[type=email]') || proxy.querySelector('input[name*=email]') || proxy.querySelector('input'));
-      var sBtn = proxy && (proxy.querySelector('button[type=submit]') || proxy.querySelector('[type=submit]') || proxy.querySelector('button'));
-      if(sForm && sIn){
-        try{
-          var setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
-          setter.call(sIn, email);
-        }catch(err){ sIn.value = email; }
-        sIn.dispatchEvent(new Event('input', {bubbles:true}));
-        sIn.dispatchEvent(new Event('change', {bubbles:true}));
-        if(sBtn){ sBtn.click(); }
-        else if(sForm.requestSubmit){ sForm.requestSubmit(); }
-        else { sForm.submit(); }
-        onSuccess();
-        return;
-      }
-      if(attempt < 60){ setTimeout(function(){ feedSender(email, attempt+1); }, 200); }
-      else { onFail(); }
-    }
-    f.addEventListener('submit', function(e){
-      e.preventDefault();
-      var emailEl = document.getElementById('wovenEmail');
-      var email = (emailEl.value || '').trim();
-      if(!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ if(note){ note.textContent = 'Please enter a valid email address.'; } emailEl.focus(); return; }
-      if(btn){ btn.disabled = true; btn.textContent = 'Joining...'; }
-      feedSender(email, 0);
-    });
-  })();
 </script>
 <!-- End Sender -->
 <!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "36c820f9b33e41b981ab00a55356a04c"}'></script><!-- End Cloudflare Web Analytics -->

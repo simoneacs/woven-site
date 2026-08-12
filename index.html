@@ -450,7 +450,7 @@
       </form>
       <p class="signup-note" id="wovenNote"></p>
       <!-- Sender: off-screen form that receives the signup and delivers it to your Sender list -->
-      <div id="senderProxy" aria-hidden="true" style="position:absolute; left:-9999px; top:0; width:1px; height:1px; overflow:hidden;">
+      <div id="senderProxy" aria-hidden="true" style="position:fixed; right:0; bottom:0; width:320px; height:360px; clip-path:inset(50%); -webkit-clip-path:inset(50%); pointer-events:none; z-index:-1;">
         <div class="sender-form-field" data-sender-form-id="dwp16R"></div>
       </div>
     </div>
@@ -591,7 +591,15 @@
     var f = document.getElementById('wovenSignup');
     if(!f) return;
     var note = document.getElementById('wovenNote');
-    var noteDefault = note ? note.textContent : '';
+    var btn = f.querySelector('button[type=submit]');
+    function onSuccess(){
+      f.style.display = 'none';
+      if(note){ note.textContent = "You're on the list. Thank you for joining the village."; }
+    }
+    function onFail(){
+      if(btn){ btn.disabled = false; btn.textContent = 'Join the Village'; }
+      if(note){ note.textContent = 'That did not go through. Please try again, or email hello@wovenvillage.com.'; }
+    }
     function feedSender(email, attempt){
       var proxy = document.getElementById('senderProxy');
       var sForm = proxy && proxy.querySelector('form');
@@ -607,19 +615,19 @@
         if(sBtn){ sBtn.click(); }
         else if(sForm.requestSubmit){ sForm.requestSubmit(); }
         else { sForm.submit(); }
-        return true;
+        onSuccess();
+        return;
       }
-      if(attempt < 25){ setTimeout(function(){ feedSender(email, attempt+1); }, 150); }
-      return false;
+      if(attempt < 60){ setTimeout(function(){ feedSender(email, attempt+1); }, 200); }
+      else { onFail(); }
     }
     f.addEventListener('submit', function(e){
       e.preventDefault();
       var emailEl = document.getElementById('wovenEmail');
       var email = (emailEl.value || '').trim();
       if(!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ if(note){ note.textContent = 'Please enter a valid email address.'; } emailEl.focus(); return; }
+      if(btn){ btn.disabled = true; btn.textContent = 'Joining...'; }
       feedSender(email, 0);
-      f.style.display = 'none';
-      if(note){ note.textContent = "You're on the list. Watch your inbox for a confirmation."; }
     });
   })();
 </script>

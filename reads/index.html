@@ -145,6 +145,13 @@ body{ background:var(--cream); color:var(--text); font-family:'DM Sans',system-u
 .wr-past-name{ font-family:'Anton',sans-serif; font-size:16px; font-weight:400; letter-spacing:.03em; color:var(--ink); text-transform:uppercase; }
 .wr-past-n{ font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
 
+.wr-hostlink-wrap{ margin-top:42px; text-align:center; }
+.wr-hostlink{ background:none; border:none; color:var(--muted); font-family:'Oswald',sans-serif;
+  font-size:10px; letter-spacing:.14em; text-transform:uppercase; cursor:pointer; padding:8px; }
+.wr-hostlink:hover{ color:var(--textmid); }
+.wr-hostlink:focus-visible{ outline:2px solid var(--rust); outline-offset:2px; }
+.wr-authbox{ margin-top:24px; padding-top:20px; border-top:1px solid var(--border); }
+
 .wr-footer{ margin-top:52px; padding-top:18px; border-top:1px solid var(--border); text-align:center; }
 .wr-fwm{ font-family:'Anton',sans-serif; letter-spacing:6px; font-size:22px; color:var(--ink); }
 .wr-ftag{ font-family:'Oswald',sans-serif; font-weight:500; letter-spacing:2px; text-transform:uppercase; font-size:11px; color:var(--rust); margin-top:6px; }
@@ -302,6 +309,7 @@ var S = {
   formError: "",
   formNotice: "",
   authError: "",
+  authPanelOpen: false,
   toolsMessage: ""
 };
 var selectedRating = 0;
@@ -598,12 +606,16 @@ function renderAdminAuth(){
       + '<p class="wr-empty">Signed in as ' + esc(S.session.user.email) + '.</p>'
       + '<button class="wr-ghost" data-act="admin-signout" style="margin-top:10px">Sign out</button></section>';
   }
-  return '<section class="wr-sec"><div class="wr-sec-head"><h2 class="wr-sec-title">Host sign-in</h2></div><div class="wr-form">'
+  if (!S.authPanelOpen) {
+    return '<p class="wr-hostlink-wrap"><button type="button" class="wr-hostlink" data-act="toggle-auth">Host sign-in</button></p>';
+  }
+  return '<div class="wr-authbox"><div class="wr-form">'
     + '<div class="wr-row"><div class="wr-field"><label class="wr-label" for="wr-auth-email">Email</label><input id="wr-auth-email" class="wr-input" type="email" autocomplete="username"></div>'
     + '<div class="wr-field"><label class="wr-label" for="wr-auth-pass">Password</label><input id="wr-auth-pass" class="wr-input" type="password" autocomplete="current-password"></div></div>'
     + '<p class="wr-error" id="wr-auth-error"' + (S.authError ? "" : " hidden") + ">" + esc(S.authError) + "</p>"
-    + '<button class="wr-submit" data-act="admin-signin" style="align-self:flex-start">Sign in</button>'
-    + "</div></section>";
+    + '<div class="wr-toggle"><button class="wr-submit" data-act="admin-signin" style="flex:1">Sign in</button>'
+    + '<button class="wr-ghost" data-act="toggle-auth" style="padding:13px 16px">Cancel</button></div>'
+    + "</div></div>";
 }
 function renderSeasonTools(season, live){
   if (!isAdmin() || !season) return "";
@@ -870,7 +882,7 @@ async function onSignIn(){
   var r = await sb.auth.signInWithPassword({ email: email, password: password });
   if (r.error) { S.authError = "Sign-in failed. Check your email and password."; render(); return; }
 }
-async function signOut(){ await sb.auth.signOut(); }
+async function signOut(){ S.authPanelOpen = false; await sb.auth.signOut(); }
 
 function openSeasonSettings(){
   var season = currentSeason();
@@ -1045,6 +1057,7 @@ app.addEventListener("click", function(e){
   else if (action === "toggle-counts") { S.showAllCounts = !S.showAllCounts; render(); }
   else if (action === "admin-signout") { signOut(); }
   else if (action === "admin-signin") { onSignIn(); }
+  else if (action === "toggle-auth") { S.authPanelOpen = !S.authPanelOpen; S.authError = ""; render(); }
   else if (action === "season-settings-open") { openSeasonSettings(); }
   else if (action === "season-settings-save") { saveSeasonSettings(); }
   else if (action === "season-settings-cancel") { S.seasonSettingsEditing = false; render(); }

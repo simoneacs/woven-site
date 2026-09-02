@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Village Reads &middot; Woven</title>
+<meta name="description" content="Every book a Woven member finishes becomes a patch on the village quilt. Add yours before the season closes.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#BC4B26">
+<link rel="canonical" href="https://wovenvillage.com/reads/">
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Woven">
+<meta property="og:title" content="Village Reads &middot; Woven">
+<meta property="og:description" content="Every book a Woven member finishes becomes a patch on the village quilt.">
+<meta property="og:url" content="https://wovenvillage.com/reads/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Permanent+Marker&display=swap" rel="stylesheet">
+<style>
+:root{
+  --rust:#BC4B26; --cream:#F5EFE8; --ink:#3C2A1B;
+  --deepcream:#E9E0CE; --border:#D8CBB4; --muted:#8A7259;
+  --text:#3C2A1B; --textmid:#6B5540; --white:#FBF7EE;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{ background:var(--cream); color:var(--text); font-family:'DM Sans',system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+#wr-app{ max-width:760px; margin:0 auto; padding:28px 18px 56px; }
+
+.wr-head{ display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap;
+  border-bottom:2px solid var(--rust); padding-bottom:11px; margin-bottom:24px; }
+.wr-logo{ height:40px; width:auto; display:block; }
+.wr-eyebrow{ font-family:'Oswald',sans-serif; font-weight:500; font-size:11px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--rust); margin:0; }
+
+.wr-banner{ background:var(--deepcream); border-left:3px solid var(--rust); color:var(--text);
+  font-size:13px; line-height:1.5; padding:10px 14px; margin-bottom:18px; }
+
+.wr-season-name{ font-family:'Oswald',sans-serif; font-weight:500; font-size:12px; letter-spacing:.22em;
+  text-transform:uppercase; color:var(--rust); margin:0 0 5px; }
+.wr-title{ font-family:'Permanent Marker',cursive; font-weight:400; color:var(--rust);
+  font-size:clamp(40px,9vw,64px); line-height:1; margin:0 0 16px; transform:rotate(-1deg); transform-origin:left center; }
+.wr-lede{ font-size:13.5px; line-height:1.65; color:var(--textmid); max-width:52ch; margin:0 0 22px; }
+
+.wr-empty{ color:var(--textmid); font-size:14px; line-height:1.6; margin:0; }
+
+.wr-season{ background:var(--deepcream); border:1px solid var(--border); border-radius:3px; padding:16px 18px 18px; margin-bottom:20px; }
+.wr-season-top{ display:flex; justify-content:space-between; gap:12px; font-family:'Oswald',sans-serif;
+  font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink); margin-bottom:10px; }
+.wr-days{ color:var(--rust); }
+.wr-track{ height:4px; background:var(--border); }
+.wr-fill{ height:100%; background:var(--rust); transition:width 600ms ease; }
+.wr-giveaway{ font-size:13.5px; font-weight:700; color:var(--rust); margin:12px 0 0; line-height:1.5; }
+
+.wr-shell{ background:var(--deepcream); border:1px solid var(--border); border-radius:3px; padding:16px 0 0; margin-bottom:20px; }
+.wr-quilt{ padding:0 16px; }
+.wr-quilt svg{ display:block; }
+.wr-patch{ cursor:pointer; outline:none; }
+.wr-patch:focus-visible rect:last-of-type{ stroke:var(--ink); stroke-width:2; }
+.wr-foot{ padding:14px 16px 16px; }
+.wr-foot-line{ font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); }
+.wr-detail{ display:flex; gap:12px; }
+.wr-detail-img{ width:58px; height:84px; object-fit:cover; border-radius:2px; flex:none; display:block; }
+.wr-detail-body{ min-width:0; flex:1; }
+.wr-detail-title{ font-size:16px; font-weight:700; line-height:1.3; color:var(--ink); }
+.wr-detail-meta{ display:flex; align-items:center; gap:9px; font-size:13px; color:var(--muted); margin-top:3px; }
+.wr-detail-line{ font-family:'DM Sans',sans-serif; font-style:italic; font-size:15px; line-height:1.45; color:var(--text); margin:8px 0 0; }
+.wr-detail-acts{ display:flex; gap:7px; margin-top:10px; flex-wrap:wrap; }
+
+.wr-sec{ margin-top:42px; }
+.wr-sec-head{ display:flex; align-items:baseline; gap:12px; border-bottom:1px solid var(--border); padding-bottom:8px; margin-bottom:18px; }
+.wr-sec-title{ font-family:'Anton',sans-serif; font-weight:400; font-size:20px; letter-spacing:.03em; color:var(--ink); margin:0; text-transform:uppercase; }
+.wr-sec-note{ font-family:'Oswald',sans-serif; font-weight:400; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--rust); margin-left:auto; }
+
+.wr-form{ display:grid; gap:14px; }
+.wr-row{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+@media(max-width:520px){ .wr-row{ grid-template-columns:1fr; } }
+.wr-field{ display:flex; flex-direction:column; gap:6px; }
+.wr-label{ font-family:'Oswald',sans-serif; font-weight:500; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--rust); }
+.wr-input{ background:var(--white); border:1px solid var(--border); border-radius:2px; color:var(--text);
+  font-family:'DM Sans',sans-serif; font-size:15px; padding:11px 12px; width:100%; }
+.wr-input::placeholder{ color:var(--muted); }
+.wr-input:focus-visible{ outline:2px solid var(--rust); outline-offset:1px; border-color:transparent; }
+
+.wr-cover-pick{ display:flex; gap:12px; align-items:flex-start; flex-wrap:wrap; }
+.wr-cover-preview,.wr-cover-blank{ width:58px; height:84px; object-fit:cover; border-radius:2px; flex:none; }
+.wr-cover-blank{ background:var(--deepcream); border:1px dashed var(--rust); display:block; }
+.wr-cover-copy{ display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+.wr-file{ position:relative; overflow:hidden; display:inline-block; padding:8px 12px; cursor:pointer; }
+.wr-file input{ position:absolute; inset:0; opacity:0; width:100%; cursor:pointer; }
+.wr-fineprint{ flex-basis:100%; margin:2px 0 0; font-size:12px; line-height:1.55; color:var(--muted); }
+
+.wr-rate{ display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+.wr-star{ background:none; border:none; padding:6px 4px; cursor:pointer; line-height:0; }
+.wr-star:focus-visible{ outline:2px solid var(--rust); outline-offset:2px; }
+.wr-dot{ display:inline-block; width:13px; height:13px; border-radius:50%; border:1px solid var(--rust); }
+.wr-dot.on{ background:var(--rust); border-color:var(--rust); }
+.wr-dots{ display:inline-flex; gap:3px; }
+.wr-dots .wr-dot{ width:7px; height:7px; }
+.wr-rate-word{ font-size:13px; color:var(--textmid); margin-left:6px; }
+
+.wr-toggle{ display:flex; gap:8px; flex-wrap:wrap; }
+.wr-pill{ flex:1; background:var(--white); border:1px solid var(--border); border-radius:2px; color:var(--textmid);
+  font-family:'DM Sans',sans-serif; font-size:14px; padding:10px 8px; cursor:pointer; min-width:120px; }
+.wr-pill[aria-pressed="true"]{ background:var(--rust); color:var(--cream); border-color:var(--rust); font-weight:700; }
+.wr-pill:focus-visible{ outline:2px solid var(--rust); outline-offset:2px; }
+
+.wr-submit{ background:var(--rust); color:var(--cream); border:none; border-radius:2px;
+  font-family:'DM Sans',sans-serif; font-weight:700; font-size:15px; padding:13px 16px; cursor:pointer; }
+.wr-submit:hover{ background:#A33F1F; }
+.wr-submit:disabled{ opacity:.5; cursor:default; }
+.wr-submit:focus-visible{ outline:2px solid var(--rust); outline-offset:2px; }
+.wr-error{ font-size:13px; color:var(--rust); border-left:2px solid var(--rust); padding-left:10px; margin:0; }
+.wr-notice{ font-size:13px; color:var(--textmid); margin:0; }
+
+.wr-card{ display:flex; align-items:flex-start; gap:12px; background:var(--white); border:1px solid var(--border);
+  border-radius:3px; padding:13px; margin-bottom:9px; }
+.wr-thumb{ width:38px; height:56px; object-fit:cover; border-radius:2px; flex:none; }
+.wr-thumb-blank{ display:block; }
+.wr-card-body{ flex:1; min-width:0; }
+.wr-card-title{ font-size:16px; font-weight:700; line-height:1.3; color:var(--ink); }
+.wr-card-meta{ display:flex; align-items:center; gap:9px; font-size:13px; color:var(--muted); margin-top:3px; }
+.wr-card-line{ font-family:'DM Sans',sans-serif; font-style:italic; font-size:14px; line-height:1.45; color:var(--text); margin:7px 0 0; }
+.wr-actions{ display:flex; gap:6px; flex:none; }
+.wr-ghost{ background:transparent; border:1px solid var(--border); color:var(--ink); border-radius:2px;
+  cursor:pointer; font-family:'DM Sans',sans-serif; font-size:12px; padding:8px 11px; }
+.wr-ghost:hover{ background:var(--deepcream); }
+.wr-ghost:disabled{ opacity:.45; cursor:default; }
+.wr-ghost:focus-visible{ outline:2px solid var(--rust); outline-offset:2px; }
+
+.wr-more{ margin-top:12px; background:transparent; border:1px solid var(--border); color:var(--ink); border-radius:2px;
+  cursor:pointer; font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:.12em; text-transform:uppercase; padding:9px 14px; }
+.wr-more:hover{ background:var(--deepcream); }
+
+.wr-count-row{ display:flex; align-items:center; gap:12px; padding:9px 0; }
+.wr-count-name{ width:33%; font-size:15px; font-weight:500; color:var(--text); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.wr-bar-track{ flex:1; height:12px; background:var(--deepcream); }
+.wr-bar{ height:100%; display:block; }
+.wr-count-n{ font-family:'Oswald',sans-serif; font-size:13px; color:var(--textmid); width:2ch; text-align:right; }
+
+.wr-past{ margin-bottom:22px; }
+.wr-past-head{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:7px; }
+.wr-past-name{ font-family:'Anton',sans-serif; font-size:16px; font-weight:400; letter-spacing:.03em; color:var(--ink); text-transform:uppercase; }
+.wr-past-n{ font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
+
+.wr-hostlink-wrap{ margin-top:42px; text-align:center; }
+.wr-hostlink{ background:none; border:none; color:var(--muted); font-family:'Oswald',sans-serif;
+  font-size:10px; letter-spacing:.14em; text-transform:uppercase; cursor:pointer; padding:8px; }
+.wr-hostlink:hover{ color:var(--textmid); }
+.wr-hostlink:focus-visible{ outline:2px solid var(--rust); outline-offset:2px; }
+.wr-authbox{ margin-top:24px; padding-top:20px; border-top:1px solid var(--border); }
+
+.wr-footer{ margin-top:52px; padding-top:18px; border-top:1px solid var(--border); text-align:center; }
+.wr-fwm{ font-family:'Anton',sans-serif; letter-spacing:6px; font-size:22px; color:var(--ink); }
+.wr-ftag{ font-family:'Oswald',sans-serif; font-weight:500; letter-spacing:2px; text-transform:uppercase; font-size:11px; color:var(--rust); margin-top:6px; }
+.wr-flinks{ font-family:'Oswald',sans-serif; font-weight:500; letter-spacing:2px; text-transform:uppercase; font-size:11px; margin-top:16px; }
+.wr-flinks a{ color:var(--ink); text-decoration:none; }
+.wr-fcopy{ font-size:11px; color:var(--muted); margin-top:14px; letter-spacing:.3px; }
+</style>
+</head>
+<body>
+<div id="wr-app"><p class="wr-empty">Laying out the quilt&hellip;</p></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script>
+(function(){
+"use strict";
+
+var SUPABASE_URL = "https://amhxmhdiutadaofhyafk.supabase.co";
+var SUPABASE_KEY = "sb_publishable_iAd115IDZHAsvwOwFidClg_AIgaTEpc";
+var sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+var RUST = "#BC4B26", CREAM = "#F5EFE8", INK = "#3C2A1B";
+var DEEPCREAM = "#E9E0CE";
+var MUTED = "#8A7259";
+var CELL = 5;
+var MAX_LINE = 140;
+var RATE_WORDS = ["", "Not for me", "It was fine", "Worth it", "Really good", "Pressing this on everyone"];
+
+var THREADS = [
+  [24, 44, 46], [168, 34, 34], [354, 38, 44], [40, 52, 46],
+  [12, 44, 42], [196, 32, 40], [96, 26, 38], [330, 26, 46],
+  [64, 34, 40], [140, 24, 34], [286, 20, 44], [16, 34, 38],
+  [48, 44, 44], [180, 28, 36]
+];
+
+function keyFor(n){ return (n || "").trim().toLowerCase(); }
+function clamp(v, lo, hi){ return Math.min(hi, Math.max(lo, v)); }
+function hashOf(str){
+  var h = 5381, t = String(str);
+  for (var i = 0; i < t.length; i++) h = ((h << 5) + h + t.charCodeAt(i)) >>> 0;
+  return h;
+}
+function baseHsl(name){ return THREADS[hashOf(keyFor(name)) % THREADS.length]; }
+function colorFor(name){
+  var b = baseHsl(name);
+  return "hsl(" + b[0] + " " + b[1] + "% " + b[2] + "%)";
+}
+function threadColor(name, seed){
+  var b = baseHsl(name), h = b[0], s = b[1], l = b[2];
+  var j = hashOf(seed);
+  var hh = (h + ((Math.floor(j / 99) % 7) - 3) * 2.2 + 360) % 360;
+  var ss = clamp(s + ((Math.floor(j / 11) % 9) - 4) * 3.4, 18, 86);
+  var ll = clamp(l + ((j % 11) - 5) * 3.1, 24, 76);
+  return "hsl(" + hh + " " + ss + "% " + ll + "%)";
+}
+
+function esc(str){
+  return String(str == null ? "" : str).replace(/[&<>"']/g, function(c){
+    return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+  });
+}
+function uid(){
+  return (window.crypto && crypto.randomUUID) ? crypto.randomUUID()
+    : (Date.now().toString(36) + Math.random().toString(36).slice(2));
+}
+function daysLeft(iso){
+  if (!iso) return null;
+  return Math.ceil((new Date(iso + "T23:59:59") - new Date()) / 86400000);
+}
+function prettyDate(iso){
+  if (!iso) return "";
+  return new Date(iso + "T12:00:00").toLocaleDateString(undefined, { month: "long", day: "numeric" });
+}
+function nextSeasonName(name){
+  if (/founding/i.test(name || "")) return "Q1 Village Reads";
+  var m = (name || "").match(/^Q([1-4])(\s+.*)?$/i);
+  if (m) return "Q" + ((Number(m[1]) % 4) + 1) + (m[2] || " Village Reads");
+  return (name || "Season") + " — next season";
+}
+function extFromType(type){
+  if (type === "image/png") return "png";
+  if (type === "image/webp") return "webp";
+  if (type === "image/heic") return "heic";
+  if (type === "image/heif") return "heif";
+  return "jpg";
+}
+function coverUrl(path){
+  if (!path) return null;
+  var r = sb.storage.from("reading-covers").getPublicUrl(path);
+  return (r && r.data && r.data.publicUrl) || null;
+}
+function renderDots(n){
+  if (!n) return "";
+  var dots = "";
+  for (var i = 1; i <= 5; i++) dots += '<span class="wr-dot' + (i <= n ? " on" : "") + '"></span>';
+  return '<span class="wr-dots" aria-label="' + n + ' out of 5">' + dots + "</span>";
+}
+
+function compressImage(file, maxLongEdge, quality){
+  maxLongEdge = maxLongEdge || 1200;
+  quality = quality || 0.82;
+  return new Promise(function(resolve, reject){
+    var reader = new FileReader();
+    reader.onerror = function(){ reject(new Error("Couldn't read that photo.")); };
+    reader.onload = function(){
+      var img = new Image();
+      img.onerror = function(){
+        resolve({ blob: file, previewUrl: URL.createObjectURL(file) });
+      };
+      img.onload = function(){
+        var longEdge = Math.max(img.width, img.height);
+        var scale = Math.min(1, maxLongEdge / longEdge);
+        var w = Math.max(1, Math.round(img.width * scale));
+        var h = Math.max(1, Math.round(img.height * scale));
+        var c = document.createElement("canvas");
+        c.width = w; c.height = h;
+        var ctx = c.getContext("2d");
+        ctx.fillStyle = "#fff";
+        ctx.fillRect(0, 0, w, h);
+        ctx.drawImage(img, 0, 0, w, h);
+        c.toBlob(function(blob){
+          if (!blob) return resolve({ blob: file, previewUrl: URL.createObjectURL(file) });
+          resolve({ blob: blob, previewUrl: URL.createObjectURL(blob) });
+        }, "image/jpeg", quality);
+      };
+      img.src = reader.result;
+    };
+    reader.readAsDataURL(file);
+  });
+}
+function loadImgCORS(src){
+  return new Promise(function(resolve){
+    var i = new Image();
+    i.crossOrigin = "anonymous";
+    i.onload = function(){ resolve(i); };
+    i.onerror = function(){ resolve(null); };
+    i.src = src;
+  });
+}
+
+/* ---------------- state ---------------- */
+var app = document.getElementById("wr-app");
+var S = {
+  loading: true,
+  fatalError: "",
+  adminMessage: "",
+  seasons: [],
+  entries: [],
+  session: null,
+  selectedEntryId: null,
+  editingEntryId: null,
+  showAllNotes: false,
+  showAllCounts: false,
+  seasonSettingsEditing: false,
+  seasonSettingsDraft: null,
+  formError: "",
+  formNotice: "",
+  authError: "",
+  authPanelOpen: false,
+  toolsMessage: ""
+};
+var selectedRating = 0;
+var editDraftRating = 0;
+var draftCover = null;
+var coverBusy = false;
+var quiltViews = [];
+
+function isAdmin(){ return !!S.session; }
+function currentSeason(){
+  var open = S.seasons.filter(function(s){ return !s.closed; });
+  if (open.length) return open[0];
+  return S.seasons.length ? S.seasons[S.seasons.length - 1] : null;
+}
+function closedSeasons(){
+  return S.seasons.filter(function(s){ return s.closed; }).slice().reverse();
+}
+function seasonEntries(id){
+  return S.entries.filter(function(e){ return e.season_id === id; });
+}
+function liveEntries(id){
+  return seasonEntries(id).filter(function(e){ return e.approved; })
+    .sort(function(a, b){ return new Date(b.created_at) - new Date(a.created_at); });
+}
+function pendingEntries(id){
+  return seasonEntries(id).filter(function(e){ return !e.approved; })
+    .sort(function(a, b){ return new Date(a.created_at) - new Date(b.created_at); });
+}
+function readerCounts(live){
+  var m = {}, out = [];
+  live.forEach(function(e){
+    var k = keyFor(e.reader);
+    if (!m[k]) { m[k] = { name: e.reader, n: 0 }; out.push(m[k]); }
+    m[k].n += 1;
+  });
+  out.sort(function(a, b){ return b.n - a.n || a.name.localeCompare(b.name); });
+  return out;
+}
+function notesFrom(live){ return live.filter(function(e){ return (e.line || "").trim(); }); }
+
+/* ---------------- data ---------------- */
+async function loadSeasons(){
+  var r = await sb.from("reading_seasons").select("*").order("created_at", { ascending: true });
+  if (r.error) throw r.error;
+  return r.data || [];
+}
+async function loadEntries(){
+  var r = await sb.from("reading_entries").select("*").order("created_at", { ascending: true });
+  if (r.error) throw r.error;
+  return r.data || [];
+}
+async function refreshData(){
+  try {
+    var results = await Promise.all([loadSeasons(), loadEntries()]);
+    S.seasons = results[0];
+    S.entries = results[1];
+    S.loading = false;
+    S.fatalError = "";
+  } catch (err) {
+    S.loading = false;
+    S.fatalError = "Couldn't load the board. Check your connection and reload.";
+  }
+  render();
+}
+
+async function boot(){
+  var got = await sb.auth.getSession();
+  S.session = got.data.session;
+  sb.auth.onAuthStateChange(function(event, session){
+    S.session = session;
+    refreshData();
+  });
+  await refreshData();
+}
+
+/* ---------------- quilt view ---------------- */
+function QuiltView(container, opts){
+  this.container = container;
+  this.id = opts.id;
+  this.minRows = opts.minRows || 2;
+  this.interactive = !!opts.interactive;
+  this.books = opts.books || [];
+  var self = this;
+  this.ro = new ResizeObserver(function(){ self.paint(); });
+  this.ro.observe(container);
+  this.paint();
+}
+QuiltView.prototype.paint = function(){
+  var w = this.container.clientWidth || 680;
+  var books = this.books;
+  var perRow = Math.max(3, Math.round(w / 78));
+  var tileW = w / perRow;
+  var tileH = tileW * 1.45;
+  var rows = Math.max(this.minRows, Math.ceil(books.length / perRow) || 1);
+  var height = rows * tileH;
+  var patId = "wr-weave-" + this.id;
+  var tiles = "", seams = "", i, x, y;
+
+  for (i = 0; i < books.length; i++) {
+    var e = books[i];
+    x = (i % perRow) * tileW;
+    y = Math.floor(i / perRow) * tileH;
+    var cover = coverUrl(e.cover_path);
+    var tileMarkup = cover
+      ? '<image href="' + cover + '" x="' + x + '" y="' + y + '" width="' + tileW + '" height="' + tileH + '" preserveAspectRatio="xMidYMid slice"></image>'
+      : '<rect x="' + x + '" y="' + y + '" width="' + tileW + '" height="' + tileH + '" fill="' + threadColor(e.reader, e.id) + '"></rect>';
+    if (this.interactive) {
+      tiles += '<g class="wr-patch" tabindex="0" role="button" data-id="' + e.id + '" aria-label="' + esc(e.title) + ", added by " + esc(e.reader) + '">'
+        + tileMarkup
+        + '<rect x="' + x + '" y="' + y + '" width="' + tileW + '" height="' + tileH + '" fill="transparent"></rect>'
+        + "<title>" + esc(e.title) + " — " + esc(e.reader) + "</title></g>";
+    } else {
+      tiles += "<g>" + tileMarkup + "</g>";
+    }
+  }
+  for (i = 0; i < books.length; i++) {
+    seams += '<rect x="' + ((i % perRow) * tileW) + '" y="' + (Math.floor(i / perRow) * tileH) + '" width="1" height="' + tileH + '" fill="' + CREAM + '" opacity="0.5"></rect>';
+  }
+  for (var r = 0; r < rows - 1; r++) {
+    seams += '<rect x="0" y="' + ((r + 1) * tileH - 0.5) + '" width="' + w + '" height="1" fill="' + CREAM + '" opacity="0.5"></rect>';
+  }
+
+  this.container.innerHTML =
+    '<svg width="100%" height="' + height + '" viewBox="0 0 ' + w + " " + height + '" role="img" aria-label="Quilt of ' + books.length + ' books">'
+    + "<defs><pattern id=\"" + patId + "\" width=\"" + (CELL * 2) + "\" height=\"" + (CELL * 2) + "\" patternUnits=\"userSpaceOnUse\">"
+    + '<rect x="0" y="0" width="' + CELL + '" height="' + CELL + '" fill="' + CREAM + '" opacity="0.82"></rect>'
+    + '<rect x="' + CELL + '" y="' + CELL + '" width="' + CELL + '" height="' + CELL + '" fill="' + CREAM + '" opacity="0.82"></rect>'
+    + "</pattern></defs>"
+    + '<rect x="0" y="0" width="' + w + '" height="' + height + '" fill="' + DEEPCREAM + '"></rect>'
+    + tiles
+    + '<rect x="0" y="0" width="' + w + '" height="' + height + '" fill="url(#' + patId + ')" opacity="0.2" pointer-events="none"></rect>'
+    + seams
+    + "</svg>";
+};
+QuiltView.prototype.setBooks = function(books){ this.books = books; this.paint(); };
+QuiltView.prototype.destroy = function(){ this.ro.disconnect(); };
+
+/* ---------------- render: static pieces ---------------- */
+function renderHeader(){
+  return '<header class="wr-head"><img class="wr-logo" src="../woven-lockup.png" alt="Woven"><p class="wr-eyebrow">The Village Network</p></header>';
+}
+function renderBanner(){
+  var msg = S.fatalError || S.adminMessage;
+  if (!msg) return "";
+  return '<p class="wr-banner">' + esc(msg) + "</p>";
+}
+function renderTitleBlock(season){
+  return '<p class="wr-season-name">' + esc(season.name) + '</p>'
+    + '<h1 class="wr-title">Village Reads</h1>'
+    + '<p class="wr-lede">Finished a book? Add it to the Woven Village Reads. Every book counts, and we&rsquo;re especially glad to see Black and Brown authors on the shelf. Each one becomes a patch on the village quilt. This season closes ' + esc(prettyDate(season.ends_at)) + '.</p>';
+}
+function renderSeasonBar(season, live){
+  var goal = Math.max(1, Number(season.goal) || 1);
+  var pct = Math.min(100, (live.length / goal) * 100);
+  var left = daysLeft(season.ends_at);
+  var daysText = left === null ? "" : left > 1 ? (left + " days left") : left === 1 ? "1 day left" : "Season over";
+  return '<div class="wr-season">'
+    + '<div class="wr-season-top"><span>' + live.length + " of " + goal + ' books</span><span class="wr-days">' + daysText + '</span></div>'
+    + '<div class="wr-track"><div class="wr-fill" style="width:' + pct + '%"></div></div>'
+    + '<p class="wr-giveaway">Anyone can add a book. At season’s end, Woven members win our book giveaway!</p>'
+    + "</div>";
+}
+function renderDetail(){
+  var id = S.selectedEntryId;
+  if (!id) {
+    var season = currentSeason();
+    var live = season ? liveEntries(season.id) : [];
+    var readerN = {}; live.forEach(function(e){ readerN[keyFor(e.reader)] = 1; });
+    var rN = Object.keys(readerN).length;
+    var line = live.length
+      ? (live.length + " " + (live.length === 1 ? "patch" : "patches") + " · " + rN + " " + (rN === 1 ? "reader" : "readers") + " · tap one")
+      : "Empty quilt. The first book starts it.";
+    return '<span class="wr-foot-line">' + line + "</span>";
+  }
+  var entry = null;
+  for (var i = 0; i < S.entries.length; i++) if (S.entries[i].id === id) { entry = S.entries[i]; break; }
+  if (!entry) return "";
+  var cover = coverUrl(entry.cover_path);
+  if (S.editingEntryId === id) {
+    var rateBtns = "";
+    for (var n = 1; n <= 5; n++) {
+      rateBtns += '<button type="button" class="wr-star" data-edit-rate="' + n + '" aria-label="' + n + ' out of 5"><span class="wr-dot' + (n <= editDraftRating ? " on" : "") + '"></span></button>';
+    }
+    return '<div class="wr-detail">'
+      + (cover ? '<img class="wr-detail-img" src="' + cover + '" alt="">' : '<span class="wr-detail-img" style="background:' + threadColor(entry.reader, entry.id) + '"></span>')
+      + '<div class="wr-detail-body"><div class="wr-editform">'
+      + '<input class="wr-input" id="wr-edit-title" value="' + esc(entry.title) + '" placeholder="Title">'
+      + '<input class="wr-input" id="wr-edit-reader" value="' + esc(entry.reader) + '" placeholder="Name">'
+      + '<div class="wr-rate" id="wr-edit-rate">' + rateBtns + "</div>"
+      + '<input class="wr-input" id="wr-edit-line" maxlength="140" value="' + esc(entry.line || "") + '" placeholder="Read this if you…">'
+      + '<div class="wr-toggle"><button class="wr-submit" style="flex:1" data-act="edit-save" data-id="' + entry.id + '">Save changes</button>'
+      + '<button class="wr-ghost" data-act="edit-cancel">Cancel</button></div>'
+      + "</div></div></div>";
+  }
+  return '<div class="wr-detail">'
+    + (cover ? ('<img class="wr-detail-img" src="' + cover + '" alt="Cover of ' + esc(entry.title) + '">')
+             : ('<span class="wr-detail-img" style="background:' + threadColor(entry.reader, entry.id) + '"></span>'))
+    + '<div class="wr-detail-body">'
+    + '<div class="wr-detail-title">' + esc(entry.title) + "</div>"
+    + '<div class="wr-detail-meta">' + esc(entry.reader) + " " + renderDots(entry.rating) + "</div>"
+    + (entry.line ? ('<p class="wr-detail-line">“' + esc(entry.line) + '”</p>') : "")
+    + '<div class="wr-detail-acts"><button class="wr-ghost" data-act="close-detail">Close</button>'
+    + (isAdmin() ? ('<button class="wr-ghost" data-act="edit-entry" data-id="' + entry.id + '">Edit</button><button class="wr-ghost" data-act="remove-entry" data-id="' + entry.id + '">Remove</button>') : "")
+    + "</div></div></div>";
+}
+function renderForm(season){
+  var needsReview = season.review_mode && !isAdmin();
+  var rateBtns = "";
+  for (var n = 1; n <= 5; n++) {
+    rateBtns += '<button type="button" class="wr-star" data-rate="' + n + '" aria-label="' + n + ' out of 5"><span class="wr-dot' + (n <= selectedRating ? " on" : "") + '"></span></button>';
+  }
+  return '<section class="wr-sec"><div class="wr-sec-head"><h2 class="wr-sec-title">Add a book</h2></div><div class="wr-form">'
+    + '<div class="wr-cover-pick"><span id="wr-cover-slot">'
+    + (draftCover ? ('<img class="wr-cover-preview" src="' + draftCover.previewUrl + '" alt="Cover preview">') : '<span class="wr-cover-blank" aria-hidden="true"></span>')
+    + '</span><div class="wr-cover-copy">'
+    + '<label class="wr-ghost wr-file"><span id="wr-cover-label">' + (coverBusy ? "Shrinking…" : (draftCover ? "Change photo" : "Snap or upload")) + '</span><input id="wr-cover-input" type="file" accept="image/*"></label>'
+    + '<button type="button" class="wr-ghost" id="wr-cover-remove" ' + (draftCover ? "" : "hidden") + '>Remove</button>'
+    + '<p class="wr-fineprint">A photo of the book, or a screenshot if you read on a screen.</p>'
+    + "</div></div>"
+    + '<div class="wr-row"><div class="wr-field"><label class="wr-label" for="wr-reader">Your name</label><input id="wr-reader" class="wr-input" placeholder="First name is fine"></div>'
+    + '<div class="wr-field"><label class="wr-label" for="wr-title">Title &amp; author</label><input id="wr-title" class="wr-input" placeholder="Title — Author"></div></div>'
+    + '<div class="wr-field"><span class="wr-label">Rate it</span><div class="wr-rate" id="wr-rate">' + rateBtns + '<span class="wr-rate-word" id="wr-rate-word">' + RATE_WORDS[selectedRating] + "</span></div></div>"
+    + '<div class="wr-field"><label class="wr-label" for="wr-line">Help someone pick this up next</label>'
+    + '<input id="wr-line" class="wr-input" maxlength="140" placeholder="Read this if you…">'
+    + '<p class="wr-fineprint">Optional, but it’s the part people actually read. Try: “Read this if you loved Sula.” · “Short chapters — good for the commute.” · “Cried on the train. Worth it.”</p></div>'
+    + '<p class="wr-error" id="wr-form-error"' + (S.formError ? "" : " hidden") + ">" + esc(S.formError) + "</p>"
+    + '<p class="wr-notice" id="wr-form-notice"' + (S.formNotice ? "" : " hidden") + ">" + esc(S.formNotice) + "</p>"
+    + '<button type="button" class="wr-submit" id="wr-submit-btn">' + (needsReview ? "Send to the host" : "Add to the quilt") + "</button>"
+    + "</div></section>";
+}
+function renderPending(){
+  if (!isAdmin()) return "";
+  var season = currentSeason();
+  if (!season) return "";
+  var pending = pendingEntries(season.id);
+  if (!pending.length) return "";
+  var cards = pending.map(function(e){
+    var cover = coverUrl(e.cover_path);
+    return '<div class="wr-card">' + (cover ? ('<img class="wr-thumb" src="' + cover + '" alt="">') : ('<span class="wr-thumb wr-thumb-blank" style="background:' + colorFor(e.reader) + '"></span>'))
+      + '<div class="wr-card-body"><div class="wr-card-title">' + esc(e.title) + '</div><div class="wr-card-meta">' + esc(e.reader) + " " + renderDots(e.rating) + "</div>"
+      + (e.line ? ('<p class="wr-card-line">“' + esc(e.line) + '”</p>') : "") + "</div>"
+      + '<div class="wr-actions"><button class="wr-ghost" data-act="approve" data-id="' + e.id + '">Add</button>'
+      + '<button class="wr-ghost" data-act="discard" data-id="' + e.id + '" aria-label="Discard ' + esc(e.title) + '">×</button></div></div>';
+  }).join("");
+  return '<section class="wr-sec"><div class="wr-sec-head"><h2 class="wr-sec-title">Waiting on you</h2><span class="wr-sec-note">' + pending.length + ' submitted</span></div>' + cards + "</section>";
+}
+function renderNotes(){
+  var season = currentSeason();
+  if (!season) return "";
+  var live = liveEntries(season.id);
+  var notes = notesFrom(live);
+  if (!notes.length) return "";
+  var shown = S.showAllNotes ? notes : notes.slice(0, 6);
+  var cards = shown.map(function(e){
+    var cover = coverUrl(e.cover_path);
+    return '<div class="wr-card">' + (cover ? ('<img class="wr-thumb" src="' + cover + '" alt="">') : ('<span class="wr-thumb wr-thumb-blank" style="background:' + colorFor(e.reader) + '"></span>'))
+      + '<div class="wr-card-body"><div class="wr-card-title">' + esc(e.title) + '</div><div class="wr-card-meta">' + esc(e.reader) + " " + renderDots(e.rating) + '</div>'
+      + '<p class="wr-card-line">“' + esc(e.line) + '”</p></div></div>';
+  }).join("");
+  return '<section class="wr-sec"><div class="wr-sec-head"><h2 class="wr-sec-title">What they said</h2><span class="wr-sec-note">' + notes.length + '</span></div>' + cards
+    + (notes.length > 6 ? ('<button class="wr-more" data-act="toggle-notes">' + (S.showAllNotes ? "Show fewer" : ("Show all " + notes.length)) + "</button>") : "")
+    + "</section>";
+}
+function renderCounts(){
+  var season = currentSeason();
+  if (!season) return "";
+  var live = liveEntries(season.id);
+  var counts = readerCounts(live);
+  var shown = S.showAllCounts ? counts : counts.slice(0, 8);
+  var rows = counts.length === 0
+    ? '<p class="wr-empty">No books yet. First one sets the pace.</p>'
+    : shown.map(function(c){
+        return '<div class="wr-count-row"><span class="wr-count-name">' + esc(c.name) + '</span>'
+          + '<span class="wr-bar-track"><span class="wr-bar" style="width:' + ((c.n / counts[0].n) * 100) + '%; background:' + colorFor(c.name) + '"></span></span>'
+          + '<span class="wr-count-n">' + c.n + "</span></div>";
+      }).join("");
+  return '<section class="wr-sec"><div class="wr-sec-head"><h2 class="wr-sec-title">The count</h2><span class="wr-sec-note">This season</span></div>' + rows
+    + (counts.length > 8 ? ('<button class="wr-more" data-act="toggle-counts">' + (S.showAllCounts ? "Show fewer" : ("Show all " + counts.length)) + "</button>") : "")
+    + "</section>";
+}
+function renderPastSeasons(){
+  var closed = closedSeasons();
+  if (!closed.length) return "";
+  var blocks = closed.map(function(s){
+    var books = liveEntries(s.id);
+    return '<div class="wr-past"><div class="wr-past-head"><span class="wr-past-name">' + esc(s.name) + '</span><span class="wr-past-n">' + books.length + ' books</span></div>'
+      + '<div class="wr-quilt" id="wr-quilt-' + s.id + '"></div></div>';
+  }).join("");
+  return '<section class="wr-sec"><div class="wr-sec-head"><h2 class="wr-sec-title">Past seasons</h2></div>' + blocks + "</section>";
+}
+function renderAdminAuth(){
+  if (isAdmin()) {
+    return '<section class="wr-sec"><div class="wr-sec-head"><h2 class="wr-sec-title">Host</h2><span class="wr-sec-note">Signed in</span></div>'
+      + '<p class="wr-empty">Signed in as ' + esc(S.session.user.email) + '.</p>'
+      + '<button class="wr-ghost" data-act="admin-signout" style="margin-top:10px">Sign out</button></section>';
+  }
+  if (!S.authPanelOpen) {
+    return '<p class="wr-hostlink-wrap"><button type="button" class="wr-hostlink" data-act="toggle-auth">Host sign-in</button></p>';
+  }
+  return '<div class="wr-authbox"><div class="wr-form">'
+    + '<div class="wr-row"><div class="wr-field"><label class="wr-label" for="wr-auth-email">Email</label><input id="wr-auth-email" class="wr-input" type="email" autocomplete="username"></div>'
+    + '<div class="wr-field"><label class="wr-label" for="wr-auth-pass">Password</label><input id="wr-auth-pass" class="wr-input" type="password" autocomplete="current-password"></div></div>'
+    + '<p class="wr-error" id="wr-auth-error"' + (S.authError ? "" : " hidden") + ">" + esc(S.authError) + "</p>"
+    + '<div class="wr-toggle"><button class="wr-submit" data-act="admin-signin" style="flex:1">Sign in</button>'
+    + '<button class="wr-ghost" data-act="toggle-auth" style="padding:13px 16px">Cancel</button></div>'
+    + "</div></div>";
+}
+function renderSeasonTools(season, live){
+  if (!isAdmin() || !season) return "";
+  return '<section class="wr-sec"><div class="wr-sec-head"><h2 class="wr-sec-title">Season tools</h2><span class="wr-sec-note">Host only</span></div>'
+    + '<div class="wr-toggle"><button class="wr-ghost" data-act="export-quilt" style="flex:1;padding:12px"' + (live.length ? "" : " disabled") + '>Download quilt image</button>'
+    + '<button class="wr-ghost" data-act="export-text" style="flex:1;padding:12px"' + (live.length ? "" : " disabled") + '>Copy season text</button></div>'
+    + (S.toolsMessage ? ('<p class="wr-notice" style="margin-top:10px">' + esc(S.toolsMessage) + "</p>") : "")
+    + "</section>";
+}
+function renderSeasonSettings(season){
+  if (!isAdmin() || !season) return "";
+  if (S.seasonSettingsEditing) {
+    var d = S.seasonSettingsDraft;
+    return '<section class="wr-sec"><div class="wr-sec-head"><h2 class="wr-sec-title">Season settings</h2></div><div class="wr-form">'
+      + '<div class="wr-field"><label class="wr-label" for="wr-set-name">Season name</label><input id="wr-set-name" class="wr-input" value="' + esc(d.name) + '"></div>'
+      + '<div class="wr-row"><div class="wr-field"><label class="wr-label" for="wr-set-goal">Book goal</label><input id="wr-set-goal" class="wr-input" type="number" min="1" value="' + d.goal + '"></div>'
+      + '<div class="wr-field"><label class="wr-label" for="wr-set-ends">Season ends</label><input id="wr-set-ends" class="wr-input" type="date" value="' + d.endsAt + '"></div></div>'
+      + '<div class="wr-field"><span class="wr-label">Who posts straight to the quilt</span><div class="wr-toggle">'
+      + '<button type="button" class="wr-pill" data-act="mode-open" aria-pressed="' + (!d.reviewMode) + '">Anyone</button>'
+      + '<button type="button" class="wr-pill" data-act="mode-review" aria-pressed="' + (!!d.reviewMode) + '">You approve first</button></div></div>'
+      + '<div class="wr-toggle"><button class="wr-submit" style="flex:1" data-act="season-settings-save">Save season</button>'
+      + '<button class="wr-ghost" style="padding:13px 16px" data-act="season-settings-cancel">Cancel</button></div>'
+      + "</div></section>";
+  }
+  return '<section class="wr-sec"><div class="wr-sec-head"><h2 class="wr-sec-title">Season settings</h2></div>'
+    + '<div class="wr-toggle"><button class="wr-ghost" style="flex:1;padding:12px" data-act="season-settings-open">Edit season</button>'
+    + '<button class="wr-ghost" style="flex:1;padding:12px" data-act="close-season">Close season</button></div></section>';
+}
+function renderFooter(){
+  return '<footer class="wr-footer"><div class="wr-fwm">WOVEN</div><div class="wr-ftag">Spend with intention &middot; Grow with purpose</div>'
+    + '<div class="wr-flinks"><a href="../index.html">wovenvillage.com</a></div>'
+    + '<div class="wr-fcopy">wovenvillage.com &middot; The village network for Black &amp; Brown New York &middot; &copy; 2026 Anansi Creative Studio LLC</div></footer>';
+}
+
+/* ---------------- render: orchestration ---------------- */
+function buildHTML(){
+  if (S.loading) {
+    return renderHeader() + '<p class="wr-empty" style="margin-top:40px">Laying out the quilt&hellip;</p>';
+  }
+  var season = currentSeason();
+  var live = season ? liveEntries(season.id) : [];
+  var html = renderHeader() + renderBanner();
+  if (!season) {
+    html += '<p class="wr-empty">No season is set up yet.</p>';
+    return html;
+  }
+  html += renderTitleBlock(season)
+    + renderSeasonBar(season, live)
+    + '<div class="wr-shell"><div class="wr-quilt" id="wr-quilt-current"></div><div class="wr-foot" id="wr-detail">' + renderDetail() + "</div></div>"
+    + renderForm(season)
+    + renderPending()
+    + renderNotes()
+    + renderCounts()
+    + renderPastSeasons()
+    + renderAdminAuth()
+    + renderSeasonTools(season, live)
+    + renderSeasonSettings(season)
+    + renderFooter();
+  return html;
+}
+
+var PRESERVE_IDS = ["wr-reader", "wr-title", "wr-line", "wr-auth-email", "wr-auth-pass",
+  "wr-edit-title", "wr-edit-reader", "wr-edit-line", "wr-set-name", "wr-set-goal", "wr-set-ends"];
+function snapshotForm(){
+  var snap = {};
+  PRESERVE_IDS.forEach(function(id){
+    var el = document.getElementById(id);
+    if (el) snap[id] = el.value;
+  });
+  return snap;
+}
+function restoreForm(snap){
+  Object.keys(snap).forEach(function(id){
+    var el = document.getElementById(id);
+    if (el) el.value = snap[id];
+  });
+}
+
+function render(){
+  var scrollY = window.scrollY;
+  var snap = snapshotForm();
+  quiltViews.forEach(function(q){ q.destroy(); });
+  quiltViews = [];
+  app.innerHTML = buildHTML();
+  restoreForm(snap);
+
+  var season = currentSeason();
+  if (season && !S.loading) {
+    var el = document.getElementById("wr-quilt-current");
+    if (el) quiltViews.push(new QuiltView(el, { id: season.id, minRows: 2, interactive: true, books: liveEntries(season.id) }));
+  }
+  closedSeasons().forEach(function(s){
+    var el2 = document.getElementById("wr-quilt-" + s.id);
+    if (el2) quiltViews.push(new QuiltView(el2, { id: s.id, minRows: 1, interactive: false, books: liveEntries(s.id) }));
+  });
+  window.scrollTo(0, scrollY);
+}
+
+/* ---------------- form UI helpers (no full re-render) ---------------- */
+function setFormError(msg){
+  S.formError = msg;
+  var el = document.getElementById("wr-form-error");
+  if (el) { el.textContent = msg; el.hidden = !msg; }
+}
+function setFormNotice(msg){
+  S.formNotice = msg;
+  var el = document.getElementById("wr-form-notice");
+  if (el) { el.textContent = msg; el.hidden = !msg; }
+}
+function setSubmitBusy(v){
+  var btn = document.getElementById("wr-submit-btn");
+  if (btn) btn.disabled = v;
+}
+function onRateClick(i){
+  selectedRating = i;
+  setFormError("");
+  var rateEl = document.getElementById("wr-rate");
+  if (rateEl) {
+    var btns = rateEl.querySelectorAll("[data-rate]");
+    btns.forEach(function(btn){
+      var n = Number(btn.getAttribute("data-rate"));
+      btn.querySelector(".wr-dot").classList.toggle("on", n <= i);
+    });
+  }
+  var word = document.getElementById("wr-rate-word");
+  if (word) word.textContent = RATE_WORDS[i];
+}
+function onEditRateClick(i){
+  editDraftRating = i;
+  var rateEl = document.getElementById("wr-edit-rate");
+  if (rateEl) {
+    rateEl.querySelectorAll("[data-edit-rate]").forEach(function(btn){
+      var n = Number(btn.getAttribute("data-edit-rate"));
+      btn.querySelector(".wr-dot").classList.toggle("on", n <= i);
+    });
+  }
+}
+function setCoverBusy(v){
+  coverBusy = v;
+  var label = document.getElementById("wr-cover-label");
+  if (label) label.textContent = v ? "Shrinking…" : (draftCover ? "Change photo" : "Snap or upload");
+}
+function refreshCoverUI(){
+  var slot = document.getElementById("wr-cover-slot");
+  if (slot) slot.innerHTML = draftCover
+    ? ('<img class="wr-cover-preview" src="' + draftCover.previewUrl + '" alt="Cover preview">')
+    : '<span class="wr-cover-blank" aria-hidden="true"></span>';
+  var label = document.getElementById("wr-cover-label");
+  if (label) label.textContent = coverBusy ? "Shrinking…" : (draftCover ? "Change photo" : "Snap or upload");
+  var removeBtn = document.getElementById("wr-cover-remove");
+  if (removeBtn) removeBtn.hidden = !draftCover;
+}
+function setSeasonModeDraft(reviewMode){
+  if (!S.seasonSettingsDraft) return;
+  S.seasonSettingsDraft.reviewMode = reviewMode;
+  document.querySelectorAll('[data-act="mode-open"]').forEach(function(b){ b.setAttribute("aria-pressed", String(!reviewMode)); });
+  document.querySelectorAll('[data-act="mode-review"]').forEach(function(b){ b.setAttribute("aria-pressed", String(reviewMode)); });
+}
+function resetForm(){
+  selectedRating = 0;
+  draftCover = null;
+  coverBusy = false;
+}
+function scrollDetailIntoView(){
+  var el = document.getElementById("wr-detail");
+  if (el) el.scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+
+/* ---------------- actions ---------------- */
+async function onCoverPick(file){
+  if (!file) return;
+  setCoverBusy(true);
+  try {
+    draftCover = await compressImage(file);
+  } catch (err) {
+    draftCover = null;
+    setFormError(err.message || "Couldn't use that photo.");
+  }
+  setCoverBusy(false);
+  refreshCoverUI();
+}
+
+async function addBook(){
+  var season = currentSeason();
+  if (!season) return;
+  var reader = (document.getElementById("wr-reader") || {}).value || "";
+  var title = (document.getElementById("wr-title") || {}).value || "";
+  var line = (document.getElementById("wr-line") || {}).value || "";
+  reader = reader.trim(); title = title.trim(); line = line.trim().slice(0, MAX_LINE);
+  setFormError(""); setFormNotice("");
+  if (!reader || !title) { setFormError("Add your name and the title."); return; }
+  if (!selectedRating) { setFormError("Give it a rating — one tap, and it helps the next person pick."); return; }
+
+  setSubmitBusy(true);
+  var coverPath = null;
+  if (draftCover) {
+    var path = season.id + "/" + uid() + "." + extFromType(draftCover.blob.type);
+    var up = await sb.storage.from("reading-covers").upload(path, draftCover.blob, { contentType: draftCover.blob.type || "image/jpeg" });
+    if (!up.error) coverPath = path;
+  }
+  var needsReview = season.review_mode && !isAdmin();
+  var payload = {
+    season_id: season.id, reader: reader, title: title, rating: selectedRating,
+    line: line || null, cover_path: coverPath, approved: !needsReview
+  };
+  var ins = await sb.from("reading_entries").insert(payload);
+  if (ins.error && !isAdmin() && !needsReview && /row-level security|permission denied/i.test(ins.error.message || "")) {
+    // The database is the source of truth on who can auto-approve; if it refuses,
+    // fall back to a pending submission rather than losing the book or lying about its status.
+    needsReview = true;
+    payload.approved = false;
+    ins = await sb.from("reading_entries").insert(payload);
+  }
+  setSubmitBusy(false);
+
+  if (ins.error) {
+    var msg = /not accepting new submissions/i.test(ins.error.message || "")
+      ? ins.error.message
+      : "That didn’t save. Check your connection and try again.";
+    setFormError(msg);
+    return;
+  }
+  resetForm();
+  setFormNotice(needsReview
+    ? "Sent to Simone — it’ll appear on the quilt once she approves it."
+    : "Added. That’s your patch on the quilt.");
+  await refreshData();
+}
+
+async function approveEntry(id){
+  var r = await sb.from("reading_entries").update({ approved: true }).eq("id", id);
+  if (r.error) { S.adminMessage = "Couldn’t approve that — try again."; render(); return; }
+  S.adminMessage = "";
+  await refreshData();
+}
+async function removeEntry(id){
+  var entry = null;
+  for (var i = 0; i < S.entries.length; i++) if (S.entries[i].id === id) { entry = S.entries[i]; break; }
+  if (!entry) return;
+  if (entry.cover_path) await sb.storage.from("reading-covers").remove([entry.cover_path]);
+  var r = await sb.from("reading_entries").delete().eq("id", id);
+  if (r.error) { S.adminMessage = "Couldn’t remove that — try again."; render(); return; }
+  if (S.selectedEntryId === id) S.selectedEntryId = null;
+  S.adminMessage = "";
+  await refreshData();
+}
+async function saveEdit(id){
+  var title = ((document.getElementById("wr-edit-title") || {}).value || "").trim();
+  var reader = ((document.getElementById("wr-edit-reader") || {}).value || "").trim();
+  var line = ((document.getElementById("wr-edit-line") || {}).value || "").trim().slice(0, MAX_LINE);
+  if (!title || !reader || !editDraftRating) { S.adminMessage = "Title, name and a rating are all required."; render(); return; }
+  var r = await sb.from("reading_entries").update({ title: title, reader: reader, rating: editDraftRating, line: line || null }).eq("id", id);
+  if (r.error) { S.adminMessage = "That didn’t save — try again."; render(); return; }
+  S.editingEntryId = null;
+  S.adminMessage = "";
+  await refreshData();
+}
+
+async function onSignIn(){
+  var email = ((document.getElementById("wr-auth-email") || {}).value || "").trim();
+  var password = (document.getElementById("wr-auth-pass") || {}).value || "";
+  S.authError = "";
+  if (!email || !password) { S.authError = "Enter your email and password."; render(); return; }
+  var r = await sb.auth.signInWithPassword({ email: email, password: password });
+  if (r.error) { S.authError = "Sign-in failed. Check your email and password."; render(); return; }
+}
+async function signOut(){ S.authPanelOpen = false; await sb.auth.signOut(); }
+
+function openSeasonSettings(){
+  var season = currentSeason();
+  if (!season) return;
+  S.seasonSettingsDraft = { name: season.name, goal: season.goal, endsAt: season.ends_at, reviewMode: season.review_mode };
+  S.seasonSettingsEditing = true;
+  S.toolsMessage = "";
+  render();
+}
+async function saveSeasonSettings(){
+  var season = currentSeason();
+  if (!season) return;
+  var name = ((document.getElementById("wr-set-name") || {}).value || "").trim() || season.name;
+  var goal = Math.max(1, Number((document.getElementById("wr-set-goal") || {}).value) || season.goal);
+  var endsAt = (document.getElementById("wr-set-ends") || {}).value || season.ends_at;
+  var reviewMode = S.seasonSettingsDraft.reviewMode;
+  var r = await sb.from("reading_seasons").update({ name: name, goal: goal, ends_at: endsAt, review_mode: reviewMode }).eq("id", season.id);
+  if (r.error) { S.toolsMessage = "That didn’t save — try again."; render(); return; }
+  S.seasonSettingsEditing = false;
+  S.toolsMessage = "";
+  await refreshData();
+}
+async function onCloseSeason(){
+  var season = currentSeason();
+  if (!season) return;
+  var next = nextSeasonName(season.name);
+  if (!window.confirm("Close " + season.name + " and open " + next + "? This season's quilt is archived.")) return;
+  var endsAt = new Date(Date.now() + 90 * 86400000).toISOString().slice(0, 10);
+  var r1 = await sb.from("reading_seasons").update({ closed: true }).eq("id", season.id);
+  if (r1.error) { S.toolsMessage = "Couldn’t close the season. Try again."; render(); return; }
+  var r2 = await sb.from("reading_seasons").insert({ name: next, goal: season.goal, ends_at: endsAt, review_mode: true });
+  if (r2.error) S.toolsMessage = "Season closed, but couldn’t start the next one — add it manually.";
+  S.selectedEntryId = null;
+  await refreshData();
+}
+
+async function exportQuiltPng(){
+  var season = currentSeason();
+  if (!season) return;
+  var live = liveEntries(season.id);
+  if (!live.length) return;
+  S.toolsMessage = "Building the image…";
+  render();
+  try {
+    if (document.fonts && document.fonts.ready) await document.fonts.ready;
+    var W = 1080;
+    var perRow = Math.min(6, Math.max(3, Math.ceil(Math.sqrt(live.length))));
+    var tileW = W / perRow, tileH = tileW * 1.45;
+    var rows = Math.max(1, Math.ceil(live.length / perRow));
+    var headH = 190, footH = 96, quiltH = rows * tileH;
+    var c = document.createElement("canvas");
+    c.width = W; c.height = headH + quiltH + footH;
+    var g = c.getContext("2d");
+    g.fillStyle = CREAM; g.fillRect(0, 0, c.width, c.height);
+    g.fillStyle = RUST; g.fillRect(0, 0, W, headH);
+    g.fillStyle = CREAM;
+    g.font = "500 26px Oswald, sans-serif";
+    g.fillText(season.name.toUpperCase(), 54, 66);
+    g.font = "72px Anton, sans-serif";
+    g.fillText("VILLAGE READS", 54, 142);
+
+    var imgs = await Promise.all(live.map(function(e){ return e.cover_path ? loadImgCORS(coverUrl(e.cover_path)) : null; }));
+    g.fillStyle = DEEPCREAM; g.fillRect(0, headH, W, quiltH);
+    live.forEach(function(e, i){
+      var x = (i % perRow) * tileW, y = headH + Math.floor(i / perRow) * tileH;
+      var img = imgs[i];
+      if (img) {
+        var sc = Math.max(tileW / img.width, tileH / img.height);
+        var dw = img.width * sc, dh = img.height * sc;
+        g.save(); g.beginPath(); g.rect(x, y, tileW, tileH); g.clip();
+        g.drawImage(img, x + (tileW - dw) / 2, y + (tileH - dh) / 2, dw, dh);
+        g.restore();
+      } else {
+        g.fillStyle = threadColor(e.reader, e.id);
+        g.fillRect(x, y, tileW, tileH);
+      }
+    });
+    var cell = 11;
+    g.globalAlpha = 0.18; g.fillStyle = CREAM;
+    for (var yy = 0; yy < quiltH; yy += cell * 2) {
+      for (var xx = 0; xx < W; xx += cell * 2) {
+        g.fillRect(xx, headH + yy, cell, cell);
+        g.fillRect(xx + cell, headH + yy + cell, cell, cell);
+      }
+    }
+    g.globalAlpha = 0.5; g.fillStyle = CREAM;
+    live.forEach(function(e, i){ g.fillRect((i % perRow) * tileW, headH + Math.floor(i / perRow) * tileH, 2, tileH); });
+    for (var r = 1; r < rows; r++) g.fillRect(0, headH + r * tileH - 1, W, 2);
+    g.globalAlpha = 1;
+
+    g.fillStyle = CREAM; g.fillRect(0, headH + quiltH, W, footH);
+    g.fillStyle = RUST; g.font = "500 24px Oswald, sans-serif";
+    var readerSet = {}; live.forEach(function(e){ readerSet[keyFor(e.reader)] = 1; });
+    var readerN = Object.keys(readerSet).length;
+    g.fillText(live.length + " BOOKS · " + readerN + " READERS", 54, headH + quiltH + 60);
+    var urlText = "WOVENVILLAGE.COM";
+    var wdt = g.measureText(urlText).width;
+    g.fillText(urlText, W - 54 - wdt, headH + quiltH + 60);
+
+    await new Promise(function(resolve){
+      c.toBlob(function(blob){
+        var a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = "woven-" + season.name.toLowerCase().replace(/\s+/g, "-") + ".png";
+        a.click();
+        setTimeout(function(){ URL.revokeObjectURL(a.href); }, 4000);
+        resolve();
+      }, "image/png");
+    });
+    S.toolsMessage = "Image downloaded.";
+  } catch (err) {
+    S.toolsMessage = "Couldn’t build the image.";
+  }
+  render();
+}
+async function exportSeasonText(){
+  var season = currentSeason();
+  if (!season) return;
+  var live = liveEntries(season.id);
+  var readerSet = {}; live.forEach(function(e){ readerSet[keyFor(e.reader)] = 1; });
+  var readerN = Object.keys(readerSet).length;
+  var lines = [season.name.toUpperCase() + " — VILLAGE READS", live.length + " books · " + readerN + " readers", ""];
+  live.forEach(function(e){
+    lines.push("●".repeat(e.rating) + "○".repeat(5 - e.rating) + "  " + e.title + " — " + e.reader);
+    if (e.line) lines.push('   "' + e.line + '"');
+  });
+  lines.push("", "wovenvillage.com");
+  var text = lines.join("\n");
+  try {
+    await navigator.clipboard.writeText(text);
+    S.toolsMessage = "Copied to your clipboard.";
+  } catch (err) {
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([text], { type: "text/plain" }));
+    a.download = "woven-" + season.name.toLowerCase().replace(/\s+/g, "-") + ".txt";
+    a.click();
+    setTimeout(function(){ URL.revokeObjectURL(a.href); }, 4000);
+    S.toolsMessage = "Downloaded as a text file.";
+  }
+  render();
+}
+
+/* ---------------- events ---------------- */
+app.addEventListener("click", function(e){
+  var rateBtn = e.target.closest("[data-rate]");
+  if (rateBtn) { onRateClick(Number(rateBtn.getAttribute("data-rate"))); return; }
+  var editRateBtn = e.target.closest("[data-edit-rate]");
+  if (editRateBtn) { onEditRateClick(Number(editRateBtn.getAttribute("data-edit-rate"))); return; }
+  if (e.target.closest("#wr-cover-remove")) { draftCover = null; refreshCoverUI(); return; }
+  if (e.target.closest("#wr-submit-btn")) { addBook(); return; }
+
+  var patch = e.target.closest(".wr-patch");
+  if (patch) { S.selectedEntryId = patch.getAttribute("data-id"); S.editingEntryId = null; render(); scrollDetailIntoView(); return; }
+
+  var act = e.target.closest("[data-act]");
+  if (!act) return;
+  var action = act.getAttribute("data-act");
+  var id = act.getAttribute("data-id");
+  if (action === "close-detail") { S.selectedEntryId = null; S.editingEntryId = null; render(); }
+  else if (action === "edit-entry") {
+    S.editingEntryId = id;
+    var found = S.entries.find(function(x){ return x.id === id; });
+    editDraftRating = found ? found.rating : 0;
+    render();
+  }
+  else if (action === "edit-cancel") { S.editingEntryId = null; render(); }
+  else if (action === "edit-save") { saveEdit(id); }
+  else if (action === "remove-entry") { removeEntry(id); }
+  else if (action === "approve") { approveEntry(id); }
+  else if (action === "discard") { removeEntry(id); }
+  else if (action === "toggle-notes") { S.showAllNotes = !S.showAllNotes; render(); }
+  else if (action === "toggle-counts") { S.showAllCounts = !S.showAllCounts; render(); }
+  else if (action === "admin-signout") { signOut(); }
+  else if (action === "admin-signin") { onSignIn(); }
+  else if (action === "toggle-auth") { S.authPanelOpen = !S.authPanelOpen; S.authError = ""; render(); }
+  else if (action === "season-settings-open") { openSeasonSettings(); }
+  else if (action === "season-settings-save") { saveSeasonSettings(); }
+  else if (action === "season-settings-cancel") { S.seasonSettingsEditing = false; render(); }
+  else if (action === "close-season") { onCloseSeason(); }
+  else if (action === "export-quilt") { exportQuiltPng(); }
+  else if (action === "export-text") { exportSeasonText(); }
+  else if (action === "mode-open") { setSeasonModeDraft(false); }
+  else if (action === "mode-review") { setSeasonModeDraft(true); }
+});
+app.addEventListener("keydown", function(e){
+  var patch = e.target.closest && e.target.closest(".wr-patch");
+  if (patch && (e.key === "Enter" || e.key === " ")) {
+    e.preventDefault();
+    S.selectedEntryId = patch.getAttribute("data-id");
+    S.editingEntryId = null;
+    render();
+  }
+});
+app.addEventListener("change", function(e){
+  if (e.target && e.target.id === "wr-cover-input") {
+    onCoverPick(e.target.files && e.target.files[0]);
+    e.target.value = "";
+  }
+});
+
+boot();
+})();
+</script>
+</body>
+</html>

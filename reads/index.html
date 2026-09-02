@@ -530,7 +530,8 @@ function renderForm(season){
     + '<p class="wr-fineprint">A photo of the book, or a screenshot if you read on a screen.</p>'
     + "</div></div>"
     + '<div class="wr-row"><div class="wr-field"><label class="wr-label" for="wr-reader">Your name</label><input id="wr-reader" class="wr-input" placeholder="First name is fine"></div>'
-    + '<div class="wr-field"><label class="wr-label" for="wr-title">Title &amp; author</label><input id="wr-title" class="wr-input" placeholder="Title — Author"></div></div>'
+    + '<div class="wr-field"><label class="wr-label" for="wr-title">Title</label><input id="wr-title" class="wr-input" placeholder="What did you read?"></div></div>'
+    + '<div class="wr-field"><label class="wr-label" for="wr-author">Author <span style="text-transform:none;letter-spacing:0;font-weight:400;">(optional)</span></label><input id="wr-author" class="wr-input" placeholder="Who wrote it?"></div>'
     + '<div class="wr-field"><span class="wr-label">Rate it</span><div class="wr-rate" id="wr-rate">' + rateBtns + '<span class="wr-rate-word" id="wr-rate-word">' + RATE_WORDS[selectedRating] + "</span></div></div>"
     + '<div class="wr-field"><label class="wr-label" for="wr-line">Help someone pick this up next</label>'
     + '<input id="wr-line" class="wr-input" maxlength="140" placeholder="Read this if you…">'
@@ -677,7 +678,7 @@ function buildHTML(){
   return html;
 }
 
-var PRESERVE_IDS = ["wr-reader", "wr-title", "wr-line", "wr-auth-email", "wr-auth-pass",
+var PRESERVE_IDS = ["wr-reader", "wr-title", "wr-author", "wr-line", "wr-auth-email", "wr-auth-pass",
   "wr-edit-title", "wr-edit-reader", "wr-edit-line", "wr-set-name", "wr-set-goal", "wr-set-ends"];
 function snapshotForm(){
   var snap = {};
@@ -803,10 +804,12 @@ async function addBook(){
   if (!season) return;
   var reader = (document.getElementById("wr-reader") || {}).value || "";
   var title = (document.getElementById("wr-title") || {}).value || "";
+  var author = (document.getElementById("wr-author") || {}).value || "";
   var line = (document.getElementById("wr-line") || {}).value || "";
-  reader = reader.trim(); title = title.trim(); line = line.trim().slice(0, MAX_LINE);
+  reader = reader.trim(); title = title.trim(); author = author.trim(); line = line.trim().slice(0, MAX_LINE);
   setFormError(""); setFormNotice("");
   if (!reader || !title) { setFormError("Add your name and the title."); return; }
+  var fullTitle = (author ? (title + " — " + author) : title).slice(0, 200);
   if (!selectedRating) { setFormError("Give it a rating — one tap, and it helps the next person pick."); return; }
 
   setSubmitBusy(true);
@@ -818,7 +821,7 @@ async function addBook(){
   }
   var needsReview = season.review_mode && !isAdmin();
   var payload = {
-    season_id: season.id, reader: reader, title: title, rating: selectedRating,
+    season_id: season.id, reader: reader, title: fullTitle, rating: selectedRating,
     line: line || null, cover_path: coverPath, approved: !needsReview
   };
   var ins = await sb.from("reading_entries").insert(payload);

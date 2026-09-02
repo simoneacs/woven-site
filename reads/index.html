@@ -459,7 +459,7 @@ function renderBanner(){
 function renderTitleBlock(season){
   return '<p class="wr-season-name">' + esc(season.name) + '</p>'
     + '<h1 class="wr-title">Village Reads</h1>'
-    + '<p class="wr-lede">Finished a book? Add it to the Woven Village Reads. Every book becomes a patch on the village quilt. This season closes ' + esc(prettyDate(season.ends_at)) + '.</p>';
+    + '<p class="wr-lede">Finished a book? Add it to the Woven Village Reads. Every book counts, and we&rsquo;re especially glad to see Black and Brown authors on the shelf. Each one becomes a patch on the village quilt. This season closes ' + esc(prettyDate(season.ends_at)) + '.</p>';
 }
 function renderSeasonBar(season, live){
   var goal = Math.max(1, Number(season.goal) || 1);
@@ -530,7 +530,7 @@ function renderForm(season){
     + '<p class="wr-fineprint">A photo of the book, or a screenshot if you read on a screen.</p>'
     + "</div></div>"
     + '<div class="wr-row"><div class="wr-field"><label class="wr-label" for="wr-reader">Your name</label><input id="wr-reader" class="wr-input" placeholder="First name is fine"></div>'
-    + '<div class="wr-field"><label class="wr-label" for="wr-title">Title</label><input id="wr-title" class="wr-input" placeholder="What did you read?"></div></div>'
+    + '<div class="wr-field"><label class="wr-label" for="wr-title">Title &amp; author</label><input id="wr-title" class="wr-input" placeholder="Title — Author"></div></div>'
     + '<div class="wr-field"><span class="wr-label">Rate it</span><div class="wr-rate" id="wr-rate">' + rateBtns + '<span class="wr-rate-word" id="wr-rate-word">' + RATE_WORDS[selectedRating] + "</span></div></div>"
     + '<div class="wr-field"><label class="wr-label" for="wr-line">Help someone pick this up next</label>'
     + '<input id="wr-line" class="wr-input" maxlength="140" placeholder="Read this if you…">'

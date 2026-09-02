@@ -59,9 +59,6 @@ body{ background:var(--cream); color:var(--text); font-family:'DM Sans',system-u
 .wr-quilt svg{ display:block; }
 .wr-patch{ cursor:pointer; outline:none; }
 .wr-patch:focus-visible rect:last-of-type{ stroke:var(--ink); stroke-width:2; }
-.wr-newest-ring{ animation:wr-newest-pulse 2.4s ease-in-out infinite; }
-@keyframes wr-newest-pulse{ 0%,100%{ stroke-opacity:.45; } 50%{ stroke-opacity:1; } }
-@media (prefers-reduced-motion: reduce){ .wr-newest-ring{ animation:none; stroke-opacity:.85; } }
 .wr-foot{ padding:14px 16px 16px; }
 .wr-foot-line{ font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); }
 .wr-detail{ display:flex; gap:12px; }
@@ -435,13 +432,6 @@ QuiltView.prototype.paint = function(){
     seams += '<rect x="0" y="' + ((r + 1) * tileH - 0.5) + '" width="' + w + '" height="1" fill="' + CREAM + '" opacity="0.5"></rect>';
   }
 
-  var newestRing = "";
-  if (this.interactive && books.length) {
-    var nx = 0, ny = 0;
-    newestRing = '<rect class="wr-newest-ring" x="' + (nx + 2) + '" y="' + (ny + 2) + '" width="' + (tileW - 4) + '" height="' + (tileH - 4)
-      + '" fill="none" stroke="' + RUST + '" stroke-width="3" pointer-events="none"></rect>';
-  }
-
   this.container.innerHTML =
     '<svg width="100%" height="' + height + '" viewBox="0 0 ' + w + " " + height + '" role="img" aria-label="Quilt of ' + books.length + ' books">'
     + "<defs><pattern id=\"" + patId + "\" width=\"" + (CELL * 2) + "\" height=\"" + (CELL * 2) + "\" patternUnits=\"userSpaceOnUse\">"
@@ -452,7 +442,6 @@ QuiltView.prototype.paint = function(){
     + tiles
     + '<rect x="0" y="0" width="' + w + '" height="' + height + '" fill="url(#' + patId + ')" opacity="0.2" pointer-events="none"></rect>'
     + seams
-    + newestRing
     + "</svg>";
 };
 QuiltView.prototype.setBooks = function(books){ this.books = books; this.paint(); };

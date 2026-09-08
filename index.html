@@ -193,6 +193,7 @@
   .msec.cta h2{ color:#fff; } .msec.cta .lead{ color:#ffe7dd; } .msec.cta .eyebrow{ color:#ffdccb; } .msec.cta h2 .u{ color:#fff; }
   .mbtns{ display:flex; gap:14px; flex-wrap:wrap; margin-top:32px; }
   .platnote{ display:inline-block; font-family:"Oswald",sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:2px; font-size:11px; color:#9c7b6a; border:1.5px solid var(--line); border-radius:999px; padding:6px 15px; margin-top:16px; }
+  .reads-deadline{ font-family:"DM Sans",sans-serif; font-weight:700; font-size:17px; color:var(--orange); margin-top:18px; }
   .msec.center .mbtns{ justify-content:center; }
 
   /* community photo band */
@@ -419,6 +420,7 @@
       <div class="eyebrow">Village Reads</div>
       <h2>One village. One <span class="u">shelf</span>.</h2>
       <p class="lead">Every book a member finishes becomes a patch on the village quilt. Add yours, and you're entered to win our season's book giveaway.</p>
+      <p class="reads-deadline" id="readsDeadline" hidden></p>
       <div class="mbtns"><a class="mbtn fill" href="reads/">Add your book</a></div>
     </div>
   </section>
@@ -601,5 +603,25 @@
   })();
 </script>
 <!-- End Sender signup -->
+<!-- Village Reads season deadline -->
+<script>
+  (function(){
+    var el = document.getElementById('readsDeadline');
+    if (!el) return;
+    fetch('https://amhxmhdiutadaofhyafk.supabase.co/rest/v1/reading_seasons?select=ends_at&closed=eq.false&limit=1', {
+      headers: { apikey: 'sb_publishable_iAd115IDZHAsvwOwFidClg_AIgaTEpc' }
+    })
+      .then(function(r){ return r.ok ? r.json() : []; })
+      .then(function(rows){
+        if (!rows || !rows[0] || !rows[0].ends_at) return;
+        var d = new Date(rows[0].ends_at + 'T12:00:00');
+        var text = d.toLocaleDateString(undefined, { month: 'long', day: 'numeric' });
+        el.textContent = 'This season closes ' + text + '.';
+        el.hidden = false;
+      })
+      .catch(function(){});
+  })();
+</script>
+<!-- End Village Reads season deadline -->
 <!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "36c820f9b33e41b981ab00a55356a04c"}'></script><!-- End Cloudflare Web Analytics -->
 </body></html>

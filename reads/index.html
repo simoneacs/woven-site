@@ -452,7 +452,7 @@ QuiltView.prototype.destroy = function(){ this.ro.disconnect(); };
 
 /* ---------------- render: static pieces ---------------- */
 function renderHeader(){
-  return '<header class="wr-head"><img class="wr-logo" src="../woven-lockup.png" alt="Woven"><p class="wr-eyebrow">The Village Network</p></header>';
+  return '<header class="wr-head"><a href="../" aria-label="Back to wovenvillage.com"><img class="wr-logo" src="../woven-lockup.png" alt="Woven"></a><p class="wr-eyebrow">The Village Network</p></header>';
 }
 function renderBanner(){
   var msg = S.fatalError || S.adminMessage;

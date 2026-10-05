@@ -75,6 +75,11 @@
     <p>You're all set. Head back to the Woven app and sign in with your new password.</p>
   </div>
 
+  <div id="stateConfirmed" class="state success">
+    <h1>Email confirmed</h1>
+    <p>You're all set. Head back to the Woven app and log in.</p>
+  </div>
+
   <div id="stateInvalid" class="state">
     <h1>This link isn't valid</h1>
     <p class="lead">It may have expired, or already been used. Ask us to send you a new one from the Woven sign-in screen, or email <a href="mailto:hello@wovenvillage.com" style="color:var(--orange);">hello@wovenvillage.com</a>.</p>
@@ -87,33 +92,58 @@
   "use strict";
   var SUPABASE_URL = "https://amhxmhdiutadaofhyafk.supabase.co";
   var SUPABASE_KEY = "sb_publishable_iAd115IDZHAsvwOwFidClg_AIgaTEpc";
+  // Read the link's tokens BEFORE the client initialises: supabase-js strips them
+  // from the URL as soon as it processes them. `type` tells a password-reset link
+  // apart from a signup confirmation, which lands on this same page because it is
+  // the project's Site URL.
+  var rawUrl = (location.hash || "") + "&" + (location.search || "");
+  var hasAuthParams = /access_token=|[?&#]code=|type=/.test(rawUrl);
+  var typeHint = (rawUrl.match(/type=([a-z_]+)/) || [])[1] || "";
+  var isRecovery = typeHint === "recovery";
+
   var sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
   function show(id){
-    ["stateLoading", "stateForm", "stateSuccess", "stateInvalid"].forEach(function(s){
+    ["stateLoading", "stateForm", "stateSuccess", "stateConfirmed", "stateInvalid"].forEach(function(s){
       document.getElementById(s).classList.toggle("active", s === id);
     });
   }
 
+  // Nothing here needs to stay signed in on this browser.
+  function clearSession(){
+    try { sb.auth.signOut({ scope: "local" }); } catch (e) {}
+  }
+
   var resolved = false;
-  function onReady(hasRecoverySession){
+  function resolve(id){
     if (resolved) return;
     resolved = true;
-    show(hasRecoverySession ? "stateForm" : "stateInvalid");
+    show(id);
   }
 
   sb.auth.onAuthStateChange(function(event){
-    if (event === "PASSWORD_RECOVERY") onReady(true);
+    if (event === "PASSWORD_RECOVERY") { isRecovery = true; resolve("stateForm"); }
   });
 
-  // Fallback: if a recovery session was already established before this listener
-  // attached, or the link uses a flow that doesn't fire PASSWORD_RECOVERY, check
-  // directly. Give the client a moment to parse the URL first.
-  setTimeout(function(){
-    sb.auth.getSession().then(function(res){
-      onReady(!!(res && res.data && res.data.session));
-    }).catch(function(){ onReady(false); });
-  }, 1200);
+  if (!hasAuthParams) {
+    // Opened directly, or the link was already used: never trust a leftover session.
+    resolve("stateInvalid");
+    clearSession();
+  } else {
+    // Give the client a moment to process the link, then decide.
+    setTimeout(function(){
+      sb.auth.getSession().then(function(res){
+        if (!(res && res.data && res.data.session)) { resolve("stateInvalid"); return; }
+        // PASSWORD_RECOVERY can arrive just after the session resolves (PKCE links
+        // carry no type hint), so wait a beat before calling this a confirmation.
+        setTimeout(function(){
+          if (isRecovery) { resolve("stateForm"); return; }
+          resolve("stateConfirmed");
+          clearSession();
+        }, 400);
+      }).catch(function(){ resolve("stateInvalid"); });
+    }, 1200);
+  }
 
   var pw1 = document.getElementById("pw1");
   var pw2 = document.getElementById("pw2");
@@ -140,6 +170,7 @@
         return;
       }
       show("stateSuccess");
+      clearSession();
     }).catch(function(){
       btn.disabled = false;
       btn.textContent = "Save new password";

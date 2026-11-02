@@ -235,13 +235,23 @@
   .founder-copy p.fsig{ font-family:"Permanent Marker",cursive; font-size:clamp(20px,2.4vw,26px); color:var(--ink); margin-top:10px; transform:rotate(-1.5deg); transform-origin:left center; }
 
   /* guide two layers */
-  .layers{ display:grid; grid-template-columns:1fr 1fr; gap:34px; margin-top:46px; text-align:left; }
-  @media(max-width:760px){ .layers{ grid-template-columns:1fr; } }
-  .layer{ border-top:2px solid currentColor; padding-top:20px; }
+  .layers{ display:grid; grid-template-columns:repeat(3,1fr); gap:34px; margin-top:46px; text-align:left; }
+  @media(max-width:900px){ .layers{ grid-template-columns:1fr; } }
+  .layer{ border-top:2px solid currentColor; padding-top:20px; display:flex; flex-direction:column; }
   .layer .tag{ font-family:"Oswald",sans-serif; font-weight:600; letter-spacing:2px; text-transform:uppercase; font-size:11px; color:var(--orange); }
   .msec.moss .layer .tag{ color:#9FE1CB; }
-  .layer h3{ font-family:"Anton",sans-serif; text-transform:uppercase; font-size:clamp(20px,2.4vw,27px); margin:8px 0 0; line-height:1.05; }
-  .layer p{ font-size:15px; line-height:1.55; margin-top:12px; opacity:.92; }
+  .layer h3{ font-family:"Anton",sans-serif; text-transform:uppercase; font-size:clamp(20px,2.4vw,27px); margin:10px 0 0; line-height:1.18; letter-spacing:.2px; text-wrap:balance; }
+  .layer p{ font-size:15px; line-height:1.55; margin-top:14px; opacity:.92; text-wrap:pretty; }
+  .layer .you{ margin-top:auto; padding-top:14px; border-top:1px solid rgba(36,26,18,.28); font-size:14.5px; }
+  .layer p:first-of-type{ margin-bottom:18px; }
+  @media(min-width:901px){ .layer .you{ min-height:108px; } .layer h3{ min-height:3.54em; } }
+  .layer .you b{ display:block; font-family:"Oswald",sans-serif; font-weight:600; letter-spacing:2px; text-transform:uppercase; font-size:11px; color:var(--orange); margin-bottom:5px; }
+  .soon{ margin-top:44px; padding:26px 30px 28px; border:1.5px dashed rgba(36,26,18,.42); border-radius:3px; background:rgba(36,26,18,.04); text-align:left; }
+  .soon-tag{ font-family:"Oswald",sans-serif; font-weight:600; letter-spacing:2.5px; text-transform:uppercase; font-size:12px; color:var(--orange); }
+  .soon-grid{ display:grid; grid-template-columns:1fr 1fr; gap:22px 40px; margin-top:14px; }
+  .soon-item h4{ font-family:"Anton",sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:.3px; font-size:19px; line-height:1.2; color:var(--ink); }
+  .soon-item p{ font-size:15px; line-height:1.55; margin-top:8px; opacity:.92; text-wrap:pretty; }
+  @media(max-width:900px){ .soon{ margin-top:34px; padding:22px 20px 24px; } .soon-grid{ grid-template-columns:1fr; } }
   .layer ul{ list-style:none; margin-top:14px; }
   .layer li{ font-size:14px; line-height:1.5; padding-left:18px; position:relative; margin-top:8px; opacity:.92; }
   .layer li::before{ content:""; position:absolute; left:0; top:9px; width:7px; height:7px; background:currentColor; border-radius:1px; transform:rotate(45deg); }
@@ -467,19 +477,33 @@
   <section class="msec center" id="guide">
     <div class="wrap">
       <div class="eyebrow">How it works</div>
-      <h2>Two layers: the Guide, and the <span class="u">Village</span>.</h2>
+      <h2>One seal. One guide. One <span class="u">village</span>.</h2>
+      <p class="lead">Black and Brown-owned businesses earn our seal of approval. You get places you can trust, and a community to support them with.</p>
       <div class="layers">
         <div class="layer">
-          <div class="tag">Free &middot; The Guide</div>
-          <h3>The directory of Woven Certified brands.</h3>
-          <p>The Guide is free and open to everyone. Browse every brand that earned the mark across the city, from food and retail to services and experiences.</p>
-          <ul><li>Every brand is vetted against the same standard.</li><li>You can see who is genuinely worth your loyalty.</li></ul>
+          <div class="tag">Woven Certified</div>
+          <h3>A seal that says a business is worth your trust.</h3>
+          <p>Woven Certified is our seal of approval for Black and Brown-owned businesses. Before a business earns it, we get to know the owners, try what they offer, and check that they treat their customers and their community well.</p>
+          <p class="you"><b>For you</b>You don&#39;t have to guess or dig through reviews. If a business has the seal, we&#39;ve done the checking for you.</p>
         </div>
         <div class="layer">
-          <div class="tag">Paid &middot; Membership</div>
-          <h3>The Village, for people who invest in it.</h3>
-          <p>Members do not pay for a list. They pay to belong to the world the Guide represents, with real perks and first access to what we&#39;re building.</p>
-          <ul><li>Member perks at every Certified partner.</li><li>Invitations to events, and first in line for what is new.</li></ul>
+          <div class="tag">The Guide &middot; Free</div>
+          <h3>A free guide to Black and <span style="white-space:nowrap">Brown-owned</span> businesses.</h3>
+          <p>The Guide is where you discover Black and Brown-owned businesses across New York City. It&#39;s free and open to everyone. The Woven Certified seal is how you tell which ones we&#39;ve checked ourselves.</p>
+          <p class="you"><b>For you</b>Browse before you decide to join, and look for the seal to find places we&#39;ve checked, from restaurants to cafes to gyms.</p>
+        </div>
+        <div class="layer">
+          <div class="tag">The Village &middot; Membership</div>
+          <h3>A membership for people who spend with purpose.</h3>
+          <p>Members join the Village: New Yorkers who shop Black and Brown-owned on purpose. You get perks at Woven Certified businesses, invitations to community events, and first access to new businesses as they join.</p>
+          <p class="you"><b>For you</b>Real perks where you already like to spend, and every membership supports Black and Brown New York.</p>
+        </div>
+      </div>
+      <div class="soon">
+        <div class="soon-tag">Coming soon</div>
+        <div class="soon-grid">
+          <div class="soon-item"><h4>Nominate a business</h4><p>Tell us which Black and Brown-owned businesses deserve the seal. Nominated businesses will appear in the Guide without it until we&#39;ve checked them ourselves.</p></div>
+          <div class="soon-item"><h4>Share honest feedback</h4><p>After you visit, tell us how it went. Your feedback helps every business live up to the standard.</p></div>
         </div>
       </div>
     </div>

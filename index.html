@@ -24,9 +24,6 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"Woven","alternateName":"Woven Village Network","url":"https://wovenvillage.com/","logo":"https://wovenvillage.com/woven-seal.png?v=2","image":"https://wovenvillage.com/woven-og.jpg","description":"Woven is the trust standard for Black and Brown brands: a membership community and certification that tells you which Black-owned brands to trust.","slogan":"Spend with intention. Grow with purpose.","areaServed":{"@type":"City","name":"New York City"},"sameAs":["https://www.instagram.com/woven.village/","https://www.tiktok.com/@woven.village"]}
 </script>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Event","name":"Woven Launch Weekend","startDate":"2026-08-21","endDate":"2026-08-23","eventStatus":"https://schema.org/EventScheduled","eventAttendanceMode":"https://schema.org/MixedEventAttendanceMode","location":{"@type":"Place","name":"New York City","address":{"@type":"PostalAddress","addressLocality":"New York","addressRegion":"NY","addressCountry":"US"}},"image":"https://wovenvillage.com/woven-og.jpg","description":"Woven's launch celebration in New York City with founding members and Woven Certified partners.","organizer":{"@type":"Organization","name":"Woven","url":"https://wovenvillage.com/"},"url":"https://posh.vip/e/woven-the-village-network-launch-party"}
-</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Oswald:wght@500;600;700&family=Permanent+Marker&display=swap" rel="stylesheet">
 <style>
@@ -193,7 +190,6 @@
   .msec.cta h2{ color:#fff; } .msec.cta .lead{ color:#ffe7dd; } .msec.cta .eyebrow{ color:#ffdccb; } .msec.cta h2 .u{ color:#fff; }
   .mbtns{ display:flex; gap:14px; flex-wrap:wrap; margin-top:32px; }
   .platnote{ display:inline-block; font-family:"Oswald",sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:2px; font-size:11px; color:#9c7b6a; border:1.5px solid var(--line); border-radius:999px; padding:6px 15px; margin-top:16px; }
-  .reads-deadline{ font-family:"DM Sans",sans-serif; font-weight:700; font-size:17px; color:var(--orange); margin-top:18px; }
   .msec.center .mbtns{ justify-content:center; }
 
   /* community photo band */
@@ -229,6 +225,14 @@
   .adv-panel .adv-hint{ text-align:center; font-style:italic; color:#2D5A4F; }
   #council h2 .u{ font-family:"Anton",sans-serif; font-weight:400; transform:none; color:#9FE1CB; font-size:1em; }
   .advbios{ display:none; }
+  .founder-grid{ display:grid; grid-template-columns:minmax(0,340px) minmax(0,1fr); gap:clamp(34px,6vw,76px); align-items:center; }
+  .founder-photo .farch{ padding:8px; border:1.5px solid var(--ink); border-radius:999px 999px 0 0; }
+  .founder-photo .farch img{ display:block; width:100%; height:auto; aspect-ratio:4/5; object-fit:cover; border-radius:999px 999px 0 0; }
+  .founder-copy .eyebrow{ margin-bottom:18px; }
+  .founder-copy p{ font-size:clamp(16px,1.7vw,18px); line-height:1.65; color:#4a3a2c; margin-top:16px; max-width:58ch; }
+  .founder-copy p.fl{ font-family:"Anton",sans-serif; text-transform:uppercase; font-size:clamp(24px,3.2vw,38px); line-height:1.08; color:var(--ink); margin-top:0; max-width:24ch; }
+  .founder-copy p.ftag2{ font-family:"Oswald",sans-serif; font-weight:600; letter-spacing:2.5px; text-transform:uppercase; font-size:13px; color:var(--orange); margin-top:26px; }
+  .founder-copy p.fsig{ font-family:"Permanent Marker",cursive; font-size:clamp(20px,2.4vw,26px); color:var(--ink); margin-top:10px; transform:rotate(-1.5deg); transform-origin:left center; }
 
   /* guide two layers */
   .layers{ display:grid; grid-template-columns:1fr 1fr; gap:34px; margin-top:46px; text-align:left; }
@@ -289,6 +293,7 @@
     .council-row::-webkit-scrollbar{ display:none; }
     .adv{ flex:0 0 56%; max-width:230px; scroll-snap-align:center; }
     .adv-panel{ margin-top:26px; padding:22px 20px; } .adv-panel h3{ font-size:22px; } .adv-panel p{ font-size:15px; }
+    .founder-grid{ grid-template-columns:1fr; gap:30px; } .founder-photo{ max-width:260px; margin:0 auto; } .founder-copy{ text-align:left; }
 
     .layers{ gap:26px; margin-top:34px; }
     .tiers{ gap:16px; margin-top:32px; }
@@ -374,9 +379,9 @@
       <p class="lead">This is the seal a Woven Certified brand earns so consumers know that it&#39;s been vetted.</p>
       <ul class="pillars">
         <li><span class="num">01</span><span><span class="pt">Product Quality &amp; Craft</span><span class="pd">We try the products ourselves and check references before a brand earns the mark.</span></span></li>
-        <li><span class="num">02</span><span><span class="pt">Brand Story &amp; Founder</span><span class="pd">We connect with brand founders to establish relationships rooted in care and the village mindset.</span></span></li>
-        <li><span class="num">03</span><span><span class="pt">Values &amp; Community Impact</span><span class="pd">We look at how a brand shows up for community, not only at what it sells.</span></span></li>
-        <li><span class="num">04</span><span><span class="pt">Customer Experience</span><span class="pd">We confirm the brand is ready for you to engage with their product and able to deliver.</span></span></li>
+        <li><span class="num">02</span><span><span class="pt">Customer Experience</span><span class="pd">We confirm the brand is ready for you to engage with their product and able to deliver.</span></span></li>
+        <li><span class="num">03</span><span><span class="pt">Community Impact</span><span class="pd">We look at how a brand shows up for community, not only at what it sells.</span></span></li>
+        <li><span class="num">04</span><span><span class="pt">Brand Values</span><span class="pd">We connect with brand founders to understand the story and values behind the brand, with relationships rooted in care and the village mindset.</span></span></li>
       </ul>
     </div>
     <div class="std-sealcol">
@@ -394,6 +399,23 @@
       <h2>The first brands to <span class="u">earn</span> the mark.</h2>
       <p class="lead">These are the founding partners who earned the Woven Certified seal and committed to the community experience from day one.</p>
       <div class="pgrid"><div class="pcardw"><div class="pph" role="img" aria-label="Filé Gumbo Bar, Creole kitchen" style="background-image:url(file-gumbo-hero.jpg)"></div><div class="pn">Filé Gumbo Bar</div><div class="pc">Creole Kitchen</div></div><div class="pcardw"><div class="pph" role="img" aria-label="The LeVue Loft, creative studio" style="background-image:url(levue-loft-hero.jpeg)"></div><div class="pn">The LeVue Loft</div><div class="pc">Creative Studio</div></div><div class="pcardw"><div class="pph" role="img" aria-label="Rogers Burgers" style="background-image:url(rogers-burgers-hero.jpeg)"></div><div class="pn">Rogers Burgers</div><div class="pc">Burgers</div></div><div class="pcardw"><div class="pph" role="img" aria-label="The Rogers Garden, bar and lounge" style="background-image:url(rogers-garden-hero.jpg)"></div><div class="pn">The Rogers Garden</div><div class="pc">Bar &amp; Lounge</div></div><div class="pcardw"><div class="pph" role="img" aria-label="Bed-Vyne Wine, wine and spirits" style="background-image:url(bed-vyne-hero.jpeg)"></div><div class="pn">Bed-Vyne Wine</div><div class="pc">Wine &amp; Spirits</div></div><div class="pcardw"><div class="pph" role="img" aria-label="Baked Cravings, bakery" style="background-image:url(baked-cravings-hero.jpeg)"></div><div class="pn">Baked Cravings</div><div class="pc">Bakery</div></div><div class="pcardw"><div class="pph" role="img" aria-label="Harlem Cycle, fitness studio" style="background-image:url(harlem-cycle-hero.jpeg)"></div><div class="pn">Harlem Cycle</div><div class="pc">Fitness</div></div><div class="pcardw"><div class="pph" role="img" aria-label="Celsious, laundry and cafe" style="background-image:url(celsious-hero.jpg)"></div><div class="pn">Celsious</div><div class="pc">Laundry</div></div><div class="pcardw"><div class="pph" role="img" aria-label="Miss Barb's cafe" style="background-image:url(miss-barbs-hero.jpeg)"></div><div class="pn">Miss Barb&#39;s</div><div class="pc">Caf&eacute;</div></div><div class="pcardw"><div class="pph" role="img" aria-label="Coffee Uplifts People, coffee shop" style="background-image:url(cup-hero.jpg)"></div><div class="pn">Coffee Uplifts People</div><div class="pc">Coffee</div></div></div>
+    </div>
+  </section>
+
+  <section class="msec" id="founder">
+    <div class="wrap">
+      <div class="founder-grid">
+        <div class="founder-photo"><div class="farch"><img src="founder-simone.jpg" alt="Portrait of Simone A. Francis, founder of Woven" width="720" height="900" loading="lazy"></div></div>
+        <div class="founder-copy">
+          <div class="eyebrow">A note from the founder</div>
+          <p class="fl">Loving Black and Brown businesses means holding them accountable.</p>
+          <p>I&rsquo;m Simone, a West Indian educator, curator, and community builder. I built Woven because I love my hometown of NYC and firmly believe in the power of a village. As a daughter of Jamaican restaurant and food-truck owners, I grew up learning firsthand what it means to build from scratch, to serve your community through culture, and to hold yourself to the highest standards of excellence.</p>
+          <p>Woven is for the people who are interested in exploring the magic of cooperative economics: where brands, members, and community grow because we&rsquo;re invested in one another. Brands earn the Woven Certified mark by meeting a standard of excellence, and members spend with them knowing why they&rsquo;re worth it.</p>
+          <p>We can love supporting these businesses and hold them accountable at the same time. That is how we&rsquo;re redefining what it means to buy Black and Brown today, and how wealth stays in our community in every form &ndash; money, but also knowledge, access, and care.</p>
+          <p class="ftag2">Spend with intention. Grow with purpose.</p>
+          <p class="fsig">&mdash; Simone A. Francis</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -481,21 +503,11 @@
     </div>
   </section>
 
-  <section class="msec center" id="reads">
-    <div class="wrap">
-      <div class="eyebrow">Village Reads</div>
-      <h2>One village. One <span class="u">shelf</span>.</h2>
-      <p class="lead">Every book finished becomes a patch on the village quilt. Anyone can add a book &mdash; at season's end, Woven members win our book giveaway.</p>
-      <p class="reads-deadline" id="readsDeadline" hidden></p>
-      <div class="mbtns"><a class="mbtn fill" href="reads/">Add your book</a></div>
-    </div>
-  </section>
-
   <section class="msec cta center" id="brands">
     <div class="wrap">
       <div class="eyebrow">For brands</div>
       <h2>Earn the <span class="u">mark</span>.</h2>
-      <p class="lead">Woven members already committed money to supporting Black and Brown businesses. They are not browsing, they are looking for reasons to use their membership. Certification puts your brand in front of the people who came to spend.</p>
+      <p class="lead">Woven members already committed money to supporting Black and Brown businesses. They are not browsing, they are looking for reasons to use their membership. Certification puts your brand in front of the people who came to spend. There is no fee to be certified.</p>
       <div class="mbtns"><a class="mbtn dark" href="https://tally.so/r/BzVPLK" target="_blank" rel="noopener noreferrer">Are you a brand? Get Certified</a></div>
     </div>
   </section>
@@ -510,7 +522,7 @@
     </div>
     <div class="fwm">WOVEN</div>
     <div class="ftag">Spend with intention &middot; Grow with purpose</div>
-    <div class="flinks"><a href="#standard">The Standard</a> &middot; <a href="#guide">The Guide</a> &middot; <a href="#partners">Partners</a> &middot; <a href="#council">Advisory Council</a> &middot; <a href="#membership">Membership</a> &middot; <a href="reads/">Village Reads</a> &middot; <a href="mailto:hello@wovenvillage.com">Contact</a> &middot; <a href="https://www.instagram.com/woven.village/" target="_blank" rel="noopener noreferrer">Instagram</a> &middot; <a href="https://www.tiktok.com/@woven.village" target="_blank" rel="noopener noreferrer">TikTok</a> &middot; <a href="privacy-policy.html">Privacy</a> &middot; <a href="terms.html">Terms</a></div>
+    <div class="flinks"><a href="#std">The Standard</a> &middot; <a href="#guide">The Guide</a> &middot; <a href="#partners">Partners</a> &middot; <a href="#council">Advisory Council</a> &middot; <a href="#membership">Membership</a> &middot; <a href="reads/">Village Reads</a> &middot; <a href="mailto:hello@wovenvillage.com">Contact</a> &middot; <a href="https://www.instagram.com/woven.village/" target="_blank" rel="noopener noreferrer">Instagram</a> &middot; <a href="https://www.tiktok.com/@woven.village" target="_blank" rel="noopener noreferrer">TikTok</a> &middot; <a href="privacy-policy.html">Privacy</a> &middot; <a href="terms.html">Terms</a></div>
     <div class="fcopy">wovenvillage.com &middot; The village network for Black &amp; Brown New York &middot; &copy; 2026 Anansi Creative Studio LLC</div>
   </footer>
 
@@ -669,26 +681,6 @@
   })();
 </script>
 <!-- End Sender signup -->
-<!-- Village Reads season deadline -->
-<script>
-  (function(){
-    var el = document.getElementById('readsDeadline');
-    if (!el) return;
-    fetch('https://amhxmhdiutadaofhyafk.supabase.co/rest/v1/reading_seasons?select=ends_at&closed=eq.false&limit=1', {
-      headers: { apikey: 'sb_publishable_iAd115IDZHAsvwOwFidClg_AIgaTEpc' }
-    })
-      .then(function(r){ return r.ok ? r.json() : []; })
-      .then(function(rows){
-        if (!rows || !rows[0] || !rows[0].ends_at) return;
-        var d = new Date(rows[0].ends_at + 'T12:00:00');
-        var text = d.toLocaleDateString(undefined, { month: 'long', day: 'numeric' });
-        el.textContent = 'This season closes ' + text + '.';
-        el.hidden = false;
-      })
-      .catch(function(){});
-  })();
-</script>
-<!-- End Village Reads season deadline -->
 <!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "36c820f9b33e41b981ab00a55356a04c"}'></script><!-- End Cloudflare Web Analytics -->
 
 <script>

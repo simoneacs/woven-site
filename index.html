@@ -212,6 +212,23 @@
   .pcardw .pph{ aspect-ratio:1/1; background-size:cover; background-position:center; }
   .pcardw .pn{ font-family:"Oswald",sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:.5px; font-size:13.5px; margin-top:11px; color:var(--ink); text-align:center; line-height:1.1; }
   .pcardw .pc{ font-family:"DM Sans",sans-serif; font-size:10.5px; text-transform:uppercase; letter-spacing:2px; color:#9C7B6A; text-align:center; margin-top:4px; }
+  .council-row{ display:flex; justify-content:center; gap:22px; margin-top:52px; }
+  .adv{ container-type:inline-size; display:block; flex:1 1 0; max-width:208px; min-width:0; background:none; border:0; padding:0; color:inherit; font:inherit; text-align:center; cursor:pointer; }
+  .adv .arch{ display:block; padding:6px; border:1.5px solid rgba(244,236,221,.45); border-radius:999px 999px 0 0; transition:border-color .2s; }
+  .adv .arch img{ display:block; width:100%; height:auto; aspect-ratio:4/5; object-fit:cover; border-radius:999px 999px 0 0; filter:saturate(.92); transition:filter .2s; }
+  .adv:hover .arch{ border-color:var(--gold); }
+  .adv[aria-selected="true"] .arch{ border-color:#9FE1CB; box-shadow:0 0 0 1px #9FE1CB; }
+  .adv:hover .arch img, .adv[aria-selected="true"] .arch img{ filter:none; }
+  .adv:focus-visible{ outline:none; } .adv:focus-visible .arch{ outline:2px solid #9FE1CB; outline-offset:4px; }
+  .adv .an{ display:block; font-family:"Anton",sans-serif; text-transform:uppercase; letter-spacing:.5px; font-size:24px; line-height:1; color:#F4ECDD; margin-top:18px; }
+  .adv .ar{ display:block; font-family:"Oswald",sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:.1em; font-size:clamp(8px,4.8cqw,10.5px); line-height:1.5; color:#9FE1CB; margin-top:7px; white-space:nowrap; }
+  @container (max-width:176px){ .adv .ar{ white-space:normal; font-size:9.5px; } }
+  .adv-panel{ max-width:760px; margin:40px auto 0; min-height:96px; padding:30px 36px; background:#9FE1CB; border-radius:4px; text-align:left; display:flex; flex-direction:column; justify-content:center; box-shadow:0 14px 34px rgba(10,30,22,.28); }
+  .adv-panel h3{ font-family:"Anton",sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:.5px; font-size:26px; color:#1d3d34; margin-bottom:12px; }
+  .adv-panel p{ font-size:16px; line-height:1.68; color:#1d3d34; }
+  .adv-panel .adv-hint{ text-align:center; font-style:italic; color:#2D5A4F; }
+  #council h2 .u{ font-family:"Anton",sans-serif; font-weight:400; transform:none; color:#9FE1CB; font-size:1em; }
+  .advbios{ display:none; }
 
   /* guide two layers */
   .layers{ display:grid; grid-template-columns:1fr 1fr; gap:34px; margin-top:46px; text-align:left; }
@@ -268,6 +285,10 @@
 
     .pgrid{ gap:13px; margin-top:34px; }
     .pcardw{ flex:0 1 44%; max-width:none; padding:6px 6px 12px; } .pcardw .pn{ font-size:12px; margin-top:8px; } .pcardw .pc{ font-size:9.5px; }
+    .council-row{ justify-content:flex-start; gap:14px; margin:34px -22px 0; padding:0 22px 6px; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+    .council-row::-webkit-scrollbar{ display:none; }
+    .adv{ flex:0 0 56%; max-width:230px; scroll-snap-align:center; }
+    .adv-panel{ margin-top:26px; padding:22px 20px; } .adv-panel h3{ font-size:22px; } .adv-panel p{ font-size:15px; }
 
     .layers{ gap:26px; margin-top:34px; }
     .tiers{ gap:16px; margin-top:32px; }
@@ -376,6 +397,51 @@
     </div>
   </section>
 
+  <section class="msec moss center" id="council">
+    <div class="wrap">
+      <div class="eyebrow">Advisory Council</div>
+      <h2>The people who keep the <span class="u">standard</span> honest.</h2>
+      <p class="lead">Woven&#39;s promise rests on trust in the Woven Certified mark. Our founding advisors bring outside judgment, real standing in Black and Brown community, and a people-first approach to building the Woven ecosystem.</p>
+      <div class="council-row" role="tablist" aria-label="Founding advisors">
+        <button type="button" class="adv" id="adv-jusna" role="tab" aria-selected="false" aria-controls="advpanel" data-k="jusna">
+          <span class="arch"><img src="advisor-jusna.jpg" alt="Portrait of Jusna" width="720" height="900" loading="lazy"></span>
+          <span class="an">Jusna</span>
+          <span class="ar">Director, Basta<br>Founder, HELD by Jusna</span>
+        </button>
+        <button type="button" class="adv" id="adv-everton" role="tab" aria-selected="false" aria-controls="advpanel" data-k="everton">
+          <span class="arch"><img src="advisor-everton.jpg" alt="Portrait of Everton" width="720" height="900" loading="lazy"></span>
+          <span class="an">Everton</span>
+          <span class="ar">Educator &middot; DJ<br>Event Curator</span>
+        </button>
+        <button type="button" class="adv" id="adv-lonnie" role="tab" aria-selected="false" aria-controls="advpanel" data-k="lonnie">
+          <span class="arch"><img src="advisor-lonnie.jpg" alt="Portrait of Lonnie" width="720" height="900" loading="lazy"></span>
+          <span class="an">Lonnie</span>
+          <span class="ar">Event Curator<br>&amp; Connector</span>
+        </button>
+        <button type="button" class="adv" id="adv-asiah" role="tab" aria-selected="false" aria-controls="advpanel" data-k="asiah">
+          <span class="arch"><img src="advisor-asiah.jpg" alt="Portrait of Asiah" width="720" height="900" loading="lazy"></span>
+          <span class="an">Asiah</span>
+          <span class="ar">Creative Strategy Lead<br>Pinterest</span>
+        </button>
+        <button type="button" class="adv" id="adv-tony" role="tab" aria-selected="false" aria-controls="advpanel" data-k="tony">
+          <span class="arch"><img src="advisor-tony.jpg" alt="Portrait of Tony" width="720" height="900" loading="lazy"></span>
+          <span class="an">Tony</span>
+          <span class="ar">Co-Founder, President &amp; CEO<br>Coffee Uplifts People</span>
+        </button>
+      </div>
+      <div class="adv-panel" id="advpanel" role="tabpanel" aria-live="polite">
+        <p class="adv-hint">Tap a portrait to read their story.</p>
+      </div>
+      <div class="advbios">
+        <div class="advbio" id="bio-jusna" hidden><h3>Jusna</h3><p>Jusna is a systems thinker and wellness practitioner who leads with heart, structure, and spiritual grounding. A Director at Basta, she is redefining career access for first-gen students of the global majority. She is the founder of HELD by Jusna, a somatic coaching and facilitation practice, and A Common Center, a civic platform turning compassion fatigue into action. A Brooklyn-based founding advisor to Woven, she believes our communities&#39; excellence deserves to be seen, trusted, and sustained.</p></div>
+        <div class="advbio" id="bio-everton" hidden><h3>Everton</h3><p>Everton is a Brooklyn educator, DJ, and event curator whose work is guided by a Pan-African worldview. By day he works with middle school students and their families, and by night he brings people together through music and events across the city. He is currently completing a graduate degree in Entrepreneurship, where he is building a new perspective on how business can create lasting impact in the communities he cares about. Everton joined the Woven Council because he has lived the problem Woven is working to solve, and he wants to make it easier for New Yorkers to find and support Black and Brown businesses. For him, Woven is personal; it&#39;s the kind of platform he would use every single day.</p></div>
+        <div class="advbio" id="bio-lonnie" hidden><h3>Lonnie</h3><p>Lonnie, dubbed The Mayor of Brooklyn by friends, is a well-known event curator, connector, photographer and lifelong resident of Flatbush, Brooklyn. In addition to his role as a public servant helping New Yorkers every day, he has produced two weekly series, The Weekend Warmup and The Flatbush Social, a last minute pop-up series, SLMDS, and is a co-producer of Girlstown, a dancehall reggae party hosted by reggae legend Buju Banton. Lonnie&#39;s vision and advice have helped businesses like Aunts et Uncles, 333 and The Rogers Garden succeed in bringing fresh ideas to the market that are well-received by those in the community and beyond.</p></div>
+        <div class="advbio" id="bio-asiah" hidden><h3>Asiah</h3><p>Asiah has called New York home for nearly two decades, building a career in media, tech and advertising as a creative strategist. She is Creative Strategy Lead at Pinterest, where she develops sector playbooks and culturally resonant partnership roadmaps across industries. Before Pinterest, she spent nearly a decade as a Marketing Director at Cond&eacute; Nast, driving multi-year partnerships and co-founding the Women&#39;s Network Resource Group, after earlier work at Ebony, Jet and BBC America. She mentors students and volunteers with organizations that uplift communities of color.</p></div>
+        <div class="advbio" id="bio-tony" hidden><h3>Tony</h3><p>Tony is Co-Founder, President &amp; CEO of Coffee Uplifts People (CUP), one of the most rapidly expanding coffee brands in America. CUP imports directly from six major coffee-producing regions, is sold through Whole Foods, Amazon and Target, and supplies enterprise partners like Pfizer, Goldman Sachs and American Express. Before CUP, Tony spent much of his corporate career in Nike&#39;s sportswear division, then co-founded the sneaker boutique WOODstack, where he built community programming from weekly yoga to book clubs and a community library. He is known for storytelling at the intersection of community, culture and conscious commerce.</p></div>
+      </div>
+    </div>
+  </section>
+
   <section class="msec center" id="guide">
     <div class="wrap">
       <div class="eyebrow">How it works</div>
@@ -444,7 +510,7 @@
     </div>
     <div class="fwm">WOVEN</div>
     <div class="ftag">Spend with intention &middot; Grow with purpose</div>
-    <div class="flinks"><a href="#standard">The Standard</a> &middot; <a href="#guide">The Guide</a> &middot; <a href="#partners">Partners</a> &middot; <a href="#membership">Membership</a> &middot; <a href="reads/">Village Reads</a> &middot; <a href="mailto:hello@wovenvillage.com">Contact</a> &middot; <a href="https://www.instagram.com/woven.village/" target="_blank" rel="noopener noreferrer">Instagram</a> &middot; <a href="https://www.tiktok.com/@woven.village" target="_blank" rel="noopener noreferrer">TikTok</a> &middot; <a href="privacy-policy.html">Privacy</a> &middot; <a href="terms.html">Terms</a></div>
+    <div class="flinks"><a href="#standard">The Standard</a> &middot; <a href="#guide">The Guide</a> &middot; <a href="#partners">Partners</a> &middot; <a href="#council">Advisory Council</a> &middot; <a href="#membership">Membership</a> &middot; <a href="reads/">Village Reads</a> &middot; <a href="mailto:hello@wovenvillage.com">Contact</a> &middot; <a href="https://www.instagram.com/woven.village/" target="_blank" rel="noopener noreferrer">Instagram</a> &middot; <a href="https://www.tiktok.com/@woven.village" target="_blank" rel="noopener noreferrer">TikTok</a> &middot; <a href="privacy-policy.html">Privacy</a> &middot; <a href="terms.html">Terms</a></div>
     <div class="fcopy">wovenvillage.com &middot; The village network for Black &amp; Brown New York &middot; &copy; 2026 Anansi Creative Studio LLC</div>
   </footer>
 
@@ -624,4 +690,22 @@
 </script>
 <!-- End Village Reads season deadline -->
 <!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "36c820f9b33e41b981ab00a55356a04c"}'></script><!-- End Cloudflare Web Analytics -->
+
+<script>
+(function(){
+  var tabs=document.querySelectorAll("#council .adv"), panel=document.getElementById("advpanel");
+  if(!tabs.length||!panel) return;
+  var hint=panel.innerHTML;
+  function pick(btn){
+    var open=btn.getAttribute("aria-selected")==="true";
+    for(var i=0;i<tabs.length;i++) tabs[i].setAttribute("aria-selected","false");
+    if(open){ panel.innerHTML=hint; return; }
+    btn.setAttribute("aria-selected","true");
+    var bio=document.getElementById("bio-"+btn.getAttribute("data-k"));
+    if(bio) panel.innerHTML=bio.innerHTML;
+    btn.scrollIntoView({behavior:"smooth",block:"nearest",inline:"center"});
+  }
+  for(var i=0;i<tabs.length;i++) tabs[i].addEventListener("click",function(){ pick(this); });
+})();
+</script>
 </body></html>

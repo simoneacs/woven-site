@@ -283,6 +283,19 @@
   .mrow h3{ font-family:"Anton",sans-serif; text-transform:uppercase; font-size:clamp(18px,2vw,22px); letter-spacing:.8px; line-height:1.3; margin-top:6px; }
   .mrow p{ margin-top:6px; font-size:15.5px; line-height:1.5; }
   @media(max-width:760px){ .mgrid{ grid-template-columns:1fr; gap:34px; } .phone{ max-width:220px; } }
+  .cmp{ display:grid; grid-template-columns:1fr 1fr 1.25fr; gap:22px; margin-top:40px; text-align:left; align-items:stretch; }
+  .cmp-col{ border:1.5px solid var(--line); border-radius:6px; padding:24px 22px 26px; background:rgba(255,255,255,.35); }
+  .cmp-col .tag{ font-family:"Oswald",sans-serif; font-weight:600; letter-spacing:2px; text-transform:uppercase; font-size:12px; color:#7A5C4E; }
+  .cmp-col ul{ list-style:none; margin-top:14px; }
+  .cmp-col li{ font-size:15.5px; line-height:1.45; padding:10px 0 10px 24px; position:relative; color:#5a4838; border-top:1px solid rgba(36,26,18,.14); }
+  .cmp-col li:first-child{ border-top:none; }
+  .cmp-col li::before{ content:"\2715"; position:absolute; left:0; top:11px; font-size:12px; color:#9C7B6A; }
+  .cmp-col.woven{ background:#FBF6EE; border:2px solid var(--orange); box-shadow:0 14px 30px rgba(36,26,18,.1); }
+  .cmp-col.woven .tag{ color:var(--orange); }
+  .cmp-col.woven li{ color:var(--ink); font-weight:500; }
+  .cmp-col.woven li::before{ content:"\2713"; color:var(--orange); font-size:15px; font-weight:700; top:9px; }
+  .cmp .nu{ display:inline-block; margin-left:6px; font-family:"Oswald",sans-serif; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; font-size:10px; color:var(--orange); border:1px solid var(--orange); border-radius:999px; padding:1px 8px; vertical-align:middle; }
+  @media(max-width:900px){ .cmp{ grid-template-columns:1fr; } .cmp-col.woven{ order:-1; } }
   .soon{ margin-top:44px; padding:26px 30px 28px; border:1.5px dashed rgba(36,26,18,.42); border-radius:3px; background:rgba(36,26,18,.04); text-align:left; }
   .soon-tag{ font-family:"Oswald",sans-serif; font-weight:600; letter-spacing:2.5px; text-transform:uppercase; font-size:12px; color:var(--orange); }
   .soon-grid{ display:grid; grid-template-columns:1fr 1fr; gap:22px 40px; margin-top:14px; }
@@ -416,6 +429,40 @@
     <div class="ov"></div>
     <div class="in">
       <h2 style="font-family:Anton,sans-serif;text-transform:uppercase;line-height:1.03;font-size:clamp(26px,4vw,46px);">A directory tells you who exists. A standard tells you who&#39;s worth it.</h2>
+    </div>
+  </section>
+
+  <section class="msec center" id="compare">
+    <div class="wrap">
+      <div class="eyebrow">How Woven compares</div>
+      <h2>Not the biggest list. The most <span class="u">trusted</span> one.</h2>
+      <div class="cmp">
+        <div class="cmp-col">
+          <div class="tag">Directories</div>
+          <ul>
+            <li>List everyone</li>
+            <li>Don&#39;t tell you who is excellent</li>
+            <li>Leave you to guess</li>
+          </ul>
+        </div>
+        <div class="cmp-col">
+          <div class="tag">Deal apps</div>
+          <ul>
+            <li>Built around the deepest discount</li>
+            <li>Don&#39;t tell you who is excellent</li>
+            <li>You&#39;re a stranger to the business</li>
+          </ul>
+        </div>
+        <div class="cmp-col woven">
+          <div class="tag">Woven</div>
+          <ul>
+            <li>Black and Brown-owned businesses only, ownership checked</li>
+            <li>Certified means checked on four pillars</li>
+            <li>Members nominate and share private feedback <span class="nu">Next app update</span></li>
+            <li>Perks, events and a community</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 

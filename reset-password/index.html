@@ -103,6 +103,16 @@
 
   var sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
+  // Reset emails sent from the app arrive as ?token_hash=...&type=recovery.
+  // (The older ?code= style links can't be finished here: the app, not this
+  // page, holds the other half of that exchange.) The token is only spent when
+  // the person submits a new password, so mail scanners that open the link
+  // can't use it up.
+  var linkParams = new URLSearchParams(location.search || "");
+  var tokenHash = linkParams.get("token_hash") || "";
+  var isTokenHashRecovery = !!tokenHash && linkParams.get("type") === "recovery";
+  var linkVerified = false;
+
   function show(id){
     ["stateLoading", "stateForm", "stateSuccess", "stateConfirmed", "stateInvalid"].forEach(function(s){
       document.getElementById(s).classList.toggle("active", s === id);
@@ -125,7 +135,12 @@
     if (event === "PASSWORD_RECOVERY") { isRecovery = true; resolve("stateForm"); }
   });
 
-  if (!hasAuthParams) {
+  if (isTokenHashRecovery) {
+    isRecovery = true;
+    resolve("stateForm");
+    // Keep the token out of the address bar and browser history.
+    try { history.replaceState(null, "", location.pathname); } catch (e) {}
+  } else if (!hasAuthParams) {
     // Opened directly, or the link was already used: never trust a leftover session.
     resolve("stateInvalid");
     clearSession();
@@ -162,9 +177,24 @@
     if (a !== b) { setError("Passwords don't match."); return; }
     btn.disabled = true;
     btn.textContent = "Saving…";
-    sb.auth.updateUser({ password: a }).then(function(res){
+    var work;
+    if (isTokenHashRecovery && !linkVerified) {
+      // Spend the one-time token now, then set the password in the same step.
+      work = sb.auth.verifyOtp({ token_hash: tokenHash, type: "recovery" }).then(function(v){
+        if (v.error) { return { linkError: true }; }
+        linkVerified = true;
+        return sb.auth.updateUser({ password: a });
+      });
+    } else {
+      work = sb.auth.updateUser({ password: a });
+    }
+    work.then(function(res){
       btn.disabled = false;
       btn.textContent = "Save new password";
+      if (res.linkError) {
+        show("stateInvalid");
+        return;
+      }
       if (res.error) {
         setError("That didn't save. Try again, or ask for a new link.");
         return;

@@ -2,7 +2,7 @@
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Woven &middot; The Trust Standard for Black &amp; Brown Brands</title>
-<meta name="description" content="Woven is the trust standard for Black and Brown brands. A membership community and certification that tells you which Black-owned brands to trust. Spend with intention. Grow with purpose.">
+<meta name="description" content="Woven is the trust standard for Black and Brown brands. A membership community and certification that tells you which Black and Brown-owned brands to trust. Spend with intention. Grow with purpose.">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#3E2818">
 <link rel="canonical" href="https://wovenvillage.com/">
@@ -11,7 +11,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Woven">
 <meta property="og:title" content="Woven &middot; The Trust Standard for Black &amp; Brown Brands">
-<meta property="og:description" content="You already want to shop Black-owned. Woven tells you who to trust. A membership community and certification for Black and Brown New York.">
+<meta property="og:description" content="You already want to shop Black and Brown-owned. Woven tells you who to trust. A membership community and certification for Black and Brown New York.">
 <meta property="og:url" content="https://wovenvillage.com/">
 <meta property="og:image" content="https://wovenvillage.com/woven-og.jpg?v=2">
 <meta property="og:image:width" content="1200">
@@ -19,10 +19,10 @@
 <meta property="og:image:alt" content="Woven, the trust standard for Black and Brown brands">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Woven &middot; The Trust Standard for Black &amp; Brown Brands">
-<meta name="twitter:description" content="You already want to shop Black-owned. Woven tells you who to trust.">
+<meta name="twitter:description" content="You already want to shop Black and Brown-owned. Woven tells you who to trust.">
 <meta name="twitter:image" content="https://wovenvillage.com/woven-og.jpg?v=2">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":"Woven","alternateName":"Woven Village Network","url":"https://wovenvillage.com/","logo":"https://wovenvillage.com/woven-seal.png?v=2","image":"https://wovenvillage.com/woven-og.jpg","description":"Woven is the trust standard for Black and Brown brands: a membership community and certification that tells you which Black-owned brands to trust.","slogan":"Spend with intention. Grow with purpose.","areaServed":{"@type":"City","name":"New York City"},"sameAs":["https://www.instagram.com/woven.village/","https://www.tiktok.com/@woven.village"]}
+{"@context":"https://schema.org","@type":"Organization","name":"Woven","alternateName":"Woven Village Network","url":"https://wovenvillage.com/","logo":"https://wovenvillage.com/woven-seal.png?v=2","image":"https://wovenvillage.com/woven-og.jpg","description":"Woven is the trust standard for Black and Brown brands: a membership community and certification that tells you which Black and Brown-owned brands to trust.","slogan":"Spend with intention. Grow with purpose.","areaServed":{"@type":"City","name":"New York City"},"sameAs":["https://www.instagram.com/woven.village/","https://www.tiktok.com/@woven.village"]}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Oswald:wght@500;600;700&family=Permanent+Marker&display=swap" rel="stylesheet">
@@ -105,7 +105,7 @@
   @keyframes bob{50%{transform:rotate(45deg) translateY(5px)}}
 
   .standard{ position:relative; background:var(--paper); padding:clamp(56px,7vw,104px) clamp(22px,5vw,54px); border-top:1.5px solid var(--ink); }
-  .std-grid{ display:grid; grid-template-columns:1fr .82fr; gap:clamp(30px,5vw,64px); align-items:start; max-width:1160px; margin:0 auto; }
+  .std-grid{ display:grid; grid-template-columns:1fr; max-width:820px; margin:0 auto; }
   .seal-between{ display:none; }
   @media(max-width:860px){ .std-grid{ grid-template-columns:1fr; } .frame{ max-width:300px; margin:28px auto 0; }
     .std-sealcol{ display:none; }
@@ -118,11 +118,18 @@
   .std h2 .u{ font-family:"Permanent Marker",cursive; color:var(--orange); text-transform:uppercase; font-weight:400; font-size:1.32em; line-height:.9; display:inline-block; transform:rotate(-2deg); vertical-align:baseline; }
   .std .lead{ font-size:clamp(16px,1.9vw,19px); color:#4a3a2c; max-width:46ch; margin-top:20px; line-height:1.55; }
   .pillars{ list-style:none; margin-top:30px; }
-  .pillars li{ display:grid; grid-template-columns:44px 1fr; gap:16px; align-items:baseline; padding:19px 0; border-top:1.5px solid var(--orange); }
+  .pillars li{ border-top:1.5px solid var(--orange); }
+  .pillars summary{ display:grid; grid-template-columns:44px 1fr 22px; gap:16px; align-items:center; padding:17px 0; cursor:pointer; list-style:none; }
+  .pillars summary::-webkit-details-marker{ display:none; }
+  .pillars summary:focus-visible{ outline:2px solid var(--orange); outline-offset:2px; }
+  .pillars .chev{ position:relative; width:16px; height:16px; justify-self:end; }
+  .pillars .chev::before,.pillars .chev::after{ content:""; position:absolute; left:50%; top:50%; width:16px; height:1.5px; background:var(--orange); transform:translate(-50%,-50%); transition:transform .2s; }
+  .pillars .chev::after{ transform:translate(-50%,-50%) rotate(90deg); }
+  .pillars details[open] .chev::after{ transform:translate(-50%,-50%) rotate(0deg); }
   .pillars li:last-child{ border-bottom:1.5px solid var(--orange); }
   .pillars .num{ font-family:"Anton",sans-serif; color:var(--orange); font-size:25px; }
   .pillars .pt{ font-family:"Oswald",sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:.5px; font-size:18px; color:var(--ink); }
-  .pillars .pd{ display:block; font-size:14.5px; color:#5a4838; margin-top:5px; line-height:1.5; }
+  .pillars .pd{ display:block; font-size:14.5px; color:#5a4838; margin:0; padding:0 0 18px 60px; line-height:1.5; }
   .frame{ padding:12px 12px 40px; background:var(--cream); border:1px solid var(--line); box-shadow:0 18px 40px rgba(60,40,20,.16); transform:rotate(2deg); position:relative; }
   .frame .photo{ aspect-ratio:4/5; background:linear-gradient(160deg,#9a6a44,#3E5A49); }
   .frame .cap2{ font-family:"Caveat",cursive; font-weight:700; font-size:22px; color:var(--ink); text-align:center; margin-top:8px; }
@@ -186,6 +193,82 @@
   .mbtn.ghost{ background:transparent; color:currentColor; border-color:currentColor; }
   .mbtn.static{ background:transparent; color:currentColor; border-color:currentColor; opacity:.65; cursor:default; }
   .mbtn.dark{ background:var(--mahog); color:var(--cream); }
+
+  /* why woven: storybook carousel */
+  #why{ background:var(--cream); }
+  .chl{ font-family:"Oswald",sans-serif; font-weight:600; letter-spacing:3px; text-transform:uppercase; font-size:12px; color:var(--orange); }
+  .chlead{ font-family:"Anton",sans-serif; text-transform:uppercase; line-height:1.05; font-size:clamp(30px,4.6vw,52px); color:var(--ink); margin:10px 0 0; }
+  .chp{ font-size:clamp(16px,1.9vw,19px); line-height:1.65; color:#4a3a2c; max-width:52ch; margin:22px auto 0; }
+  .scene{ font-size:clamp(19px,2.6vw,27px); line-height:1.3; font-weight:500; color:var(--ink); max-width:30ch; margin:20px auto 0; text-wrap:balance; }
+  .sdot{ display:block; width:8px; height:8px; border-radius:50%; background:var(--orange); margin:16px auto 0; }
+  .big{ font-size:clamp(21px,3vw,32px); line-height:1.4; font-weight:500; color:var(--ink); max-width:28ch; margin:24px auto 0; text-wrap:balance; }
+  .num{ white-space:nowrap; font-family:"Anton",sans-serif; font-weight:400; text-transform:uppercase; color:var(--orange); font-size:1.5em; line-height:1; background:linear-gradient(transparent 62%, rgba(199,154,62,.4) 62%); padding:0 .12em; }
+  .trust{ font-weight:700; color:var(--orange); }
+  .book{ max-width:860px; margin:44px auto 0; }
+  .bk-track{ display:flex; gap:20px; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; -webkit-overflow-scrolling:touch; outline-offset:6px; }
+  .bk-track::-webkit-scrollbar{ display:none; }
+  .bk-slide{ flex:0 0 100%; scroll-snap-align:center; box-sizing:border-box; min-height:clamp(480px,56vw,560px); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:clamp(30px,5vw,56px) clamp(20px,5vw,56px); background:#FBF6EE; border:1.5px solid var(--line); border-radius:14px; box-shadow:0 14px 34px rgba(36,26,18,.08); text-align:center; }
+  .chend{ font-weight:700; font-size:clamp(20px,2.6vw,28px); color:var(--orange); margin:26px 0 0; line-height:1.2; }
+  .msec.center .bk-last .mbtns{ justify-content:center; margin-top:22px; }
+  .bk-src{ font-size:12px; line-height:1.45; color:#7a5c4e; max-width:52ch; margin:26px auto 0; }
+  .bk-ctrl{ display:flex; align-items:center; justify-content:center; gap:18px; margin-top:22px; }
+  .bk-btn{ width:44px; height:44px; border-radius:50%; border:1.5px solid var(--ink); background:transparent; color:var(--ink); font-size:20px; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+  .bk-btn:hover:not(:disabled){ background:var(--ink); color:var(--cream); }
+  .bk-btn:disabled{ opacity:.3; cursor:default; }
+  .bk-btn:focus-visible,.bk-dot:focus-visible{ outline:3px solid var(--orange); outline-offset:3px; }
+  .bk-dots{ display:flex; gap:10px; }
+  .bk-dot{ width:11px; height:11px; border-radius:50%; border:1.5px solid var(--orange); background:transparent; padding:0; cursor:pointer; }
+  .bk-dot.on{ background:var(--orange); }
+  .bk-hint{ margin:12px 0 0; font-size:12.5px; letter-spacing:.3px; color:#7a5c4e; }
+  @media(max-width:700px){ .bk-slide{ min-height:520px; } }
+
+  /* why woven: compact */
+  #why.msec{ padding-top:clamp(40px,5vw,68px); padding-bottom:clamp(40px,5vw,68px); }
+  #why h2{ font-size:clamp(26px,3.8vw,44px); }
+  #why .book{ margin-top:30px; }
+  #why .bk-slide{ min-height:clamp(340px,38vw,400px); padding:clamp(24px,4vw,38px) clamp(18px,4vw,44px); }
+  #why .chlead{ font-size:clamp(26px,3.5vw,40px); }
+  #why .chp{ font-size:clamp(15px,1.7vw,17px); margin-top:16px; line-height:1.55; }
+  #why .chp-lead{ font-size:clamp(17px,2vw,21px); font-weight:500; color:var(--ink); margin:14px auto 6px; max-width:34ch; line-height:1.4; }
+  #why .scene{ font-size:clamp(17px,2.2vw,22px); margin-top:12px; max-width:34ch; }
+  #why .sdot{ margin-top:10px; width:7px; height:7px; }
+  #why .big{ font-size:clamp(19px,2.5vw,27px); margin-top:18px; }
+  #why .chend{ margin-top:18px; }
+  #why .bk-src{ margin-top:18px; }
+  #why .bk-ctrl{ margin-top:16px; } #why .bk-btn{ width:40px; height:40px; }
+  @media(max-width:700px){ #why .bk-slide{ min-height:420px; } }
+
+  #why .chp-lead2{ font-size:clamp(15px,1.8vw,18px); font-weight:500; color:var(--ink); margin-top:22px; max-width:none; }
+  .flow{ list-style:none; margin:14px auto 0; padding:0; display:grid; grid-template-columns:repeat(3,1fr); gap:10px; max-width:700px; counter-reset:fl; }
+  .flow li{ position:relative; counter-increment:fl; background:var(--cream); border:1.5px solid var(--line); border-radius:10px; padding:14px 12px 14px; font-size:13.5px; line-height:1.4; color:#4a3a2c; }
+  .flow li::before{ content:counter(fl); display:flex; align-items:center; justify-content:center; width:24px; height:24px; margin:0 auto 8px; border-radius:50%; background:var(--orange); color:#FBF6EE; font-family:"Anton",sans-serif; font-size:13px; }
+  .flow li+li::after{ content:"\2192"; position:absolute; left:-15px; top:50%; transform:translateY(-50%); color:var(--orange); font-size:16px; font-weight:700; }
+  .flow b{ display:block; font-family:"Oswald",sans-serif; font-weight:600; letter-spacing:.5px; font-size:14.5px; color:var(--ink); margin-bottom:2px; }
+  .flow span{ display:block; }
+  @media(max-width:700px){ .flow{ grid-template-columns:1fr; } .flow li+li::after{ content:"\2193"; left:50%; top:-14px; transform:translateX(-50%); } #why .bk-slide{ min-height:470px; } }
+  #why .mget{list-style:none;margin:14px auto 4px;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:760px;text-align:left}
+#why .mget li{background:var(--paper,#EBE1CC);border:1px solid var(--line,#C9B48C);border-radius:12px;padding:12px 14px}
+#why .mget b{display:block;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:13px;color:var(--orange,#BC4B26);margin-bottom:4px;font-weight:600}
+#why .mget span{display:block;font-size:14px;line-height:1.4;color:var(--ink,#241A12)}
+@media(max-width:700px){#why .mget{grid-template-columns:1fr}#why .mget span{font-size:13.5px}#why .bk-slide{min-height:470px}}
+#join.msec{padding-top:clamp(36px,5vw,60px);padding-bottom:clamp(36px,5vw,60px)}
+#join h2{font-size:clamp(26px,3.6vw,42px)}
+#join .tiers{margin-top:22px}
+#join .mjoin-lead{margin-top:10px;font-size:15px}
+#join .mbtns{margin-top:18px}
+#join .platnote{margin-top:12px}
+footer.mfoot{border-top:1px solid rgba(244,236,221,.18)}
+#loop.msec.dark{background:linear-gradient(rgba(30,62,52,.8),rgba(30,62,52,.88)),url(community-toast.jpg) center 40%/cover no-repeat}
+#dollar{background:#F4ECDD}
+#dollar .djrow li{background:#EBE1CC}
+.mfoot .signup-intro{font-family:"Oswald",sans-serif;font-weight:600;letter-spacing:2px;text-transform:uppercase;font-size:12px;color:#e0904a;margin:0 0 14px}
+#guide .djobs.gloss{margin-top:64px;padding-top:56px;border-top:1.5px solid rgba(159,225,203,.35);max-width:none}
+#guide .gpanel{background:#F4ECDD;border:1.5px solid #C9B48C;border-radius:14px;padding:clamp(10px,2vw,22px);max-width:860px;margin:28px auto 0;color:#241A12;text-align:left}
+#join .mjoin{margin-top:0;padding-top:0;border-top:0}
+#join{background:#F4ECDD}
+#join .mjoin-lead,#join .mnote{color:#4a3a2c}
+#join .platnote{color:#7A5C4E;border-color:#C9B48C}
+.whynote{ margin:18px auto 0; font-size:12.5px; letter-spacing:.2px; color:#ffdccb; max-width:56ch; }
   .msec.cta{ background:var(--orange); color:#fff2ea; border-top-color:#8f3a1c; }
   .msec.cta h2{ color:#fff; } .msec.cta .lead{ color:#ffe7dd; } .msec.cta .eyebrow{ color:#ffdccb; } .msec.cta h2 .u{ color:#fff; }
   .mbtns{ display:flex; gap:14px; flex-wrap:wrap; margin-top:32px; }
@@ -235,18 +318,157 @@
   .founder-copy p.fsig{ font-family:"Permanent Marker",cursive; font-size:clamp(20px,2.4vw,26px); color:var(--ink); margin-top:10px; transform:rotate(-1.5deg); transform-origin:left center; }
 
   /* guide two layers */
-  .layers{ display:grid; grid-template-columns:1fr 1fr; gap:34px; margin-top:46px; text-align:left; }
-  @media(max-width:760px){ .layers{ grid-template-columns:1fr; } }
-  .layer{ border-top:2px solid currentColor; padding-top:20px; }
+  .layers{ display:grid; grid-template-columns:repeat(3,1fr); gap:34px; margin-top:46px; text-align:left; }
+  @media(max-width:900px){ .layers{ grid-template-columns:1fr; } }
+  .layer{ border-top:2px solid currentColor; padding-top:20px; display:flex; flex-direction:column; }
   .layer .tag{ font-family:"Oswald",sans-serif; font-weight:600; letter-spacing:2px; text-transform:uppercase; font-size:11px; color:var(--orange); }
   .msec.moss .layer .tag{ color:#9FE1CB; }
-  .layer h3{ font-family:"Anton",sans-serif; text-transform:uppercase; font-size:clamp(20px,2.4vw,27px); margin:8px 0 0; line-height:1.05; }
-  .layer p{ font-size:15px; line-height:1.55; margin-top:12px; opacity:.92; }
+  .layer h3{ font-family:"Anton",sans-serif; text-transform:uppercase; font-size:clamp(20px,2.4vw,27px); margin:10px 0 0; line-height:1.18; letter-spacing:.2px; text-wrap:balance; }
+  .layer p{ font-size:15px; line-height:1.55; margin-top:14px; opacity:.92; text-wrap:pretty; }
+  .layer .you{ margin-top:auto; padding-top:14px; border-top:1px solid rgba(36,26,18,.28); font-size:14.5px; }
+  .layer p:first-of-type{ margin-bottom:18px; }
+  @media(min-width:901px){ .layer .you{ min-height:108px; } .layer h3{ min-height:3.54em; } }
+  .layer .you b{ display:block; font-family:"Oswald",sans-serif; font-weight:600; letter-spacing:2px; text-transform:uppercase; font-size:11px; color:var(--orange); margin-bottom:5px; }
+  .inside-h{ font-family:"Anton",sans-serif; font-weight:400; text-transform:uppercase; font-size:clamp(24px,3.4vw,38px); line-height:1.1; margin-top:10px; text-wrap:balance; }
+  .inside .layers{ grid-template-columns:repeat(2,1fr); gap:48px 64px; max-width:820px; margin:44px auto 0; }
+  .inside .layer{ border-top:none; padding-top:0; }
+  .inside .layer h3{ min-height:0; letter-spacing:.8px; line-height:1.3; font-size:clamp(19px,2vw,24px); }
+  .inside .layer p{ margin-top:10px; font-size:15.5px; }
+  .inside .layer p:first-of-type{ margin-bottom:0; }
+  .inside-h{ letter-spacing:.8px; }
+  @media(max-width:700px){ .inside .layers{ grid-template-columns:1fr; gap:34px; } }
+  #guide .layers .layer h3{ letter-spacing:.6px; line-height:1.25; }
+  .layers.steps{ position:relative; }
+  .layers.steps .layer{ border-top:none; padding-top:0; position:relative; }
+  .layers.steps .num{ width:46px; height:46px; border-radius:50%; background:var(--mahog); color:var(--cream); font-family:"Anton",sans-serif; font-size:20px; display:flex; align-items:center; justify-content:center; margin-bottom:18px; position:relative; z-index:1; box-shadow:0 0 0 6px var(--paper,#EBE1CC); }
+  .layers.steps .layer:not(:last-child)::after{ content:""; position:absolute; top:22px; left:58px; width:calc(100% - 32px); border-top:2px dashed var(--orange); z-index:0; }
+  @media(max-width:900px){ .layers.steps .layer:not(:last-child)::after{ display:none; } }
+  .inside{ background:#FBF6EE; color:var(--ink); border:1.5px solid var(--line); border-radius:10px; padding:52px 40px 56px; margin-top:64px; text-align:center; box-shadow:0 14px 34px rgba(36,26,18,.08); }
+  .inside .eyebrow{ color:var(--orange); }
+  .inside-h{ color:var(--ink); }
+  .inside .layers{ text-align:left; }
+  .inside .layer h3{ color:var(--ink); }
+  .inside .layer p{ color:#5a4838; opacity:1; }
+  .inside .layer .tag{ color:var(--orange); }
+  .inside .ico{ width:46px; height:46px; border-radius:50%; background:var(--orange); color:#FBF6EE; display:flex; align-items:center; justify-content:center; margin-bottom:16px; }
+  .inside .ico svg{ width:24px; height:24px; }
+  @media(max-width:700px){ .inside{ padding:36px 22px 40px; margin-top:44px; } }
+  .mgrid{ display:grid; grid-template-columns:minmax(220px,260px) 1fr; gap:56px; align-items:center; max-width:820px; margin:44px auto 0; text-align:left; }
+  .phone{ width:100%; max-width:260px; aspect-ratio:9/18.5; border:10px solid var(--mahog); border-radius:38px; background:var(--mahog); box-shadow:0 22px 44px rgba(36,26,18,.28); position:relative; overflow:hidden; justify-self:center; }
+  .phone::before{ content:""; position:absolute; top:8px; left:50%; width:70px; height:18px; margin-left:-35px; background:var(--mahog); border-radius:12px; z-index:3; }
+  .phone .screen{ width:100%; height:100%; background:#F5EFE8; border-radius:26px; overflow:hidden; display:flex; align-items:center; justify-content:center; position:relative; }
+  .phone .screen img{ width:100%; height:100%; object-fit:cover; object-position:top; position:absolute; inset:0; z-index:2; }
+  .phone .screen .ph-logo{ position:static; width:60%; height:auto; object-fit:contain; opacity:.85; z-index:1; }
+  .mlist{ display:flex; flex-direction:column; gap:28px; }
+  .mrow{ display:flex; gap:18px; align-items:flex-start; }
+  .mrow .ico{ flex:none; margin-bottom:0; }
+  .mrow .tag{ font-family:"Oswald",sans-serif; font-weight:600; letter-spacing:2px; text-transform:uppercase; font-size:11px; color:var(--orange); }
+  .mrow h3{ font-family:"Anton",sans-serif; text-transform:uppercase; font-size:clamp(18px,2vw,22px); letter-spacing:.8px; line-height:1.3; margin-top:6px; }
+  .mrow p{ margin-top:6px; font-size:15.5px; line-height:1.5; }
+  @media(max-width:760px){ .mgrid{ grid-template-columns:1fr; gap:34px; } .phone{ max-width:220px; } }
+  .cmp{ display:grid; grid-template-columns:1fr 1fr 1.25fr; gap:22px; margin-top:40px; text-align:left; align-items:stretch; }
+  .cmp-col{ border:1.5px solid var(--line); border-radius:6px; padding:24px 22px 26px; background:rgba(255,255,255,.35); }
+  .cmp-col .tag{ font-family:"Oswald",sans-serif; font-weight:600; letter-spacing:2px; text-transform:uppercase; font-size:12px; color:#7A5C4E; }
+  .cmp-col ul{ list-style:none; margin-top:14px; }
+  .cmp-col li{ font-size:15.5px; line-height:1.45; padding:10px 0 10px 24px; position:relative; color:#5a4838; border-top:1px solid rgba(36,26,18,.14); }
+  .cmp-col li:first-child{ border-top:none; }
+  .cmp-col li::before{ content:"\2715"; position:absolute; left:0; top:11px; font-size:12px; color:#9C7B6A; }
+  .cmp-col.woven{ background:#FBF6EE; border:2px solid var(--orange); box-shadow:0 14px 30px rgba(36,26,18,.1); }
+  .cmp-col.woven .tag{ color:var(--orange); }
+  .cmp-col.woven li{ color:var(--ink); font-weight:500; }
+  .cmp-col.woven li::before{ content:"\2713"; color:var(--orange); font-size:15px; font-weight:700; top:9px; }
+  .cmp .nu{ display:inline-block; margin-left:6px; font-family:"Oswald",sans-serif; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; font-size:10px; color:var(--orange); border:1px solid var(--orange); border-radius:999px; padding:1px 8px; vertical-align:middle; }
+  .cmp-close{ max-width:60ch; margin:40px auto 0; font-weight:500; }
+  @media(max-width:900px){ .cmp{ grid-template-columns:1fr; } .cmp-col.woven{ order:-1; } }
+  .soon{ margin-top:44px; padding:26px 30px 28px; border:1.5px dashed rgba(36,26,18,.42); border-radius:3px; background:rgba(36,26,18,.04); text-align:left; }
+  .soon-tag{ font-family:"Oswald",sans-serif; font-weight:600; letter-spacing:2.5px; text-transform:uppercase; font-size:12px; color:var(--orange); }
+  .soon-grid{ display:grid; grid-template-columns:1fr 1fr; gap:22px 40px; margin-top:14px; }
+  .soon-item h4{ font-family:"Anton",sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:.3px; font-size:19px; line-height:1.2; color:var(--ink); }
+  .soon-item p{ font-size:15px; line-height:1.55; margin-top:8px; opacity:.92; text-wrap:pretty; }
+  @media(max-width:900px){ .soon{ margin-top:34px; padding:22px 20px 24px; } .soon-grid{ grid-template-columns:1fr; } }
   .layer ul{ list-style:none; margin-top:14px; }
   .layer li{ font-size:14px; line-height:1.5; padding-left:18px; position:relative; margin-top:8px; opacity:.92; }
   .layer li::before{ content:""; position:absolute; left:0; top:9px; width:7px; height:7px; background:currentColor; border-radius:1px; transform:rotate(45deg); }
 
   /* membership tiers */
+  .mjoin{ margin-top:52px; padding-top:48px; border-top:1.5px solid var(--line); }
+  .mjoin-lead{ font-size:16px; line-height:1.55; color:#5a4838; max-width:52ch; margin:16px auto 0; }
+  .inside .mnote{ color:#5a4838; }
+  .inside .mjoin .u{ color:var(--orange); }
+  .brandcta{ margin:72px auto 0; padding-top:56px; border-top:1.5px solid rgba(231,217,201,.25); max-width:720px; }
+  .brandcta h3{ font-family:"Anton",sans-serif; font-weight:400; text-transform:uppercase; font-size:clamp(30px,4.4vw,46px); line-height:1.05; color:var(--cream); margin-top:12px; }
+  .brandcta h3 .u{ color:#e0904a; }
+  .brandcta .lead{ margin-left:auto; margin-right:auto; }
+  .defs{ max-width:860px; margin:44px auto 0; text-align:left; border-top:1.5px solid var(--ink); }
+  .def{ border-bottom:1.5px solid var(--line); }
+  .def summary{ list-style:none; cursor:pointer; display:grid; grid-template-columns:1fr 26px; align-items:center; gap:16px; padding:24px 0; }
+  .def summary::-webkit-details-marker{ display:none; }
+  .def .dt{ display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 18px; }
+  .dterm{ font-family:"Anton",sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:.8px; font-size:clamp(24px,3vw,34px); line-height:1.05; color:var(--ink); }
+  .dpos{ font-family:"Oswald",sans-serif; font-weight:600; letter-spacing:2px; text-transform:uppercase; font-size:11px; color:var(--orange); }
+  .dchev{ position:relative; width:22px; height:22px; justify-self:end; }
+  .dchev::before,.dchev::after{ content:""; position:absolute; left:50%; top:50%; width:16px; height:2px; background:var(--orange); transform:translate(-50%,-50%); transition:transform .2s ease; }
+  .dchev::after{ transform:translate(-50%,-50%) rotate(90deg); }
+  .def[open] .dchev::after{ transform:translate(-50%,-50%) rotate(0deg); }
+  .def summary:hover .dterm{ color:var(--orange); }
+  .def summary:focus-visible{ outline:2px solid var(--orange); outline-offset:4px; }
+  .def .dd{ padding:0 48px 26px 0; }
+  .def .dd p{ margin:0; font-size:clamp(16px,1.7vw,18px); line-height:1.6; color:#4a3a2c; max-width:62ch; }
+  .def .dd .dsub{ margin-top:18px; }
+  .dvals{ list-style:none; margin:16px 0 0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:14px 28px; max-width:62ch; }
+  .dvals li{ border-left:3px solid var(--orange); padding:2px 0 2px 14px; }
+  .dvals b{ display:block; font-family:"Oswald",sans-serif; font-weight:600; letter-spacing:2px; text-transform:uppercase; font-size:12px; color:var(--orange); }
+  .dvals span{ display:block; margin-top:4px; font-size:15px; line-height:1.5; color:#4a3a2c; }
+  @media(max-width:600px){ .dvals{ grid-template-columns:1fr; } }
+  .dpill{ list-style:none; margin:18px 0 0; padding:0; display:flex; flex-wrap:wrap; gap:10px; }
+  .dpill li{ border:1.5px solid var(--orange); border-radius:999px; padding:7px 15px; font-family:"Oswald",sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:1.5px; font-size:12px; color:var(--ink); }
+  @media(max-width:700px){ .def .dd{ padding-right:0; } }
+  .dpill li i{ font-style:normal; font-weight:500; text-transform:none; letter-spacing:.3px; font-size:13px; color:#7a5c4e; margin-left:6px; }
+  .djobs{ margin:56px auto 0; text-align:center; max-width:960px; }
+  .djobs .eyebrow{ color:var(--orange); }
+  .djrow{ list-style:none; margin:28px 0 0; padding:0; display:grid; grid-template-columns:repeat(4,1fr); gap:14px; text-align:left; }
+  .djrow li{ border:1.5px solid var(--line); border-radius:10px; padding:18px 18px 20px; background:#FBF6EE; }
+  .djn{ width:34px; height:34px; border-radius:50%; background:var(--orange); color:#FBF6EE; font-family:"Anton",sans-serif; font-size:16px; display:flex; align-items:center; justify-content:center; }
+  .djrow strong{ display:block; font-family:"Oswald",sans-serif; font-weight:600; font-size:16px; letter-spacing:.5px; color:var(--mahogany,#3E2818); margin-bottom:4px; }
+  .djrow p{ margin:12px 0 0; font-size:15px; line-height:1.5; color:#4a3a2c; }
+  @media(max-width:900px){ .djrow{ grid-template-columns:1fr 1fr; } }
+  @media(max-width:520px){ .djrow{ grid-template-columns:1fr; } }
+  .floop{ margin:68px auto 0; max-width:1000px; text-align:center; }
+  .floop .eyebrow{ color:var(--orange); }
+  .floop-h{ font-family:"Anton",sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:.8px; font-size:clamp(24px,3.4vw,38px); line-height:1.1; color:var(--ink); margin-top:10px; text-wrap:balance; }
+  .floop-row{ display:grid; grid-template-columns:1fr 46px 1fr 46px 1fr; align-items:stretch; margin-top:38px; text-align:left; }
+  .fnode{ background:#FBF6EE; border:1.5px solid var(--line); border-radius:10px; padding:26px 24px 28px; box-shadow:0 12px 28px rgba(36,26,18,.07); }
+  .fico{ width:46px; height:46px; border-radius:50%; background:var(--orange); color:#FBF6EE; display:flex; align-items:center; justify-content:center; }
+  .fico svg{ width:24px; height:24px; }
+  .fnode h4{ font-family:"Anton",sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:.8px; font-size:clamp(19px,2vw,23px); line-height:1.2; color:var(--ink); margin-top:16px; }
+  .fnode p{ font-size:15px; line-height:1.55; color:#5a4838; margin-top:10px; }
+  .farw{ display:flex; align-items:center; justify-content:center; color:var(--orange); }
+  .farw svg{ width:30px; height:18px; }
+
+  /* section rhythm: break up the tan run */
+  #loop .floop{ margin-top:0; }
+  #dollar .djobs{ margin-top:0; padding-top:0; border-top:0; max-width:none; }
+  #joinwrap .mjoin{ border-top:0; padding-top:0; }
+  .msec.dark .floop-h{ color:var(--cream); } .msec.dark .floop .eyebrow{ color:var(--gold); }
+  .msec.dark .floop-back span{ color:#e0904a; } .msec.dark .floop-back::before,.msec.dark .floop-back::after{ border-top-color:#e0904a; }
+  .msec.moss .djobs .eyebrow{ color:#9FE1CB; } .msec.moss .djobs .inside-h{ color:#E1F5EE; }
+  .msec.moss .floop-back span{ color:#9FE1CB; } .msec.moss .floop-back::before,.msec.moss .floop-back::after{ border-top-color:#9FE1CB; }
+
+  /* round 4: members band and merged join */
+  .msec.moss .eyebrow{ color:#9FE1CB; }
+  .mget{ margin-top:40px; }
+  .mget strong,.djrow strong{ display:block; font-family:"Oswald",sans-serif; font-weight:600; font-size:16px; letter-spacing:.5px; color:#3E2818; margin-bottom:4px; }
+  .mget li{ text-align:left; } .mget .djn svg{ width:18px; height:18px; }
+  #dollar .mjoin{ margin-top:56px; padding-top:48px; border-top:1.5px solid rgba(159,225,203,.35); }
+  #dollar .mjoin .inside-h{ color:#E1F5EE; } #dollar .mjoin .u{ color:#F4ECDD; }
+  #dollar .mjoin-lead,#dollar .mnote{ color:#cfeee2; } #dollar .platnote{ color:#cfeee2; border-color:rgba(207,238,226,.4); }
+  .floop-back{ display:flex; align-items:center; gap:16px; margin:22px auto 0; max-width:760px; }
+  .floop-back::before,.floop-back::after{ content:""; flex:1; border-top:1.5px dashed var(--orange); }
+  .floop-back span{ display:inline-flex; align-items:center; gap:10px; font-family:"Oswald",sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:2px; font-size:12px; color:var(--orange); white-space:nowrap; }
+  .floop-back svg{ width:18px; height:18px; flex:none; }
+  .floop-pillars{ display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:24px; }
+  .floop-pillars span{ border:1.5px solid var(--orange); border-radius:999px; padding:7px 15px; font-family:"Oswald",sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:1.5px; font-size:12px; color:var(--ink); }
+  @media(max-width:820px){ .floop{ margin-top:52px; } .floop-row{ grid-template-columns:1fr; } .farw{ height:40px; } .farw svg{ transform:rotate(90deg); } .floop-back span{ white-space:normal; text-align:center; font-size:11px; letter-spacing:1.5px; } }
   .tiers{ display:grid; grid-template-columns:1fr 1fr; gap:22px; margin:44px auto 0; max-width:720px; text-align:left; }
   @media(max-width:620px){ .tiers{ grid-template-columns:1fr; } }
   .tier{ border:1px solid var(--line); border-radius:4px; padding:26px 24px; background:var(--cream); box-shadow:0 16px 34px rgba(15,30,24,.28); }
@@ -298,7 +520,7 @@
     .layers{ gap:26px; margin-top:34px; }
     .tiers{ gap:16px; margin-top:32px; }
     .tier{ padding:22px 20px; }
-    .pillars li{ padding:16px 0; gap:14px; } .pillars .pt{ font-size:16px; } .pillars .pd{ font-size:14px; }
+    .pillars summary{ padding:14px 0; gap:14px; } .pillars .pd{ padding-left:58px; } .pillars .pt{ font-size:16px; } .pillars .pd{ font-size:14px; }
     .mbtns{ gap:12px; margin-top:26px; }
     .mbtn{ padding:13px 22px; font-size:12px; }
 
@@ -331,7 +553,8 @@
     <div class="hero-copy">
       <div class="kicker">New York City &middot; Est. 2026</div>
       <h1>The <span class="u">Trust</span> Standard for Black &amp; Brown Brands</h1>
-      <p class="lead">You already want to shop Black-owned. Woven tells you who to trust.</p>
+      <p class="lead">You already want to shop Black and Brown-owned. Woven tells you who to trust.</p>
+      <p class="lead" style="margin-top:12px;font-size:.92em;">Join the Village for perks at Woven Certified businesses, a voice in who gets recognized, and a community that spends with purpose.</p>
       <p class="sig">Spend with intention &middot; Grow with purpose</p>
       <a href="https://apps.apple.com/app/id6772830708" class="btn" target="_blank" rel="noopener noreferrer">Download the app</a>
     </div>
@@ -354,15 +577,6 @@
 </header>
 
 
-  <section class="msec" id="gap">
-    <div class="wrap">
-      <div class="eyebrow">The gap we close</div>
-      <h2>Wanting to shop Black-owned is easy. Knowing who to <span class="u">trust</span> is hard.</h2>
-      <p class="lead">Directories list everyone. Deal apps chase strangers with the deepest discount. Neither tells you which brands are genuinely excellent, the ones worth coming back to.</p>
-      <p class="lead">Woven is built to close that gap. Think of us as the standard of excellence for Black-owned brands: not the biggest list, the most trusted one.</p>
-    </div>
-  </section>
-
   <section class="band" id="community">
     <div class="bg" role="img" aria-label="Woven community in New York City" style="background-image:url(community-1.jpg?v=3); background-position:center 43%"></div>
     <div class="ov"></div>
@@ -371,34 +585,202 @@
     </div>
   </section>
 
-<section class="standard std" id="std">
-  <div class="std-grid">
-    <div>
-      <div class="kicker o">The Standard</div>
-      <h2>One Mark. <span class="u">Earned</span>, Never Bought.</h2>
-      <p class="lead">This is the seal a Woven Certified brand earns so consumers know that it&#39;s been vetted.</p>
-      <ul class="pillars">
-        <li><span class="num">01</span><span><span class="pt">Product Quality &amp; Craft</span><span class="pd">We try the products ourselves and check references before a brand earns the mark.</span></span></li>
-        <li><span class="num">02</span><span><span class="pt">Customer Experience</span><span class="pd">We confirm the brand is ready for you to engage with their product and able to deliver.</span></span></li>
-        <li><span class="num">03</span><span><span class="pt">Community Impact</span><span class="pd">We look at how a brand shows up for community, not only at what it sells.</span></span></li>
-        <li><span class="num">04</span><span><span class="pt">Brand Values</span><span class="pd">We connect with brand founders to understand the story and values behind the brand, with relationships rooted in care and the village mindset.</span></span></li>
-      </ul>
-    </div>
-    <div class="std-sealcol">
-      <div class="frame"><div class="photo" style="background:url(woven-seal.png?v=2) center/76% no-repeat, radial-gradient(ellipse 42% 34% at 50% 50%, #F5EFE8 0 98%, transparent 99%), linear-gradient(160deg, #E8C4A4, #C8956A)"></div><div class="cap2">Woven Certified</div>
+  <section class="msec center" id="why">
+    <div class="wrap">
+      <div class="eyebrow">Why Woven</div>
+      <h2>When small businesses thrive, <span class="u">NYC</span> wins.</h2>
+      <div class="book" role="region" aria-roledescription="carousel" aria-label="Why Woven, a short story in three pages">
+        <div class="bk-track" id="bkTrack" tabindex="0">
+          <article class="bk-slide" aria-roledescription="slide" aria-label="Page 1 of 3">
+            <div class="chl">The block</div>
+            <p class="chlead">Start with the block.</p>
+            <p class="scene">The bakery that opens before sunrise.</p>
+            <span class="sdot" aria-hidden="true"></span>
+            <p class="scene">The barber who knows your sister&rsquo;s name.</p>
+            <span class="sdot" aria-hidden="true"></span>
+            <p class="scene">The salon owner who hires from the neighborhood and sponsors the girl&rsquo;s soccer league.</p>
+            <p class="chp">These are the places that make a block feel like home.</p>
+          </article>
+          <article class="bk-slide" aria-roledescription="slide" aria-label="Page 2 of 3">
+            <div class="chl">Who gets seen</div>
+            <p class="chlead">Now look at who gets seen.</p>
+            <p class="big"><b class="num">48%</b> of New York City identifies as Black or Hispanic. Yet they own <b class="num">fewer than 1 in 10</b> of its businesses with employees.</p>
+            <p class="chp chp-lead2">Woven is a membership built to create an interdependent ecosystem amongst New Yorkers and Black and Brown small businesses. It&rsquo;s time to put our dollars where our values are on an everyday level.</p>
+            <p class="bk-src">Sources: U.S. Census Bureau, 2020 (population); Center for an Urban Future, analysis of 2017 Census Annual Business Survey.</p>
+          </article>
+          <article class="bk-slide bk-last" aria-roledescription="slide" aria-label="Page 3 of 3">
+            <div class="chl">The gap we close</div>
+            <p class="chp chp-lead">Wanting to shop Black and Brown-owned is easy. Knowing who to <span class="trust">trust</span> is hard.</p>
+            <p class="chlead">Woven is how we close it.</p>
+            <p class="chp">Businesses earn a standard they&rsquo;re proud to carry. Members help hold it up, with honest feedback shared with care.</p>
+            <p class="chend">This is a village. Come be part of it.</p>
+            <div class="mbtns"><a class="mbtn fill" href="#membership">Join the village</a></div>
+          </article>
+        </div>
+        <div class="bk-ctrl">
+          <button type="button" class="bk-btn" id="bkPrev" aria-label="Previous page">&larr;</button>
+          <div class="bk-dots" id="bkDots" role="tablist" aria-label="Choose a page"></div>
+          <button type="button" class="bk-btn" id="bkNext" aria-label="Next page">&rarr;</button>
+        </div>
+        <p class="bk-hint">Swipe or tap to turn the page.</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+  <script>
+  (function(){
+    var t=document.getElementById('bkTrack'); if(!t) return;
+    var slides=t.querySelectorAll('.bk-slide'), dots=document.getElementById('bkDots');
+    var prev=document.getElementById('bkPrev'), next=document.getElementById('bkNext'), cur=0;
+    var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    slides.forEach(function(_,i){ var b=document.createElement('button'); b.type='button'; b.className='bk-dot'; b.setAttribute('role','tab'); b.setAttribute('aria-label','Page '+(i+1)); b.addEventListener('click',function(){go(i);}); dots.appendChild(b); });
+    function go(i){ i=Math.max(0,Math.min(slides.length-1,i)); t.scrollTo({left:slides[i].offsetLeft-t.offsetLeft,behavior:rm?'auto':'smooth'}); }
+    function sync(){ var w=slides[0].offsetWidth+parseFloat(getComputedStyle(t).columnGap||0); cur=Math.round(t.scrollLeft/w); dots.querySelectorAll('.bk-dot').forEach(function(d,i){ d.classList.toggle('on',i===cur); d.setAttribute('aria-selected',i===cur?'true':'false'); }); prev.disabled=cur===0; next.disabled=cur===slides.length-1; }
+    prev.addEventListener('click',function(){go(cur-1);}); next.addEventListener('click',function(){go(cur+1);});
+    t.addEventListener('scroll',function(){ window.requestAnimationFrame(sync); },{passive:true});
+    t.addEventListener('keydown',function(e){ if(e.key==='ArrowRight'){e.preventDefault();go(cur+1);} if(e.key==='ArrowLeft'){e.preventDefault();go(cur-1);} });
+    window.addEventListener('resize',sync); sync();
+  })();
+  </script>
 
-  <div class="seal-between" aria-hidden="true"><img src="woven-seal.png?v=2" alt="Woven Certified seal"></div>
+
+  <section class="msec moss center" id="guide">
+    <div class="wrap">
+      <div class="eyebrow">What you get</div>
+      <h2>More than a <span class="u">discount</span> card.</h2>
+      <p class="lead">Your membership opens doors to the businesses, the gatherings and the people of Black and Brown New York.</p>
+      <ol class="djrow mget">
+        <li><span class="djn"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2.5 14.8 8.6 21.5 9.3 16.5 13.8 17.9 20.4 12 17 6.1 20.4 7.5 13.8 2.5 9.3 9.2 8.6"/></svg></span><p><strong>Perks that mean something.</strong> Discounts and special access at businesses that have earned certification, encouraging consumers to spend. Each partner chooses its own perk.</p></li>
+        <li><span class="djn"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-6h4v6"/></svg></span><p><strong>Gatherings in real spaces.</strong> Events hosted at partner businesses and community spaces, so you meet the owners and neighbors behind them.</p></li>
+        <li><span class="djn"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><p><strong>Ways to give back.</strong> Community service projects bring the village together and give back to everyday New Yorkers across the city.</p></li>
+        <li><span class="djn"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H10l-5 4v-4H4z"/></svg></span><p><strong>People to know.</strong> A village that values members, owners and allies, connecting them to resources, opportunities, and each other.</p></li>
+      </ol>
+      <div class="djobs gloss">
+        <div class="eyebrow">The Woven glossary</div>
+        <h2>Five words. One <span class="u">village</span>.</h2>
+        <p class="lead">The words we use, and what we mean by them.</p>
+        <div class="gpanel">
+        <div class="defs">
+        <details class="def" open>
+          <summary><span class="dt"><span class="dterm">Village</span><span class="dpos">n. &middot; the ecosystem</span></span><span class="dchev" aria-hidden="true"></span></summary>
+          <div class="dd"><p>A trust-based ecosystem where New Yorkers, businesses, organizations, and allies choose each other first: to spend with, refer amongst, and build with. The Village is for everyone who wants to invest in Black and Brown New York, including visitors who browse the free Guide or join an open event. Members bring dollars, referrals and voice. Certified businesses bring goods, perks, space and neighbors. Woven brings them together at events, through service projects, and through intentional feedback mechanisms, so economic power is shared and stays in the community.</p><p class="dsub">Our ecosystem building is guided by four values:</p><ul class="dvals"><li><b>Service</b><span>Give back. Service means showing up for the neighborhood, not only shopping in it.</span></li><li><b>Access</b><span>Open doors. Access means sharing rooms, resources and relationships as much as discounts.</span></li><li><b>Abundance</b><span>Build wealth together. Wealth means community and knowledge as much as money.</span></li><li><b>Wisdom</b><span>Pass it on. Wisdom means sharing what we know, from owner to owner and neighbor to neighbor.</span></li></ul></div>
+        </details>
+        <details class="def">
+          <summary><span class="dt"><span class="dterm">Woven Member</span><span class="dpos">n. &middot; paid, not passive</span></span><span class="dchev" aria-hidden="true"></span></summary>
+          <div class="dd"><p>Someone who is interested in becoming an active participant in supporting Black and Brown business across the city from a place of care. Membership is for everyone: BIPOC New Yorkers and allies alike. Members get perks at certified businesses (e.g. discounts, early access), business nomination access, and a meaningful feedback loop with business owners.</p></div>
+        </details>
+        <details class="def">
+          <summary><span class="dt"><span class="dterm">Nominated</span><span class="dpos">adj. &middot; by members</span></span><span class="dchev" aria-hidden="true"></span></summary>
+          <div class="dd"><p>A business a member has put forward based on their experiences. At 10 member nominations, a business is invited to be evaluated for Woven Certification.</p></div>
+        </details>
+        <details class="def">
+          <summary><span class="dt"><span class="dterm">Woven Certified</span><span class="dpos">adj. &middot; the standard</span></span><span class="dchev" aria-hidden="true"></span></summary>
+          <div class="dd"><p>A business that has earned Woven Certification. We get to know the owners, try what they offer, check how they treat customers and community, evaluate against industry standards, and review community feedback.</p><p class="dsub">Woven Certification requires evaluation across four pillars in alignment with industry standards:</p><ul class="dpill"><li>Product Quality &amp; Craft</li><li>Customer Experience</li><li>Community Impact</li><li>Brand Values</li></ul></div>
+        </details>
+        <details class="def">
+          <summary><span class="dt"><span class="dterm">The Guide</span><span class="dpos">n. &middot; free</span></span><span class="dchev" aria-hidden="true"></span></summary>
+          <div class="dd"><p>Our free guide to Black and <span style="white-space:nowrap">Brown-owned</span> businesses in New York that have been nominated by members or certified by Woven. Anyone can browse on the app.</p></div>
+        </details>
+      </div>
+      
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="msec center" id="compare">
+    <div class="wrap">
+      <div class="eyebrow">How Woven compares</div>
+      <h2>Not the biggest list. The most <span class="u">trusted</span> one.</h2>
+      <div class="cmp">
+        <div class="cmp-col">
+          <div class="tag">Directories</div>
+          <ul>
+            <li>Built to list as many businesses as possible, not to vouch for any of them</li>
+            <li>Quality is often left to anonymous star ratings from strangers</li>
+            <li>You do the research, then hope the place lives up to its page</li>
+            <li>Nothing connects you to the people behind the business</li>
+          </ul>
+        </div>
+        <div class="cmp-col">
+          <div class="tag">Deal apps</div>
+          <ul>
+            <li>Built to move volume with the deepest discount</li>
+            <li>Businesses compete on price, not on craft or care</li>
+            <li>You arrive as a coupon, not as a neighbor</li>
+            <li>No say in who is featured and no voice with the owner</li>
+          </ul>
+        </div>
+        <div class="cmp-col woven">
+          <div class="tag">Woven</div>
+          <ul>
+            <li>Only Black and Brown-owned businesses, with ownership checks before listing</li>
+            <li>Certified means we met the owners, tried what they offer, and checked customer experience, community impact and values</li>
+            <li>Members nominate who is recognized and rate businesses on the four pillars, so owners hear what is working and where they can grow</li>
+            <li>Perks, events and a village of people who spend with intention</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="msec dark center" id="loop">
+    <div class="wrap">
+      <div class="floop">
+        <div class="eyebrow">The feedback loop</div>
+        <h3 class="floop-h">Your feedback makes the standard stronger.</h3>
+        <div class="floop-row">
+          <div class="fnode">
+            <div class="fico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2.5 14.8 8.6 21.5 9.3 16.5 13.8 17.9 20.4 12 17 6.1 20.4 7.5 13.8 2.5 9.3 9.2 8.6"/></svg></div>
+            <h4>You rate</h4>
+            <p>After you visit, rate the business on the four pillars. Ongoing rating creates a stronger feedback mechanism.</p>
+          </div>
+          <div class="farw"><svg viewBox="0 0 28 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h22M18 2l6 6-6 6"/></svg></div>
+          <div class="fnode">
+            <div class="fico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H10l-5 4v-4H4z"/></svg></div>
+            <h4>Owners receive</h4>
+            <p>Your feedback stays private. Owners receive it anonymized and aggregated into key insights, so they know what is working and where to grow.</p>
+          </div>
+          <div class="farw"><svg viewBox="0 0 28 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8h22M18 2l6 6-6 6"/></svg></div>
+          <div class="fnode">
+            <div class="fico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-6h4v6"/></svg></div>
+            <h4>Accountability grows</h4>
+            <p>Certified businesses are committed to listening to member feedback. When a business makes changes, members are the first to know.</p>
+          </div>
+        </div>
+        <div class="floop-back"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.6-5.9"/><path d="M20 4v4.5h-4.5"/></svg>Honest feedback, shared with care.</span></div>
+      </div>
+      </div>
+  </section>
+
+  <section class="msec center" id="dollar">
+    <div class="wrap">
+      <div class="djobs">
+          <div class="eyebrow">Where your dollar goes</div>
+          <h2>Every dollar does <span class="u">four jobs</span>.</h2>
+          <ol class="djrow">
+            <li><span class="djn">1</span><p><strong>It backs Black and Brown businesses.</strong> Your membership points your spending toward the businesses you want to see thrive.</p></li>
+            <li><span class="djn">2</span><p><strong>It creates communal experiences.</strong> Events in community spaces and service projects bring members, owners and neighbors together.</p></li>
+            <li><span class="djn">3</span><p><strong>It gives owners key insights.</strong> Member feedback reaches owners in a monthly insight report, anonymized, so they know what is working and where to grow.</p></li>
+            <li><span class="djn">4</span><p><strong>It adds accountability.</strong> Certification rests on a standard, community feedback, and lived experiences. Partnered businesses commit to taking action.</p></li>
+          </ol>
+          <div class="floop-back"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.6-5.9"/><path d="M20 4v4.5h-4.5"/></svg>Members strengthen businesses. Businesses strengthen the village.</span></div>
+        </div>
+    </div>
+  </section>
+
 
   <section class="msec dark center" id="partners">
     <div class="wrap">
       <div class="eyebrow">Founding partners</div>
       <h2>The first brands to <span class="u">earn</span> the mark.</h2>
-      <p class="lead">These are the founding partners who earned the Woven Certified seal and committed to the community experience from day one.</p>
+      <p class="lead">These are the founding partners who became Woven Certified and committed to the community experience from day one. The list grows at the speed of trust, because every business is reviewed before it earns the mark.</p>
       <div class="pgrid"><div class="pcardw"><div class="pph" role="img" aria-label="Filé Gumbo Bar, Creole kitchen" style="background-image:url(file-gumbo-hero.jpg)"></div><div class="pn">Filé Gumbo Bar</div><div class="pc">Creole Kitchen</div></div><div class="pcardw"><div class="pph" role="img" aria-label="The LeVue Loft, creative studio" style="background-image:url(levue-loft-hero.jpeg)"></div><div class="pn">The LeVue Loft</div><div class="pc">Creative Studio</div></div><div class="pcardw"><div class="pph" role="img" aria-label="Rogers Burgers" style="background-image:url(rogers-burgers-hero.jpeg)"></div><div class="pn">Rogers Burgers</div><div class="pc">Burgers</div></div><div class="pcardw"><div class="pph" role="img" aria-label="The Rogers Garden, bar and lounge" style="background-image:url(rogers-garden-hero.jpg)"></div><div class="pn">The Rogers Garden</div><div class="pc">Bar &amp; Lounge</div></div><div class="pcardw"><div class="pph" role="img" aria-label="Bed-Vyne Wine, wine and spirits" style="background-image:url(bed-vyne-hero.jpeg)"></div><div class="pn">Bed-Vyne Wine</div><div class="pc">Wine &amp; Spirits</div></div><div class="pcardw"><div class="pph" role="img" aria-label="Baked Cravings, bakery" style="background-image:url(baked-cravings-hero.jpeg)"></div><div class="pn">Baked Cravings</div><div class="pc">Bakery</div></div><div class="pcardw"><div class="pph" role="img" aria-label="Harlem Cycle, fitness studio" style="background-image:url(harlem-cycle-hero.jpeg)"></div><div class="pn">Harlem Cycle</div><div class="pc">Fitness</div></div><div class="pcardw"><div class="pph" role="img" aria-label="Celsious, laundry and cafe" style="background-image:url(celsious-hero.jpg)"></div><div class="pn">Celsious</div><div class="pc">Laundry</div></div><div class="pcardw"><div class="pph" role="img" aria-label="Miss Barb's cafe" style="background-image:url(miss-barbs-hero.jpeg)"></div><div class="pn">Miss Barb&#39;s</div><div class="pc">Caf&eacute;</div></div><div class="pcardw"><div class="pph" role="img" aria-label="Coffee Uplifts People, coffee shop" style="background-image:url(cup-hero.jpg)"></div><div class="pn">Coffee Uplifts People</div><div class="pc">Coffee</div></div></div>
+      <div class="brandcta">
+        <div class="eyebrow">For brands</div>
+        <h3>Earn the <span class="u">mark</span>.</h3>
+        <p class="lead">You are not building alone. Woven members have already committed money to supporting Black and Brown businesses, and they are looking for reasons to use their membership. Certification brings a visible trust mark, events in community spaces, and neighbors who invest in your success. There is no fee to be certified.</p>
+        <div class="mbtns"><a class="mbtn fill" href="https://tally.so/r/BzVPLK" target="_blank" rel="noopener noreferrer">Are you a brand? Get Certified</a></div>
+      </div>
     </div>
   </section>
 
@@ -464,51 +846,24 @@
     </div>
   </section>
 
-  <section class="msec center" id="guide">
+  <section class="msec center" id="join">
     <div class="wrap">
-      <div class="eyebrow">How it works</div>
-      <h2>Two layers: the Guide, and the <span class="u">Village</span>.</h2>
-      <div class="layers">
-        <div class="layer">
-          <div class="tag">Free &middot; The Guide</div>
-          <h3>The directory of Woven Certified brands.</h3>
-          <p>The Guide is free and open to everyone. Browse every brand that earned the mark across the city, from food and retail to services and experiences.</p>
-          <ul><li>Every brand is vetted against the same standard.</li><li>You can see who is genuinely worth your loyalty.</li></ul>
+      <div class="mjoin" id="membership">
+          <div class="eyebrow">Join</div>
+          <h2>Join the <span class="u">village</span>.</h2>
+          <p class="mjoin-lead">Membership is for everyone: BIPOC New Yorkers and the allies who shop alongside them. Spend with intention, in community. Woven is built to strengthen trust between consumers and Black and Brown businesses.</p>
+          <div class="tiers" style="grid-template-columns:1fr;max-width:340px;">
+            <div class="tier hot">
+              <div class="tt">Standard</div>
+              <div class="price">$18<span> / mo</span></div>
+              <p>30 days free, then $18/month, or $180/year (save $36).</p>
+            </div>
+          </div>
+          <div class="mbtns"><a class="mbtn fill" href="https://apps.apple.com/app/id6772830708" target="_blank" rel="noopener noreferrer">Download on the App Store</a></div>
+          <p class="mnote">Start with 30 days free. Download the app to join; you add your card at signup and nothing is charged until the trial ends.</p>
+          <div class="platnote">iPhone &middot; Android coming soon</div>
         </div>
-        <div class="layer">
-          <div class="tag">Paid &middot; Membership</div>
-          <h3>The Village, for people who invest in it.</h3>
-          <p>Members do not pay for a list. They pay to belong to the world the Guide represents, with real perks and first access to what we&#39;re building.</p>
-          <ul><li>Member perks at every Certified partner.</li><li>Invitations to events, and first in line for what is new.</li></ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="msec dark center" id="membership" style="border-top-color:#1c110a;">
-    <div class="wrap">
-      <div class="eyebrow">Membership</div>
-      <h2>Join the <span class="u">village</span>.</h2>
-      <p class="lead">Members get first access to new Certified partners, plus perks, events, and features as we build them. Members are BIPOC New Yorkers and the allies who shop alongside them, and every membership puts a dollar back into Black and Brown New York.</p>
-      <div class="tiers" style="grid-template-columns:1fr;max-width:340px;">
-        <div class="tier hot">
-          <div class="tt">Standard</div>
-          <div class="price">$18<span> / mo</span></div>
-          <p>First month free, then $18/mo, month to month or billed yearly.</p>
-        </div>
-      </div>
-      <div class="mbtns"><a class="mbtn fill" href="https://apps.apple.com/app/id6772830708" target="_blank" rel="noopener noreferrer">Download on the App Store</a></div>
-      <p class="mnote">Your first month is always on us. Download the app to join — add your card at signup, and the free month rolls into your plan.</p>
-      <div class="platnote">iPhone &middot; Android coming soon</div>
-    </div>
-  </section>
-
-  <section class="msec cta center" id="brands">
-    <div class="wrap">
-      <div class="eyebrow">For brands</div>
-      <h2>Earn the <span class="u">mark</span>.</h2>
-      <p class="lead">Woven members already committed money to supporting Black and Brown businesses. They are not browsing, they are looking for reasons to use their membership. Certification puts your brand in front of the people who came to spend. There is no fee to be certified.</p>
-      <div class="mbtns"><a class="mbtn dark" href="https://tally.so/r/BzVPLK" target="_blank" rel="noopener noreferrer">Are you a brand? Get Certified</a></div>
+    
     </div>
   </section>
 
@@ -516,13 +871,13 @@
     <div class="fsignup">
       <form class="signup" id="wovenSignup" novalidate>
         <input type="email" id="wovenEmail" class="signup-in" placeholder="you@email.com" aria-label="Email address" required>
-        <button type="submit" class="mbtn fill">Join the Village</button>
+        <button type="submit" class="mbtn fill">Stay in the loop</button>
       </form>
       <p class="signup-note" id="wovenNote"></p>
     </div>
     <div class="fwm">WOVEN</div>
     <div class="ftag">Spend with intention &middot; Grow with purpose</div>
-    <div class="flinks"><a href="#std">The Standard</a> &middot; <a href="#guide">The Guide</a> &middot; <a href="#partners">Partners</a> &middot; <a href="#council">Advisory Council</a> &middot; <a href="#membership">Membership</a> &middot; <a href="reads/">Village Reads</a> &middot; <a href="mailto:hello@wovenvillage.com">Contact</a> &middot; <a href="https://www.instagram.com/woven.village/" target="_blank" rel="noopener noreferrer">Instagram</a> &middot; <a href="https://www.tiktok.com/@woven.village" target="_blank" rel="noopener noreferrer">TikTok</a> &middot; <a href="privacy-policy.html">Privacy</a> &middot; <a href="terms.html">Terms</a></div>
+    <div class="flinks"><a href="#why">Why Woven</a> &middot; <a href="#guide">What You Get</a> &middot; <a href="#compare">How It Works</a> &middot; <a href="#partners">Partners</a> &middot; <a href="#council">Advisory Council</a> &middot; <a href="#membership">Membership</a> &middot; <a href="mailto:hello@wovenvillage.com">Contact</a> &middot; <a href="https://www.instagram.com/woven.village/" target="_blank" rel="noopener noreferrer">Instagram</a> &middot; <a href="https://www.tiktok.com/@woven.village" target="_blank" rel="noopener noreferrer">TikTok</a> &middot; <a href="privacy-policy.html">Privacy</a> &middot; <a href="terms.html">Terms</a></div>
     <div class="fcopy">wovenvillage.com &middot; The village network for Black &amp; Brown New York &middot; &copy; 2026 Anansi Creative Studio LLC</div>
   </footer>
 
@@ -650,12 +1005,12 @@
     var note = document.getElementById('wovenNote');
     var btn = f.querySelector('button[type=submit]');
     var ENDPOINT = 'https://stats.sender.net/forms/dwp16R/subscribe';
-    function reset(){ if(btn){ btn.disabled=false; btn.textContent='Join the Village'; } }
+    function reset(){ if(btn){ btn.disabled=false; btn.textContent='Stay in the loop'; } }
     f.addEventListener('submit', function(e){
       e.preventDefault();
       var email = (input.value || '').trim();
       if(!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ if(note) note.textContent='Please enter a valid email address.'; input.focus(); return; }
-      if(btn){ btn.disabled=true; btn.textContent='Joining...'; }
+      if(btn){ btn.disabled=true; btn.textContent='Signing up...'; }
       fetch(ENDPOINT, {
         method:'POST',
         headers:{'Content-Type':'application/json','Accept':'application/json'},
@@ -667,7 +1022,7 @@
         var already = /already|exist/i.test(msg);
         if((res.ok && res.d.success !== false) || already){
           f.style.display = 'none';
-          if(note) note.textContent = already ? "You're already on the list. Thank you." : "You're on the list. Thank you for joining the village.";
+          if(note) note.textContent = already ? "You're already on the list. Thank you." : "You're on the list. Thank you for staying close to the village.";
         } else {
           reset();
           if(note) note.textContent = msg || 'That did not go through. Please try again, or email hello@wovenvillage.com.';

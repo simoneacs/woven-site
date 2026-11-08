@@ -262,6 +262,45 @@ footer.mfoot{border-top:1px solid rgba(244,236,221,.18)}
 #dollar{background:#F4ECDD}
 #dollar .djrow li{background:#EBE1CC}
 .mfoot .signup-intro{font-family:"Oswald",sans-serif;font-weight:600;letter-spacing:2px;text-transform:uppercase;font-size:12px;color:#e0904a;margin:0 0 14px}
+.cmp-more,.swipe-hint{display:none}
+@media(max-width:900px){
+#compare .cmp{margin-top:28px;gap:14px}
+.cmp-more{display:inline-block;margin-top:18px;background:transparent;border:1.5px solid var(--orange);color:var(--orange);font-family:"Oswald",sans-serif;font-weight:600;letter-spacing:2px;text-transform:uppercase;font-size:12px;padding:11px 20px;border-radius:999px;cursor:pointer}
+}
+@media(max-width:700px){
+#guide .djrow{grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
+#guide .djrow li{padding:14px 12px 16px}
+#guide .djrow strong{font-size:14px}
+#guide .djrow p{font-size:13px;margin-top:8px;line-height:1.45}
+#loop .floop-row,#dollar .djrow{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding:4px 22px 10px;margin-left:-22px;margin-right:-22px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+#loop .floop-row::-webkit-scrollbar,#dollar .djrow::-webkit-scrollbar{display:none}
+#loop .fnode{flex:0 0 84%;scroll-snap-align:center}
+#loop .farw{display:none}
+#dollar .djrow li{flex:0 0 80%;scroll-snap-align:center}
+.swipe-hint{display:block;font-family:"Oswald",sans-serif;font-weight:600;letter-spacing:2px;text-transform:uppercase;font-size:11px;margin-top:4px}
+#loop .swipe-hint{color:#e7d9c9}
+#dollar .swipe-hint{color:#7A5C4E}
+}
+#guide .gpanel .defs{margin:0;border-top:0}
+#guide .gpanel .def:last-child{border-bottom:0}
+@media(max-width:900px){
+#compare .cmp-more{display:none}
+#compare .cmp-col:not(.woven){display:block;padding:0}
+#compare .cmp-col:not(.woven) .tag{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;cursor:pointer}
+#compare .cmp-col:not(.woven) .tag::after{content:"+";font-family:"Oswald",sans-serif;font-size:22px;line-height:1;color:var(--orange)}
+#compare .cmp-col:not(.woven).open .tag::after{content:"\2212"}
+#compare .cmp-col:not(.woven) ul{display:none;margin:0;padding:0 20px 18px}
+#compare .cmp-col:not(.woven).open ul{display:block}
+#compare .cmp-col:not(.woven) .tag:focus-visible{outline:2px solid var(--orange);outline-offset:-4px}
+}
+.fmore{margin-top:18px}
+.fmore summary{list-style:none;display:inline-block;cursor:pointer;border:1.5px solid var(--orange);color:var(--orange);font-family:"Oswald",sans-serif;font-weight:600;letter-spacing:2px;text-transform:uppercase;font-size:12px;padding:10px 20px;border-radius:999px}
+.fmore summary::-webkit-details-marker{display:none}
+.fmore summary:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+.fmore .fm-close{display:none}
+.fmore[open] .fm-open{display:none}
+.fmore[open] .fm-close{display:inline}
+.fmore[open] summary{margin-bottom:2px}
 #guide .djobs.gloss{margin-top:64px;padding-top:56px;border-top:1.5px solid rgba(159,225,203,.35);max-width:none}
 #guide .gpanel{background:#F4ECDD;border:1.5px solid #C9B48C;border-radius:14px;padding:clamp(10px,2vw,22px);max-width:860px;margin:28px auto 0;color:#241A12;text-align:left}
 #join .mjoin{margin-top:0;padding-top:0;border-top:0}
@@ -660,7 +699,7 @@ footer.mfoot{border-top:1px solid rgba(244,236,221,.18)}
         <p class="lead">The words we use, and what we mean by them.</p>
         <div class="gpanel">
         <div class="defs">
-        <details class="def" open>
+        <details class="def">
           <summary><span class="dt"><span class="dterm">Village</span><span class="dpos">n. &middot; the ecosystem</span></span><span class="dchev" aria-hidden="true"></span></summary>
           <div class="dd"><p>A trust-based ecosystem where New Yorkers, businesses, organizations, and allies choose each other first: to spend with, refer amongst, and build with. The Village is for everyone who wants to invest in Black and Brown New York, including visitors who browse the free Guide or join an open event. Members bring dollars, referrals and voice. Certified businesses bring goods, perks, space and neighbors. Woven brings them together at events, through service projects, and through intentional feedback mechanisms, so economic power is shared and stays in the community.</p><p class="dsub">Our ecosystem building is guided by four values:</p><ul class="dvals"><li><b>Service</b><span>Give back. Service means showing up for the neighborhood, not only shopping in it.</span></li><li><b>Access</b><span>Open doors. Access means sharing rooms, resources and relationships as much as discounts.</span></li><li><b>Abundance</b><span>Build wealth together. Wealth means community and knowledge as much as money.</span></li><li><b>Wisdom</b><span>Pass it on. Wisdom means sharing what we know, from owner to owner and neighbor to neighbor.</span></li></ul></div>
         </details>
@@ -720,6 +759,7 @@ footer.mfoot{border-top:1px solid rgba(244,236,221,.18)}
           </ul>
         </div>
       </div>
+      <button type="button" class="cmp-more" id="cmpMore" aria-expanded="false">See how others compare</button>
     </div>
   </section>
 
@@ -747,6 +787,7 @@ footer.mfoot{border-top:1px solid rgba(244,236,221,.18)}
             <p>Certified businesses are committed to listening to member feedback. When a business makes changes, members are the first to know.</p>
           </div>
         </div>
+        <p class="swipe-hint">Swipe to see more &rarr;</p>
         <div class="floop-back"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.6-5.9"/><path d="M20 4v4.5h-4.5"/></svg>Honest feedback, shared with care.</span></div>
       </div>
       </div>
@@ -763,7 +804,8 @@ footer.mfoot{border-top:1px solid rgba(244,236,221,.18)}
             <li><span class="djn">3</span><p><strong>It gives owners key insights.</strong> Member feedback reaches owners in a monthly insight report, anonymized, so they know what is working and where to grow.</p></li>
             <li><span class="djn">4</span><p><strong>It adds accountability.</strong> Certification rests on a standard, community feedback, and lived experiences. Partnered businesses commit to taking action.</p></li>
           </ol>
-          <div class="floop-back"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.6-5.9"/><path d="M20 4v4.5h-4.5"/></svg>Members strengthen businesses. Businesses strengthen the village.</span></div>
+          <p class="swipe-hint">Swipe to see more &rarr;</p>
+        <div class="floop-back"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.6-5.9"/><path d="M20 4v4.5h-4.5"/></svg>Members strengthen businesses. Businesses strengthen the village.</span></div>
         </div>
     </div>
   </section>
@@ -792,10 +834,13 @@ footer.mfoot{border-top:1px solid rgba(244,236,221,.18)}
           <div class="eyebrow">A note from the founder</div>
           <p class="fl">Loving Black and Brown businesses means holding them accountable.</p>
           <p>I&rsquo;m Simone, a West Indian educator, curator, and community builder. I built Woven because I love my hometown of NYC and firmly believe in the power of a village. As a daughter of Jamaican restaurant and food-truck owners, I grew up learning firsthand what it means to build from scratch, to serve your community through culture, and to hold yourself to the highest standards of excellence.</p>
-          <p>Woven is for the people who are interested in exploring the magic of cooperative economics: where brands, members, and community grow because we&rsquo;re invested in one another. Brands earn the Woven Certified mark by meeting a standard of excellence, and members spend with them knowing why they&rsquo;re worth it.</p>
+          <details class="fmore">
+            <summary><span class="fm-open">Read more</span><span class="fm-close">Read less</span></summary>
+            <p>Woven is for the people who are interested in exploring the magic of cooperative economics: where brands, members, and community grow because we&rsquo;re invested in one another. Brands earn the Woven Certified mark by meeting a standard of excellence, and members spend with them knowing why they&rsquo;re worth it.</p>
           <p>We can love supporting these businesses and hold them accountable at the same time. That is how we&rsquo;re redefining what it means to buy Black and Brown today, and how wealth stays in our community in every form &ndash; money, but also knowledge, access, and care.</p>
           <p class="ftag2">Spend with intention. Grow with purpose.</p>
           <p class="fsig">&mdash; Simone A. Francis</p>
+          </details>
         </div>
       </div>
     </div>
@@ -1053,6 +1098,19 @@ footer.mfoot{border-top:1px solid rgba(244,236,221,.18)}
     btn.scrollIntoView({behavior:"smooth",block:"nearest",inline:"center"});
   }
   for(var i=0;i<tabs.length;i++) tabs[i].addEventListener("click",function(){ pick(this); });
+})();
+</script>
+<script>
+(function(){
+  var mq=window.matchMedia&&window.matchMedia('(max-width:700px)');
+  if(mq&&mq.matches){ document.querySelectorAll('.defs .def[open]').forEach(function(d){ d.removeAttribute('open'); }); }
+  document.querySelectorAll('#compare .cmp-col:not(.woven)').forEach(function(col){
+    var t=col.querySelector('.tag'); if(!t) return;
+    if(window.matchMedia('(max-width:900px)').matches){ t.setAttribute('role','button'); t.setAttribute('tabindex','0'); t.setAttribute('aria-expanded','false'); }
+    function tog(){ if(!window.matchMedia('(max-width:900px)').matches) return; var o=col.classList.toggle('open'); t.setAttribute('aria-expanded',o?'true':'false'); }
+    t.addEventListener('click',tog);
+    t.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); tog(); } });
+  });
 })();
 </script>
 </body></html>
